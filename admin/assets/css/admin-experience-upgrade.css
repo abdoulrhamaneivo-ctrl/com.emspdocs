@@ -1,0 +1,163 @@
+/* ============================================================
+   EMSP Admin Experience Upgrade
+   Loaded last to lock a strong yellow/green institutional look.
+   ============================================================ */
+
+html.theme-harvard body.theme-harvard.bg-body {
+    background:
+        radial-gradient(circle at 100% 0%, rgba(245, 168, 0, 0.1), transparent 24%),
+        radial-gradient(circle at 0% 0%, rgba(0, 107, 60, 0.12), transparent 24%),
+        linear-gradient(180deg, #f3f8f5 0%, #f8fbf9 100%) !important;
+}
+
+html.theme-harvard #miniSidebar {
+    background: linear-gradient(180deg, #004d2a 0%, #006b3c 56%, #0a8a50 100%) !important;
+    color: #fff !important;
+    box-shadow: 18px 0 30px rgba(0, 0, 0, 0.24) !important;
+}
+
+html.theme-harvard #miniSidebar .nav-link {
+    color: rgba(255, 255, 255, 0.84) !important;
+    border-left: 4px solid transparent !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+}
+
+html.theme-harvard #miniSidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+}
+
+html.theme-harvard #miniSidebar .nav-link.active {
+    background: rgba(245, 168, 0, 0.2) !important;
+    border-left-color: #f5a800 !important;
+    color: #fff !important;
+}
+
+html.theme-harvard #miniSidebar .nav-link.text-danger {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+html.theme-harvard .navbar-glass {
+    border-bottom: 3px solid #f5a800 !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12) !important;
+    background: #fff !important;
+}
+
+html.theme-harvard #main-content .card,
+html.theme-harvard #main-content .dark-card,
+html.theme-harvard #main-content .sb-card,
+html.theme-harvard #main-content .stat-card,
+html.theme-harvard #main-content .emsp-admin-mobile-card {
+    border-color: rgba(0, 107, 60, 0.16) !important;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.theme-harvard #main-content .btn.btn-primary,
+html.theme-harvard #main-content .btn-sb-primary {
+    background: #f5a800 !important;
+    border-color: #f5a800 !important;
+    color: #1a1a1a !important;
+}
+
+html.theme-harvard #main-content .btn.btn-primary:hover,
+html.theme-harvard #main-content .btn-sb-primary:hover {
+    background: #d4900a !important;
+    border-color: #d4900a !important;
+    color: #1a1a1a !important;
+}
+
+html.theme-harvard #main-content .table thead th,
+html.theme-harvard #main-content .table-emsp-dark thead th,
+html.theme-harvard #main-content .sb-table thead th {
+    background: #006b3c !important;
+    color: #fff !important;
+}
+
+html.theme-harvard #main-content .table tbody tr:hover,
+html.theme-harvard #main-content .table-emsp-dark tbody tr:hover,
+html.theme-harvard #main-content .sb-table tbody tr:hover {
+    background: #e8f5ee !important;
+}
+
+html.theme-harvard .pagination .page-link {
+    border-color: rgba(0, 107, 60, 0.26) !important;
+    color: #004d2a !important;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+html.theme-harvard .pagination .page-item.active .page-link {
+    background: #006b3c !important;
+    border-color: #006b3c !important;
+    color: #fff !important;
+}
+
+html.theme-harvard .admin-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .35s cubic-bezier(.4,0,.2,1), transform .35s cubic-bezier(.4,0,.2,1);
+}
+
+html.theme-harvard .admin-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+html.theme-harvard .navbar-glass.is-scrolled {
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16) !important;
+}
+
+html.theme-harvard #main-content :is(small, .small, .text-muted, .form-text, .badge) {
+    font-size: 13px !important;
+}
+
+html.theme-harvard #main-content {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+html.theme-harvard #main-content .btn-danger,
+html.theme-harvard #main-content .btn-outline-danger,
+html.theme-harvard #main-content .bg-danger,
+html.theme-harvard #main-content .badge.bg-danger,
+html.theme-harvard #main-content .text-danger:not(.invalid-feedback):not(.form-error):not(.emsp-error-message) {
+    background: #f5a800 !important;
+    border-color: #f5a800 !important;
+    color: #1a1a1a !important;
+}
+
+html.theme-harvard #main-content .btn-outline-danger {
+    background: transparent !important;
+    color: #004d2a !important;
+    border-color: rgba(0, 107, 60, 0.34) !important;
+}
+
+html.theme-harvard #main-content .btn-outline-danger:hover {
+    background: #e8f5ee !important;
+    border-color: rgba(0, 107, 60, 0.45) !important;
+    color: #004d2a !important;
+}
+
+html.theme-harvard #main-content .invalid-feedback,
+html.theme-harvard #main-content .is-invalid,
+html.theme-harvard #main-content .form-error,
+html.theme-harvard #main-content .emsp-error-message {
+    color: #c0392b !important;
+    border-color: #c0392b !important;
+}
+
+html.theme-harvard #main-content .sb-table tbody tr:nth-child(even),
+html.theme-harvard #main-content .table tbody tr:nth-child(even) {
+    background: #f9fbfa !important;
+}
+
+html.theme-harvard #main-content .sb-table tbody tr:hover,
+html.theme-harvard #main-content .table tbody tr:hover {
+    background: #e8f5ee !important;
+}
+
+

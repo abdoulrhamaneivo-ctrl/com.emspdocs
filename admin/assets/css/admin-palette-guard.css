@@ -1,0 +1,119 @@
+/* ============================================================
+   EMSP Admin Palette Guard
+   Final lock to keep admin fully aligned with EMSP palette.
+   ============================================================ */
+
+html.theme-harvard {
+    --brand-crimson: var(--color-primary) !important;
+    --brand-crimson-dark: var(--color-primary-dark) !important;
+    --brand-olive: var(--color-primary) !important;
+    --hv-color-crimson: var(--color-primary) !important;
+    --hv-core-crimson: var(--color-primary) !important;
+}
+
+html.theme-harvard body.theme-harvard.bg-body {
+    background: var(--color-bg-alt) !important;
+    color: var(--color-text) !important;
+}
+
+html.theme-harvard #miniSidebar {
+    background: linear-gradient(180deg, var(--color-primary-dark) 0%, var(--color-primary) 100%) !important;
+    color: #fff !important;
+}
+
+html.theme-harvard #miniSidebar .nav-link {
+    color: rgba(255, 255, 255, 0.84) !important;
+    border-left: 4px solid transparent !important;
+    border-radius: 0 !important;
+}
+
+html.theme-harvard #miniSidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+}
+
+html.theme-harvard #miniSidebar .nav-link.active {
+    background: rgba(245, 168, 0, 0.2) !important;
+    border-left-color: var(--color-accent) !important;
+    color: #fff !important;
+}
+
+html.theme-harvard .navbar-glass {
+    background: #fff !important;
+    border-bottom: 3px solid var(--color-accent) !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+html.theme-harvard .admin-topbar-btn,
+html.theme-harvard .admin-avatar-btn {
+    border-color: rgba(0, 107, 60, 0.24) !important;
+    color: var(--color-primary) !important;
+}
+
+html.theme-harvard .admin-topbar-btn:hover,
+html.theme-harvard .admin-avatar-btn:hover {
+    background: var(--color-primary-light) !important;
+    color: var(--color-primary-dark) !important;
+}
+
+html.theme-harvard .admin-overview-hero,
+html.theme-harvard .admin-stats-hero {
+    background: linear-gradient(135deg, rgba(0, 77, 42, 0.94) 0%, rgba(0, 107, 60, 0.86) 56%, rgba(0, 0, 0, 0.44) 100%) !important;
+    border: 1px solid rgba(245, 168, 0, 0.28) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+html.theme-harvard #main-content .btn.btn-primary,
+html.theme-harvard #main-content .btn-sb-primary {
+    background: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+    color: var(--color-text) !important;
+}
+
+html.theme-harvard #main-content .btn.btn-primary:hover,
+html.theme-harvard #main-content .btn-sb-primary:hover {
+    background: var(--color-accent-dark) !important;
+    border-color: var(--color-accent-dark) !important;
+    color: var(--color-text) !important;
+}
+
+html.theme-harvard #main-content .btn-outline-primary {
+    color: var(--color-primary) !important;
+    border-color: rgba(0, 107, 60, 0.32) !important;
+}
+
+html.theme-harvard #main-content .btn-outline-primary:hover {
+    background: var(--color-primary-light) !important;
+    color: var(--color-primary-dark) !important;
+    border-color: rgba(0, 107, 60, 0.42) !important;
+}
+
+html.theme-harvard .admin-kpi-card::before,
+html.theme-harvard .admin-stats-card::before,
+html.theme-harvard .stat-card::before {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent)) !important;
+}
+
+html.theme-harvard .admin-kpi-icon,
+html.theme-harvard .admin-stats-card-icon,
+html.theme-harvard .stat-icon,
+html.theme-harvard .admin-user-fallback,
+html.theme-harvard .admin-avatar-fallback {
+    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)) !important;
+    color: #fff !important;
+}
+
+html.theme-harvard #main-content .table-emsp-dark thead th,
+html.theme-harvard #main-content .sb-table thead th,
+html.theme-harvard #main-content .table thead th {
+    background: var(--color-primary) !important;
+    color: #fff !important;
+}
+
+html.theme-harvard #main-content .table-emsp-dark tbody tr:hover,
+html.theme-harvard #main-content .sb-table tbody tr:hover,
+html.theme-harvard #main-content .table tbody tr:hover {
+    background: var(--color-primary-light) !important;
+}
+
+

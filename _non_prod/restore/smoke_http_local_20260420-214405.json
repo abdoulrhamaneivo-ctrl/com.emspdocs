@@ -1,0 +1,130 @@
+﻿[
+    {
+        "profile":  "mobile",
+        "route":  "/index.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "mobile",
+        "route":  "/bibliotheque.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "mobile",
+        "route":  "/mediatheque.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "mobile",
+        "route":  "/document.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "mobile",
+        "route":  "/formations.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "mobile",
+        "route":  "/historique.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "mobile",
+        "route":  "/news-blog.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "mobile",
+        "route":  "/news-article.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "desktop",
+        "route":  "/index.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "desktop",
+        "route":  "/bibliotheque.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "desktop",
+        "route":  "/mediatheque.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "desktop",
+        "route":  "/document.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "desktop",
+        "route":  "/formations.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "desktop",
+        "route":  "/historique.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "desktop",
+        "route":  "/news-blog.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    },
+    {
+        "profile":  "desktop",
+        "route":  "/news-article.php",
+        "status":  -1,
+        "hasPhpError":  true,
+        "hasThemeCss":  false,
+        "hasAnimMarkers":  false
+    }
+]

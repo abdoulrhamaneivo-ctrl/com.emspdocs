@@ -1,0 +1,946 @@
+/* ============================================================
+   EMSP Admin Phase Design System
+   Loaded late from admin/includes/footer.php
+   ============================================================ */
+
+html.theme-harvard {
+    --admin-sidebar-width: 260px;
+}
+
+html.theme-harvard body.theme-harvard.bg-body {
+    background: #F4F4F4 !important;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+html.theme-harvard body[class*='admin-route-'] {
+    overflow-x: hidden;
+    word-break: break-word;
+}
+
+html.theme-harvard body[class*='admin-route-'] img {
+    max-width: 100%;
+    height: auto;
+}
+
+html.theme-harvard body.theme-harvard :where(
+    p,
+    span,
+    a,
+    li,
+    label,
+    td,
+    th,
+    button,
+    input,
+    textarea,
+    select,
+    small,
+    .small,
+    .text-muted
+) {
+    font-size: max(13px, 1em);
+}
+
+html.theme-harvard .small,
+html.theme-harvard small,
+html.theme-harvard .text-muted {
+    font-size: 13px !important;
+}
+
+html.theme-harvard .stat-label,
+html.theme-harvard .stat-trend,
+html.theme-harvard .dark-card-title,
+html.theme-harvard .emsp-admin-mobile-meta-label,
+html.theme-harvard .emsp-admin-mobile-meta-value,
+html.theme-harvard .table td,
+html.theme-harvard .table th,
+html.theme-harvard .btn-sm,
+html.theme-harvard .badge {
+    font-size: 13px !important;
+}
+
+html.theme-harvard .avatar-grad.avatar-grad-sm {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+}
+
+html.theme-harvard .text-primary { color: var(--color-primary) !important; }
+html.theme-harvard .text-success { color: var(--color-success) !important; }
+html.theme-harvard .text-warning { color: var(--color-accent-dark) !important; }
+html.theme-harvard .text-danger { color: var(--color-error) !important; }
+html.theme-harvard .bg-primary { background-color: var(--color-primary) !important; }
+html.theme-harvard .bg-success { background-color: var(--color-success) !important; }
+html.theme-harvard .bg-warning { background-color: var(--color-accent) !important; color: var(--color-text) !important; }
+
+html.theme-harvard #miniSidebar {
+    width: var(--admin-sidebar-width) !important;
+    background: var(--color-primary) !important;
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: 18px 0 30px rgba(0, 0, 0, 0.2);
+}
+
+html.theme-harvard #admin-content {
+    margin-left: var(--admin-sidebar-width);
+}
+
+html.theme-harvard .navbar-glass {
+    background: #fff !important;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+html.theme-harvard .admin-brand-logo {
+    border: 1px solid rgba(245, 168, 0, 0.45);
+}
+
+html.theme-harvard .admin-brand-copy .site-logo-text,
+html.theme-harvard .admin-brand-subtitle,
+html.theme-harvard .admin-user-name,
+html.theme-harvard .admin-user-meta .text-muted,
+html.theme-harvard .nav-heading {
+    color: #fff !important;
+}
+
+html.theme-harvard #miniSidebar .nav-link {
+    border-radius: 0;
+    margin: 0;
+    min-height: 44px;
+    border-left: 4px solid transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+html.theme-harvard #miniSidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+html.theme-harvard #miniSidebar .nav-link.active {
+    background: rgba(245, 168, 0, 0.15);
+    border-left-color: var(--color-accent);
+    color: #fff;
+}
+
+html.theme-harvard #miniSidebar .nav-link .badge {
+    background: var(--color-accent) !important;
+    color: var(--color-text) !important;
+}
+
+html.theme-harvard #admin-content .card,
+html.theme-harvard #admin-content .dark-card,
+html.theme-harvard #admin-content .sb-card,
+html.theme-harvard #admin-content .stat-card,
+html.theme-harvard #admin-content .emsp-admin-mobile-card,
+html.theme-harvard .admin-kpi-card,
+html.theme-harvard .admin-stats-card,
+html.theme-harvard .admin-panel,
+html.theme-harvard .admin-stats-panel {
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    background: #fff;
+}
+
+html.theme-harvard .admin-overview-hero,
+html.theme-harvard .admin-stats-hero {
+    background: linear-gradient(135deg, rgba(0, 107, 60, 0.9) 0%, rgba(0, 0, 0, 0.48) 100%) !important;
+    border-radius: 8px;
+}
+
+html.theme-harvard .admin-overview-kicker,
+html.theme-harvard .admin-stats-kicker {
+    background: rgba(245, 168, 0, 0.16);
+    border-color: rgba(245, 168, 0, 0.38);
+    color: #fff;
+}
+
+html.theme-harvard .admin-overview-title,
+html.theme-harvard .admin-stats-title {
+    font-family: var(--font-serif) !important;
+    color: #fff;
+}
+
+html.theme-harvard .admin-kpi-card::before,
+html.theme-harvard .admin-stats-card::before,
+html.theme-harvard .stat-card::before {
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent)) !important;
+}
+
+html.theme-harvard .admin-kpi-icon,
+html.theme-harvard .admin-stats-card-icon,
+html.theme-harvard .stat-icon {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent-dark));
+    color: #fff;
+}
+
+html.theme-harvard .admin-kpi-value,
+html.theme-harvard .admin-stats-card-value,
+html.theme-harvard .stat-value {
+    font-family: var(--font-sans);
+    font-size: clamp(28px, 3.4vw, 36px);
+    font-weight: 800;
+    color: var(--color-text);
+}
+
+html.theme-harvard .admin-kpi-label,
+html.theme-harvard .admin-stats-card-label,
+html.theme-harvard .stat-label {
+    color: var(--color-text-secondary);
+}
+
+html.theme-harvard .table-emsp-dark thead th,
+html.theme-harvard .sb-table thead th,
+html.theme-harvard .table thead th {
+    background: var(--color-primary) !important;
+    color: #fff !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+html.theme-harvard .table-emsp-dark tbody tr:nth-child(odd),
+html.theme-harvard .sb-table tbody tr:nth-child(odd),
+html.theme-harvard .table tbody tr:nth-child(odd) {
+    background: #fff;
+}
+
+html.theme-harvard .table-emsp-dark tbody tr:nth-child(even),
+html.theme-harvard .sb-table tbody tr:nth-child(even),
+html.theme-harvard .table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+html.theme-harvard .table-emsp-dark tbody tr:hover,
+html.theme-harvard .sb-table tbody tr:hover,
+html.theme-harvard .table tbody tr:hover {
+    background: var(--color-primary-light) !important;
+}
+
+html.theme-harvard #main-content .form-control,
+html.theme-harvard #main-content .form-select,
+html.theme-harvard #main-content .sb-input,
+html.theme-harvard #main-content .sb-select {
+    min-height: 48px;
+    border-radius: 4px;
+    border: 1.5px solid #d0d0d0;
+    font-size: 16px;
+}
+
+html.theme-harvard #main-content .form-control:focus,
+html.theme-harvard #main-content .form-select:focus,
+html.theme-harvard #main-content .sb-input:focus,
+html.theme-harvard #main-content .sb-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 107, 60, 0.15);
+}
+
+html.theme-harvard #main-content .btn,
+html.theme-harvard #main-content .btn-sb-primary,
+html.theme-harvard #main-content .btn-sb-outline {
+    min-height: 44px;
+    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+html.theme-harvard #main-content .btn.btn-primary,
+html.theme-harvard #main-content .btn-sb-primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-text);
+}
+
+html.theme-harvard #main-content .btn.btn-primary:hover,
+html.theme-harvard #main-content .btn-sb-primary:hover {
+    background: var(--color-accent-dark);
+    border-color: var(--color-accent-dark);
+}
+
+html.theme-harvard #main-content .btn.btn-success {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+html.theme-harvard #main-content .btn.btn-warning {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-text);
+}
+
+html.theme-harvard #main-content .btn.btn-danger {
+    background: var(--color-error);
+    border-color: var(--color-error);
+}
+
+html.theme-harvard :focus-visible {
+    outline: 3px solid var(--color-accent) !important;
+    outline-offset: 2px;
+    box-shadow: none !important;
+}
+
+html.theme-harvard .admin-overview-action,
+html.theme-harvard .admin-panel-link,
+html.theme-harvard .admin-list-row,
+html.theme-harvard .admin-stats-side-item,
+html.theme-harvard .admin-kpi-card,
+html.theme-harvard .admin-stats-card {
+    transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+html.theme-harvard .admin-dashboard {
+    display: grid;
+    gap: 24px;
+}
+
+html.theme-harvard .admin-overview-hero,
+html.theme-harvard .admin-stats-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: var(--shadow-lg);
+}
+
+html.theme-harvard .admin-overview-hero::before,
+html.theme-harvard .admin-overview-hero::after,
+html.theme-harvard .admin-stats-hero::before,
+html.theme-harvard .admin-stats-hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+html.theme-harvard .admin-overview-hero::before,
+html.theme-harvard .admin-stats-hero::before {
+    width: 280px;
+    height: 280px;
+    right: -80px;
+    top: -100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 72%);
+}
+
+html.theme-harvard .admin-overview-hero::after,
+html.theme-harvard .admin-stats-hero::after {
+    width: 360px;
+    height: 360px;
+    right: 12%;
+    bottom: -240px;
+    background: radial-gradient(circle, rgba(245, 168, 0, 0.2) 0%, rgba(245, 168, 0, 0) 70%);
+}
+
+html.theme-harvard .admin-overview-hero .row,
+html.theme-harvard .admin-stats-hero .row {
+    position: relative;
+    z-index: 1;
+}
+
+html.theme-harvard .admin-overview-copy {
+    padding: 32px;
+}
+
+html.theme-harvard .admin-overview-text,
+html.theme-harvard .admin-stats-text {
+    max-width: 44rem;
+    margin: 0 0 20px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 16px;
+}
+
+html.theme-harvard .admin-overview-metrics,
+html.theme-harvard .admin-stats-hero-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+html.theme-harvard .admin-overview-metric,
+html.theme-harvard .admin-stats-hero-card {
+    padding: 14px 16px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(8px);
+}
+
+html.theme-harvard .admin-overview-metric span,
+html.theme-harvard .admin-stats-hero-card span {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+html.theme-harvard .admin-overview-metric strong,
+html.theme-harvard .admin-stats-hero-card strong {
+    display: block;
+    margin-top: 4px;
+    font-size: clamp(28px, 3.2vw, 36px);
+    line-height: 1;
+    color: #fff;
+}
+
+html.theme-harvard .admin-overview-metric small,
+html.theme-harvard .admin-stats-hero-card small {
+    display: block;
+    margin-top: 6px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 13px;
+}
+
+html.theme-harvard .admin-overview-side,
+html.theme-harvard .admin-stats-side {
+    padding: 32px;
+}
+
+html.theme-harvard .admin-overview-panel,
+html.theme-harvard .admin-stats-side-panel {
+    height: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.1) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(10px);
+}
+
+html.theme-harvard .admin-overview-panel h2,
+html.theme-harvard .admin-stats-side-panel h2 {
+    margin: 0 0 6px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+}
+
+html.theme-harvard .admin-overview-panel p,
+html.theme-harvard .admin-stats-side-panel p {
+    margin: 0 0 14px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 13px;
+}
+
+html.theme-harvard .admin-overview-actions,
+html.theme-harvard .admin-stats-side-grid {
+    display: grid;
+    gap: 10px;
+}
+
+html.theme-harvard .admin-overview-action,
+html.theme-harvard .admin-stats-side-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+html.theme-harvard .admin-overview-action:hover,
+html.theme-harvard .admin-stats-side-item:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+html.theme-harvard .admin-overview-action strong,
+html.theme-harvard .admin-stats-side-item strong {
+    display: block;
+    font-size: 16px;
+    color: #fff;
+}
+
+html.theme-harvard .admin-overview-action small,
+html.theme-harvard .admin-stats-side-item small {
+    display: block;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 13px;
+}
+
+html.theme-harvard .admin-overview-action i,
+html.theme-harvard .admin-stats-side-item i {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+html.theme-harvard .admin-kpi-top,
+html.theme-harvard .admin-stats-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+html.theme-harvard .admin-kpi-chip,
+html.theme-harvard .admin-stats-card-chip {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(0, 107, 60, 0.1);
+    color: var(--color-primary);
+}
+
+html.theme-harvard .admin-kpi-meta,
+html.theme-harvard .admin-stats-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+}
+
+html.theme-harvard .admin-kpi-meta .up {
+    color: var(--color-success);
+}
+
+html.theme-harvard .admin-kpi-meta .down {
+    color: var(--color-error);
+}
+
+html.theme-harvard .admin-kpi-card canvas,
+html.theme-harvard .admin-stats-card canvas {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+html.theme-harvard .admin-panel,
+html.theme-harvard .admin-stats-panel {
+    padding: 22px;
+    border-radius: 8px;
+}
+
+html.theme-harvard .admin-panel-header,
+html.theme-harvard .admin-stats-panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+html.theme-harvard .admin-panel-header h3,
+html.theme-harvard .admin-stats-panel-header h3 {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--color-text);
+}
+
+html.theme-harvard .admin-panel-header p,
+html.theme-harvard .admin-stats-panel-header p {
+    margin: 4px 0 0;
+    color: var(--color-text-secondary);
+    font-size: 13px;
+}
+
+html.theme-harvard .admin-panel-link,
+html.theme-harvard .admin-stats-panel-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+html.theme-harvard .admin-table-shell,
+html.theme-harvard .admin-stats-table-shell {
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+html.theme-harvard .admin-table-shell .table,
+html.theme-harvard .admin-stats-table-shell .table {
+    margin-bottom: 0;
+}
+
+html.theme-harvard .admin-list {
+    display: grid;
+    gap: 10px;
+}
+
+html.theme-harvard .admin-list-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    border: 1px solid var(--color-border);
+}
+
+html.theme-harvard .admin-list-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+html.theme-harvard .admin-list-copy {
+    min-width: 0;
+}
+
+html.theme-harvard .admin-list-copy strong,
+html.theme-harvard .admin-list-copy .small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+html.theme-harvard .admin-badge-grid {
+    display: grid;
+    gap: 12px;
+}
+
+html.theme-harvard .admin-badge-row {
+    display: grid;
+    gap: 6px;
+}
+
+html.theme-harvard .admin-badge-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+}
+
+html.theme-harvard .admin-badge-track {
+    height: 10px;
+    background: #e9eff7;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+html.theme-harvard .admin-badge-track .progress-bar {
+    border-radius: 999px;
+}
+
+html.theme-harvard .admin-kpi-card:hover,
+html.theme-harvard .admin-stats-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ------------------------------------------------------------
+   Inline style extraction helpers (admin pages)
+   ------------------------------------------------------------ */
+html.theme-harvard .emsp-nowrap {
+    white-space: nowrap;
+}
+
+html.theme-harvard .emsp-w-break-all {
+    word-break: break-all;
+}
+
+html.theme-harvard .emsp-letterwide {
+    letter-spacing: 0.05em;
+}
+
+html.theme-harvard .emsp-zebra-row {
+    background: #f8f9fc;
+}
+
+html.theme-harvard .emsp-label-cell {
+    width: 38%;
+}
+
+html.theme-harvard .emsp-preview-box {
+    min-height: 380px;
+}
+
+html.theme-harvard .emsp-preview-img {
+    max-height: 480px;
+    object-fit: contain;
+}
+
+html.theme-harvard .emsp-preview-fallback {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+html.theme-harvard .emsp-preview-fallback-icon {
+    font-size: 3rem;
+}
+
+html.theme-harvard .emsp-table-cell-180 {
+    max-width: 180px;
+}
+
+html.theme-harvard .emsp-table-cell-220 {
+    max-width: 220px;
+}
+
+html.theme-harvard .emsp-table-cell-320 {
+    max-width: 320px;
+}
+
+html.theme-harvard .emsp-input-group-max-220 {
+    max-width: 220px;
+}
+
+html.theme-harvard .emsp-editor-min-200 {
+    min-height: 200px;
+}
+
+html.theme-harvard .emsp-editor-min-260 {
+    min-height: 260px;
+}
+
+html.theme-harvard .emsp-editor-min-280 {
+    min-height: 280px;
+}
+
+html.theme-harvard .emsp-editor-min-360 {
+    min-height: 360px;
+}
+
+html.theme-harvard .emsp-editor-scroll {
+    max-height: 680px;
+    overflow-y: auto;
+}
+
+html.theme-harvard .emsp-grid-full {
+    grid-column: 1 / -1;
+}
+
+html.theme-harvard .emsp-review-frame {
+    min-height: 72vh;
+}
+
+html.theme-harvard .emsp-dropzone {
+    border-style: dashed !important;
+    cursor: pointer;
+}
+
+html.theme-harvard .emsp-preview-image-max150 {
+    max-height: 150px;
+}
+
+html.theme-harvard .emsp-hidden {
+    display: none;
+}
+
+html.theme-harvard .emsp-progress-track-10 {
+    height: 10px;
+}
+
+html.theme-harvard .emsp-progress-bar-start {
+    width: 0%;
+}
+
+html.theme-harvard .emsp-table-prewrap {
+    white-space: pre-wrap;
+}
+
+html.theme-harvard .kpi-theme-1 {
+    --kpi-start: #004D2A;
+    --kpi-end: #006B3C;
+}
+
+html.theme-harvard .kpi-theme-2 {
+    --kpi-start: #006B3C;
+    --kpi-end: #F5A800;
+}
+
+html.theme-harvard .kpi-theme-3 {
+    --kpi-start: #004D2A;
+    --kpi-end: #D4900A;
+}
+
+html.theme-harvard .kpi-theme-4 {
+    --kpi-start: #F5A800;
+    --kpi-end: #D4900A;
+}
+
+html.theme-harvard .stat-theme-1 {
+    --stat-start: #004D2A;
+    --stat-end: #006B3C;
+}
+
+html.theme-harvard .stat-theme-2 {
+    --stat-start: #006B3C;
+    --stat-end: #F5A800;
+}
+
+html.theme-harvard .stat-theme-3 {
+    --stat-start: #004D2A;
+    --stat-end: #D4900A;
+}
+
+html.theme-harvard .stat-theme-4 {
+    --stat-start: #F5A800;
+    --stat-end: #D4900A;
+}
+
+html.theme-harvard .admin-type-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+html.theme-harvard .admin-progress-init {
+    width: 0%;
+    transition: width 1s ease;
+}
+
+html.theme-harvard .admin-track-fill {
+    display: block;
+    height: 100%;
+    border-radius: 999px;
+}
+
+html.theme-harvard .admin-track-fill[data-emsp-width] {
+    width: var(--emsp-width, 0%);
+}
+
+html.theme-harvard .admin-track-fill[data-emsp-bg] {
+    background: var(--emsp-bg, #e0e0e0);
+}
+
+html.theme-harvard .progress .progress-bar[data-emsp-width] {
+    width: var(--emsp-width, 0%);
+}
+
+html.theme-harvard .admin-track-fill-gradient {
+    --emsp-bg: linear-gradient(90deg, #006B3C, #F5A800);
+}
+
+html.theme-harvard .admin-type-dot--cours {
+    background: #006B3C;
+}
+
+html.theme-harvard .admin-type-dot--td {
+    background: #F5A800;
+}
+
+html.theme-harvard .admin-type-dot--correction {
+    background: #004D2A;
+}
+
+html.theme-harvard .admin-type-dot--examen {
+    background: #6B6B6B;
+}
+
+html.theme-harvard .admin-type-dot--concours {
+    background: #1A1A1A;
+}
+
+html.theme-harvard .admin-type-dot--default {
+    background: #E0E0E0;
+}
+
+html.theme-harvard .admin-progress-fill-or {
+    background: #F5A800;
+}
+
+html.theme-harvard .admin-progress-fill-argent {
+    background: #6B6B6B;
+}
+
+html.theme-harvard .admin-progress-fill-bronze {
+    background: #D4900A;
+}
+
+html.theme-harvard .admin-progress-fill-none {
+    background: #1A1A1A;
+}
+
+html.theme-harvard .admin-prewrap {
+    white-space: pre-wrap;
+}
+
+html.theme-harvard #sidebar-overlay {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+html.theme-harvard body.admin-role-enseignant .admin-overview-hero,
+html.theme-harvard body.admin-role-enseignant .admin-stats-hero,
+html.theme-harvard body[data-role='enseignant'] .admin-overview-hero,
+html.theme-harvard body[data-role='enseignant'] .admin-stats-hero {
+    background: linear-gradient(135deg, rgba(0, 77, 42, 0.92) 0%, rgba(0, 107, 60, 0.86) 58%, rgba(0, 0, 0, 0.48) 100%) !important;
+}
+
+@media (max-width: 991.98px) {
+    html.theme-harvard #admin-content {
+        margin-left: 0;
+    }
+
+    html.theme-harvard #miniSidebar {
+        width: 85vw !important;
+        max-width: 85vw !important;
+    }
+
+    html.theme-harvard .admin-overview-hero,
+    html.theme-harvard .admin-stats-hero {
+        border-radius: 8px;
+    }
+
+    html.theme-harvard .admin-overview-copy,
+    html.theme-harvard .admin-overview-side,
+    html.theme-harvard .admin-stats-side {
+        padding: 24px;
+    }
+
+    html.theme-harvard .admin-panel-header,
+    html.theme-harvard .admin-stats-panel-header {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767.98px) {
+    html.theme-harvard #main-content {
+        padding: 0.68rem;
+    }
+
+    html.theme-harvard .admin-overview-title,
+    html.theme-harvard .admin-stats-title {
+        font-size: 32px;
+    }
+
+    html.theme-harvard .admin-overview-metrics,
+    html.theme-harvard .admin-stats-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    html.theme-harvard .admin-list-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+

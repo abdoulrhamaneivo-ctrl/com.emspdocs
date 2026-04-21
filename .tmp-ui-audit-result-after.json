@@ -1,0 +1,839 @@
+{
+  "totalChecks": 161,
+  "totalIssues": 7,
+  "byType": {
+    "font_lt_13": 7
+  },
+  "issues": [
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 360,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    },
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 390,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    },
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 480,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    },
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 768,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    },
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 1024,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    },
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 1280,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    },
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 1440,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    }
+  ],
+  "sample": [
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 360,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    },
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 390,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    },
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 480,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    },
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 768,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    },
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 1024,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    },
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 1280,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    },
+    {
+      "type": "font_lt_13",
+      "route": "/mediatheque.php",
+      "width": 1440,
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:8099/mediatheque.php",
+      "detail": [
+        {
+          "fs": 12.8,
+          "text": "Liste de lecture 3 vidéos",
+          "selector": "div.container > div.video-layout > div.playlist-box > div.playlist-header"
+        },
+        {
+          "fs": 12.48,
+          "text": "– EMSP",
+          "selector": "div.playlist-item.active > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "– EMSP",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item.active > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Economie Numé",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Michel Touré, DG de l’EMSP, Commandeur dans l’Ordre du Mérite de l’Eco...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        },
+        {
+          "fs": 12.48,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Burkina FASO",
+          "selector": "div.playlist-item > div.playlist-thumb > div.video-thumb-local > div.video-thumb-title"
+        },
+        {
+          "fs": 12,
+          "text": "Audience accordée à l'EMSP par la Ministre en charge des Postes du Bur...",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-title"
+        },
+        {
+          "fs": 10.88,
+          "text": "7 avril 2026",
+          "selector": "div.playlist-scroll > div.playlist-item > div.playlist-info > div.playlist-item-meta"
+        }
+      ]
+    }
+  ]
+}
+
+

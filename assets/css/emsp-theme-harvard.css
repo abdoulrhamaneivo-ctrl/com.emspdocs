@@ -1,0 +1,1995 @@
+/* ===========================================================
+   EMSP Docs - Theme Harvard (Public Shell + Front)
+   Loaded after emsp-theme.css and emsp-fixes.css
+   =========================================================== */
+
+:root.theme-harvard,
+html.theme-harvard {
+    --brand-crimson: #006B3C;
+    --brand-crimson-dark: #004D2A;
+    --brand-crimson-soft: #E8F5EE;
+    --brand-parchment: #f3f0ea;
+    --brand-paper: #fffdf8;
+    --brand-ink: #1f1f1f;
+    --brand-slate: #66615b;
+    --brand-border: #d8d2c8;
+    --brand-olive: #2d5d4a;
+
+    --emsp-primary: var(--brand-crimson);
+    --emsp-accent: var(--brand-crimson-dark);
+    --emsp-success: var(--brand-olive);
+    --emsp-warning: #8b5e1a;
+    --emsp-danger: #a2172a;
+    --emsp-bg: var(--brand-parchment);
+    --emsp-surface: var(--brand-paper);
+    --emsp-surface-2: #f8f5ee;
+    --emsp-surface-3: #f4f0e8;
+    --emsp-border: rgba(31, 31, 31, 0.14);
+    --emsp-border-strong: rgba(0, 107, 60, 0.2);
+    --emsp-text-primary: var(--brand-ink);
+    --emsp-text-secondary: var(--brand-slate);
+    --emsp-text-muted: #7e7870;
+    --emsp-text-inverse: #faf8f4;
+
+    --emsp-navy: var(--brand-crimson);
+    --emsp-green: var(--brand-olive);
+    --emsp-green-dark: #244838;
+    --emsp-orange: #8b5e1a;
+    --emsp-blue: var(--brand-crimson-dark);
+    --emsp-light: var(--brand-paper);
+    --emsp-gray: #d9d3c8;
+    --emsp-text: var(--brand-ink);
+    --emsp-brand-gradient: linear-gradient(135deg, #004D2A 0%, #006B3C 50%, #0A8A50 100%);
+    --emsp-brand-overlay: linear-gradient(110deg, rgba(19, 12, 10, 0.92) 0%, rgba(95, 19, 31, 0.88) 50%, rgba(0, 107, 60, 0.46) 100%);
+    --emsp-panel-shadow: 0 22px 44px rgba(79, 24, 33, 0.16);
+    --shadow-focus: 0 0 0 3px rgba(0, 107, 60, 0.2);
+
+    --motion-fast: .24s;
+    --motion-base: .48s;
+    --motion-slow: .72s;
+    --ease-harvard: cubic-bezier(.22, 1, .36, 1);
+    --ease-soft: cubic-bezier(.16, 1, .3, 1);
+    --motion-fast-effective: var(--motion-fast);
+    --motion-base-effective: var(--motion-base);
+    --motion-slow-effective: var(--motion-slow);
+    --hover-lift-card: -4px;
+    --hover-lift-btn: -2px;
+    --stagger-a: .06s;
+    --stagger-b: .14s;
+    --stagger-c: .22s;
+}
+
+html.theme-harvard {
+    background: var(--brand-parchment);
+}
+
+html.theme-harvard body.theme-harvard {
+    background: var(--brand-parchment);
+    color: var(--brand-ink);
+}
+
+html.theme-harvard body.theme-harvard,
+html.theme-harvard body.theme-harvard button,
+html.theme-harvard body.theme-harvard input,
+html.theme-harvard body.theme-harvard select,
+html.theme-harvard body.theme-harvard textarea {
+    font-family: var(--font-body);
+}
+
+html.theme-harvard body.theme-harvard h1,
+html.theme-harvard body.theme-harvard h2,
+html.theme-harvard body.theme-harvard h3,
+html.theme-harvard body.theme-harvard .page-header h1,
+html.theme-harvard body.theme-harvard .home-hero h1,
+html.theme-harvard body.theme-harvard .home-section-head h2,
+html.theme-harvard body.theme-harvard .emsp-brand-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+html.theme-harvard .site-main {
+    background: transparent;
+}
+
+/* -----------------------------------------------------------
+   Public Header / Navbar
+   ----------------------------------------------------------- */
+html.theme-harvard .emsp-topbar {
+    background: linear-gradient(90deg, #650f1d 0%, #004D2A 46%, #006B3C 100%);
+    color: #f7f3ec;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+html.theme-harvard .emsp-topbar-badge {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+html.theme-harvard .emsp-navbar-wrap {
+    background: rgba(251, 248, 241, 0.95);
+    border-bottom: 1px solid var(--brand-border);
+    box-shadow: 0 10px 22px rgba(53, 40, 35, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+html.theme-harvard .emsp-navbar {
+    min-height: 66px;
+}
+
+html.theme-harvard .emsp-brand-logo {
+    background: #fff;
+    border: 1px solid rgba(125, 21, 37, 0.15);
+    box-shadow: 0 10px 18px rgba(53, 40, 35, 0.1);
+}
+
+html.theme-harvard .emsp-brand-title {
+    color: var(--brand-ink);
+    font-size: 1.22rem;
+}
+
+html.theme-harvard .emsp-brand-subtitle {
+    color: #6f6760;
+    letter-spacing: 0.02em;
+}
+
+html.theme-harvard .emsp-navbar .nav-link {
+    color: #2f2925;
+    border: 1px solid transparent;
+    font-weight: 500;
+    letter-spacing: 0.015em;
+}
+
+html.theme-harvard .emsp-navbar .nav-link:hover,
+html.theme-harvard .emsp-navbar .nav-link.active {
+    color: var(--brand-crimson);
+    background: rgba(0, 107, 60, 0.08);
+    border-color: rgba(0, 107, 60, 0.15);
+}
+
+html.theme-harvard .emsp-nav-link-badge {
+    background: rgba(0, 107, 60, 0.1);
+    color: var(--brand-crimson);
+}
+
+html.theme-harvard .emsp-nav-dropdown-menu {
+    border: 1px solid var(--brand-border);
+    box-shadow: 0 14px 26px rgba(40, 29, 25, 0.12);
+    background: #fffdfa;
+}
+
+html.theme-harvard .emsp-nav-dropdown-menu .dropdown-item:hover,
+html.theme-harvard .emsp-nav-dropdown-menu .dropdown-item.active {
+    background: rgba(0, 107, 60, 0.08);
+    color: var(--brand-crimson);
+}
+
+html.theme-harvard .emsp-nav-search .form-control,
+html.theme-harvard .emsp-nav-search-mobile .form-control {
+    background: #fff;
+    border-color: #d8d2c8;
+}
+
+html.theme-harvard .emsp-nav-search .btn,
+html.theme-harvard .emsp-nav-search-mobile .btn {
+    background: var(--brand-crimson);
+    border-color: var(--brand-crimson);
+    color: #fff;
+}
+
+html.theme-harvard .emsp-btn-outline {
+    border-color: rgba(125, 21, 37, 0.28);
+    color: #4a232a;
+    background: rgba(255, 255, 255, 0.75);
+}
+
+html.theme-harvard .emsp-btn-outline:hover {
+    background: rgba(0, 107, 60, 0.08);
+    border-color: rgba(125, 21, 37, 0.38);
+}
+
+html.theme-harvard .emsp-btn-signup,
+html.theme-harvard .emsp-btn-admin,
+html.theme-harvard .emsp-btn-deposit {
+    background: var(--brand-crimson);
+    border-color: var(--brand-crimson);
+    color: #fff;
+}
+
+html.theme-harvard .emsp-btn-signup:hover,
+html.theme-harvard .emsp-btn-admin:hover,
+html.theme-harvard .emsp-btn-deposit:hover {
+    background: var(--brand-crimson-dark);
+    border-color: var(--brand-crimson-dark);
+    color: #fff;
+}
+
+html.theme-harvard .emsp-icon-btn {
+    border: 1px solid rgba(125, 21, 37, 0.2);
+    background: #fff;
+    color: #4a232a;
+}
+
+html.theme-harvard .emsp-avatar-btn {
+    border-color: rgba(125, 21, 37, 0.16);
+    background: #fffdfa;
+}
+
+html.theme-harvard .emsp-avatar-fallback {
+    background: linear-gradient(135deg, #004D2A, #006B3C);
+}
+
+html.theme-harvard .emsp-nav-breadcrumb {
+    border-top: 1px solid rgba(116, 98, 89, 0.16);
+    background: rgba(255, 255, 255, 0.55);
+}
+
+html.theme-harvard .breadcrumb {
+    margin: 0;
+    padding: 0.55rem 0;
+}
+
+html.theme-harvard .breadcrumb-item a {
+    color: #6d645d;
+}
+
+html.theme-harvard .breadcrumb-item.active {
+    color: #352f2b;
+}
+
+html.theme-harvard .emsp-navbar-offcanvas {
+    background: linear-gradient(165deg, #1f1a18 0%, #3d1f24 50%, #651a28 100%);
+    color: #f7f2eb;
+}
+
+html.theme-harvard .emsp-navbar-offcanvas .nav-link {
+    color: #f7f2eb;
+}
+
+html.theme-harvard .emsp-navbar-offcanvas .nav-link:hover,
+html.theme-harvard .emsp-navbar-offcanvas .nav-link.active {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+html.theme-harvard .emsp-mobile-bottom-nav {
+    background: rgba(255, 253, 248, 0.98);
+    border-top: 1px solid var(--brand-border);
+    box-shadow: 0 -8px 20px rgba(40, 29, 25, 0.12);
+}
+
+html.theme-harvard .emsp-mobile-bottom-nav__item {
+    color: #655d57;
+}
+
+html.theme-harvard .emsp-mobile-bottom-nav__item.active {
+    color: var(--brand-crimson);
+}
+
+/* -----------------------------------------------------------
+   Shared Public Components
+   ----------------------------------------------------------- */
+html.theme-harvard .card,
+html.theme-harvard .emsp-card,
+html.theme-harvard .dark-card,
+html.theme-harvard .sb-card,
+html.theme-harvard .doc-card {
+    border-radius: 14px;
+    border: 1px solid #ddd5c8;
+    box-shadow: 0 8px 18px rgba(52, 38, 33, 0.08);
+    background: #fffdf9;
+}
+
+html.theme-harvard .card-title,
+html.theme-harvard .section-title {
+    color: #2a2623;
+}
+
+html.theme-harvard .btn-primary {
+    background: var(--brand-crimson);
+    border-color: var(--brand-crimson);
+}
+
+html.theme-harvard .btn-primary:hover,
+html.theme-harvard .btn-primary:focus,
+html.theme-harvard .btn-primary:active {
+    background: var(--brand-crimson-dark);
+    border-color: var(--brand-crimson-dark);
+}
+
+html.theme-harvard .btn-outline-primary {
+    color: var(--brand-crimson);
+    border-color: rgba(0, 107, 60, 0.36);
+}
+
+html.theme-harvard .btn-outline-primary:hover {
+    background: rgba(0, 107, 60, 0.1);
+    color: var(--brand-crimson-dark);
+    border-color: rgba(0, 107, 60, 0.45);
+}
+
+html.theme-harvard .form-control,
+html.theme-harvard .form-select,
+html.theme-harvard .input-group-text {
+    border-color: #d8d2c8;
+    background: #fff;
+    color: #2d2926;
+}
+
+html.theme-harvard .form-control:focus,
+html.theme-harvard .form-select:focus {
+    border-color: rgba(0, 107, 60, 0.55);
+    box-shadow: 0 0 0 0.2rem rgba(0, 107, 60, 0.12);
+}
+
+html.theme-harvard .table > :not(caption) > * > * {
+    border-color: #e0d8ca;
+}
+
+html.theme-harvard .table thead th {
+    color: #5e5750;
+    background: #f5f0e7;
+}
+
+html.theme-harvard .badge.bg-danger {
+    background-color: #006B3C !important;
+}
+
+html.theme-harvard .page-header {
+    background:
+        linear-gradient(118deg, rgba(17, 13, 11, 0.85) 0%, rgba(82, 23, 32, 0.78) 52%, rgba(125, 21, 37, 0.7) 100%),
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 42%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+html.theme-harvard .soft-bg {
+    background: #f7f3ec;
+}
+
+html.theme-harvard .auth-card {
+    border-color: #d8d2c8;
+    box-shadow: 0 14px 30px rgba(52, 38, 33, 0.1);
+    background: #fffdfa;
+}
+
+/* -----------------------------------------------------------
+   Public Footer
+   ----------------------------------------------------------- */
+html.theme-harvard .emsp-footer {
+    background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 36%),
+        linear-gradient(135deg, #1a1716 0%, #3a2026 55%, #651a28 100%);
+    color: #f8f2ea;
+}
+
+html.theme-harvard .emsp-footer a {
+    color: rgba(248, 242, 234, 0.86);
+}
+
+html.theme-harvard .emsp-footer a:hover {
+    color: #fff;
+}
+
+html.theme-harvard .emsp-footer-badge {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+html.theme-harvard .emsp-footer-logo {
+    border: 1px solid rgba(125, 21, 37, 0.2);
+}
+
+html.theme-harvard .emsp-footer-socials a {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+html.theme-harvard .emsp-footer-socials a:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* -----------------------------------------------------------
+   Homepage (index.php)
+   ----------------------------------------------------------- */
+html.theme-harvard .emsp-home-page {
+    background:
+        radial-gradient(circle at top right, rgba(0, 107, 60, 0.12), transparent 24%),
+        linear-gradient(180deg, #f6f2ea 0%, #f3f0e9 40%, #f8f6f0 100%);
+}
+
+html.theme-harvard .home-hero-shell {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 28px 48px rgba(61, 29, 34, 0.18);
+    background:
+        linear-gradient(118deg, rgba(18, 14, 12, 0.92) 0%, rgba(95, 19, 31, 0.86) 50%, rgba(0, 107, 60, 0.58) 100%),
+        url('../images/emsp-campus-ceremony.jpg') center/cover no-repeat;
+}
+
+html.theme-harvard .home-hero-shell::before {
+    background: linear-gradient(90deg, rgba(14, 11, 10, 0.82) 0%, rgba(14, 11, 10, 0.56) 50%, rgba(14, 11, 10, 0.22) 100%);
+}
+
+html.theme-harvard .home-eyebrow {
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.04em;
+}
+
+html.theme-harvard .home-btn-primary,
+html.theme-harvard .home-btn-secondary {
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+html.theme-harvard .home-btn-primary {
+    background: #fff;
+    border-color: #fff;
+    color: #4a161f;
+}
+
+html.theme-harvard .home-btn-primary:hover {
+    background: #f4ece4;
+    border-color: #f4ece4;
+    color: #3b1219;
+}
+
+html.theme-harvard .home-btn-secondary {
+    border-color: rgba(255, 255, 255, 0.45);
+    color: #fff;
+}
+
+html.theme-harvard .home-btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+html.theme-harvard .home-proof-item {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+html.theme-harvard .home-summary-panel {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 100%);
+}
+
+html.theme-harvard .home-summary-stat {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+html.theme-harvard .home-summary-stat i {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+html.theme-harvard .home-step-card,
+html.theme-harvard .home-quick-card,
+html.theme-harvard .home-doc-card,
+html.theme-harvard .home-cta-panel {
+    border-radius: 16px;
+    border: 1px solid #ddd5c8;
+    box-shadow: 0 12px 24px rgba(52, 38, 33, 0.08);
+    background: #fffdf9;
+}
+
+html.theme-harvard .home-step-card::before,
+html.theme-harvard .home-quick-card::before {
+    background: linear-gradient(90deg, rgba(0, 107, 60, 0.9) 0%, rgba(0, 107, 60, 0.28) 90%);
+}
+
+html.theme-harvard .home-step-number,
+html.theme-harvard .home-quick-icon {
+    background: #f5eee4;
+    color: var(--brand-crimson);
+    border: 1px solid #e4dbcd;
+}
+
+html.theme-harvard .home-section-head h2,
+html.theme-harvard .home-step-card h3,
+html.theme-harvard .home-quick-card h3,
+html.theme-harvard .home-doc-title {
+    color: #2a2623;
+}
+
+html.theme-harvard .home-doc-thumb {
+    border-color: #e2dacd;
+    background: linear-gradient(180deg, #f7f1e8 0%, #efe6d8 100%);
+}
+
+html.theme-harvard .home-doc-thumb.primary,
+html.theme-harvard .home-doc-thumb.success,
+html.theme-harvard .home-doc-thumb.info,
+html.theme-harvard .home-doc-thumb.warning,
+html.theme-harvard .home-doc-thumb.danger {
+    background: linear-gradient(180deg, #f8f2e8 0%, #ece3d4 100%);
+}
+
+html.theme-harvard .home-doc-thumb-type {
+    background: rgba(32, 29, 27, 0.08);
+    color: #3a332f;
+}
+
+html.theme-harvard .home-doc-thumb-new {
+    background: rgba(0, 107, 60, 0.12);
+    color: var(--brand-crimson);
+}
+
+html.theme-harvard .home-doc-context span {
+    background: #f5eee3;
+    border-color: #e5ddcf;
+}
+
+html.theme-harvard .home-doc-link {
+    color: var(--brand-crimson);
+}
+
+html.theme-harvard .home-doc-link:hover {
+    color: var(--brand-crimson-dark);
+}
+
+html.theme-harvard .home-latest-shell {
+    border: 1px solid #ddd5c8;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(249, 245, 237, 0.95) 100%);
+}
+
+html.theme-harvard .home-cta-panel {
+    background:
+        linear-gradient(120deg, rgba(15, 12, 11, 0.9) 0%, rgba(88, 20, 32, 0.8) 56%, rgba(0, 107, 60, 0.62) 100%),
+        url('../images/emsp-ivoire-tech-forum-2025.jpg') center/cover no-repeat;
+    color: #fff;
+}
+
+html.theme-harvard .home-cta-panel::before {
+    background: linear-gradient(90deg, rgba(16, 13, 12, 0.84) 0%, rgba(16, 13, 12, 0.4) 100%);
+}
+
+html.theme-harvard .home-cta-panel--soft {
+    background: #fffdf9;
+    color: #2a2623;
+}
+
+html.theme-harvard .home-cta-panel--soft::before {
+    background: linear-gradient(90deg, rgba(247, 241, 231, 0.96) 0%, rgba(242, 235, 225, 0.82) 100%);
+}
+
+html.theme-harvard .home-cta-panel--soft .home-btn-secondary {
+    border-color: rgba(125, 21, 37, 0.34);
+    color: #522028;
+}
+
+html.theme-harvard .home-cta-panel--soft .home-btn-secondary:hover {
+    background: rgba(0, 107, 60, 0.08);
+    border-color: rgba(125, 21, 37, 0.44);
+}
+
+/* -----------------------------------------------------------
+   Front pages (library/document/auth/dashboard/formation/news)
+   ----------------------------------------------------------- */
+html.theme-harvard a {
+    color: #6c1d2a;
+}
+
+html.theme-harvard a:hover {
+    color: #4d141d;
+}
+
+html.theme-harvard .doc-card,
+html.theme-harvard .library-filter-card,
+html.theme-harvard .library-empty-card,
+html.theme-harvard .concours-empty-card,
+html.theme-harvard .emsp-panel,
+html.theme-harvard .formation-card,
+html.theme-harvard .album-card {
+    border: 1px solid #ddd5c8 !important;
+    background: #fffdf9 !important;
+    box-shadow: 0 10px 22px rgba(52, 38, 33, 0.08) !important;
+}
+
+html.theme-harvard .doc-card:hover,
+html.theme-harvard .formation-card:hover,
+html.theme-harvard .album-card:hover {
+    border-color: rgba(125, 21, 37, 0.28) !important;
+    box-shadow: 0 14px 26px rgba(52, 38, 33, 0.12) !important;
+}
+
+html.theme-harvard .doc-card-title,
+html.theme-harvard .doc-title,
+html.theme-harvard .formation-card-title,
+html.theme-harvard .album-title {
+    color: #2a2623 !important;
+}
+
+html.theme-harvard .doc-card-desc,
+html.theme-harvard .doc-card-meta,
+html.theme-harvard .formation-card-summary,
+html.theme-harvard .album-info,
+html.theme-harvard .album-date,
+html.theme-harvard .emsp-status-note {
+    color: #675f58 !important;
+}
+
+html.theme-harvard .doc-thumb,
+html.theme-harvard .formation-card-media,
+html.theme-harvard .album-cover {
+    border: 1px solid #e2dacd !important;
+    background: linear-gradient(180deg, #f7f1e8 0%, #efe6d8 100%) !important;
+}
+
+html.theme-harvard .doc-hero {
+    background:
+        linear-gradient(120deg, rgba(18, 14, 12, 0.9) 0%, rgba(82, 23, 32, 0.82) 52%, rgba(125, 21, 37, 0.68) 100%),
+        url('../images/emsp-campus-ceremony.jpg') center/cover no-repeat;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+html.theme-harvard .doc-hero h1,
+html.theme-harvard .doc-hero-summary,
+html.theme-harvard .hero-meta,
+html.theme-harvard .doc-hero-bc a,
+html.theme-harvard .doc-hero-bc .cur {
+    color: #fff7ef !important;
+}
+
+html.theme-harvard .viewer-card,
+html.theme-harvard .desc-card,
+html.theme-harvard .cmt-card,
+html.theme-harvard .side-card {
+    border-radius: 14px !important;
+    border: 1px solid #ddd5c8 !important;
+    background: #fffdf9 !important;
+    box-shadow: 0 10px 22px rgba(52, 38, 33, 0.08) !important;
+}
+
+html.theme-harvard .side-card-header,
+html.theme-harvard .dc-label {
+    color: #4d4540 !important;
+}
+
+html.theme-harvard .emsp-mini-card,
+html.theme-harvard .emsp-activity-item {
+    border: 1px solid #ddd5c8 !important;
+    background: #fffdf9 !important;
+    box-shadow: 0 8px 18px rgba(52, 38, 33, 0.08) !important;
+}
+
+html.theme-harvard .emsp-mini-card .value {
+    color: #2a2623 !important;
+}
+
+html.theme-harvard .emsp-mini-card .label {
+    color: #675f58 !important;
+}
+
+html.theme-harvard .doc-type-btn,
+html.theme-harvard .formations-licence-pill,
+html.theme-harvard .formation-card-licence,
+html.theme-harvard .badge-new {
+    background: #f5eee4 !important;
+    border: 1px solid #e4dbcd !important;
+    color: #5b252d !important;
+}
+
+html.theme-harvard .doc-type-btn.active,
+html.theme-harvard .formations-licence-pill.active {
+    background: rgba(0, 107, 60, 0.12) !important;
+    border-color: rgba(125, 21, 37, 0.34) !important;
+    color: #4e1821 !important;
+}
+
+html.theme-harvard .emsp-login-panel,
+html.theme-harvard .emsp-register-card,
+html.theme-harvard .emsp-register-method-card,
+html.theme-harvard .emsp-status-card {
+    border: 1px solid #ddd5c8 !important;
+    background: #fffdf9 !important;
+    box-shadow: 0 14px 24px rgba(52, 38, 33, 0.09) !important;
+}
+
+html.theme-harvard .emsp-login-side,
+html.theme-harvard .emsp-register-aside,
+html.theme-harvard .emsp-register-banner,
+html.theme-harvard .emsp-status-side {
+    background:
+        linear-gradient(122deg, rgba(18, 14, 12, 0.9) 0%, rgba(82, 23, 32, 0.8) 56%, rgba(125, 21, 37, 0.68) 100%) !important;
+    color: #fff7ef !important;
+}
+
+html.theme-harvard .emsp-login-bullet-icon,
+html.theme-harvard .emsp-register-aside-icon,
+html.theme-harvard .emsp-status-step-index {
+    background: rgba(255, 255, 255, 0.14) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #fff !important;
+}
+
+html.theme-harvard .emsp-register-method-card-pill,
+html.theme-harvard .emsp-login-trust-pill {
+    background: #f5eee4 !important;
+    color: #5b252d !important;
+    border: 1px solid #e4dbcd !important;
+}
+
+html.theme-harvard .formations-hero,
+html.theme-harvard .institution-hero,
+html.theme-harvard .news-hero {
+    background:
+        linear-gradient(120deg, rgba(18, 14, 12, 0.9) 0%, rgba(82, 23, 32, 0.82) 52%, rgba(125, 21, 37, 0.68) 100%);
+    color: #fff7ef;
+}
+
+/* -----------------------------------------------------------
+   Bibliotheque / Concours routes
+   ----------------------------------------------------------- */
+html.theme-harvard .emsp-library-gate {
+    background:
+        radial-gradient(circle at top right, rgba(0, 107, 60, 0.1), transparent 30%),
+        linear-gradient(180deg, #f6f2ea 0%, #fffdf8 100%);
+}
+
+html.theme-harvard .emsp-library-gate-hero,
+html.theme-harvard .emsp-library-gate-card {
+    border: 1px solid #ddd5c8 !important;
+    box-shadow: 0 18px 34px rgba(52, 38, 33, 0.12) !important;
+}
+
+html.theme-harvard .emsp-library-gate-hero {
+    background:
+        linear-gradient(120deg, rgba(18, 14, 12, 0.9) 0%, rgba(82, 23, 32, 0.82) 52%, rgba(125, 21, 37, 0.68) 100%),
+        url('../images/emsp-campus-ceremony.jpg') center 30% / cover no-repeat !important;
+}
+
+html.theme-harvard .emsp-library-gate-hero::before {
+    background: linear-gradient(90deg, rgba(12, 10, 9, 0.86) 0%, rgba(12, 10, 9, 0.6) 48%, rgba(12, 10, 9, 0.18) 100%) !important;
+}
+
+html.theme-harvard .concours-shell,
+html.theme-harvard .library-shell,
+html.theme-harvard .journal-shell {
+    background:
+        radial-gradient(circle at top right, rgba(0, 107, 60, 0.08), transparent 26%),
+        linear-gradient(180deg, #f7f3ec 0%, #fffdf8 24%, #f8f5ef 100%) !important;
+}
+
+html.theme-harvard .concours-header,
+html.theme-harvard .library-shell-header,
+html.theme-harvard .journal-shell-header {
+    background:
+        linear-gradient(120deg, rgba(18, 14, 12, 0.9) 0%, rgba(82, 23, 32, 0.82) 52%, rgba(125, 21, 37, 0.68) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 24px 40px rgba(64, 31, 37, 0.16) !important;
+}
+
+html.theme-harvard .concours-header::after,
+html.theme-harvard .journal-shell-header::after {
+    background: linear-gradient(90deg, rgba(12, 10, 9, 0.82) 0%, rgba(12, 10, 9, 0.56) 54%, rgba(12, 10, 9, 0.2) 100%) !important;
+}
+
+html.theme-harvard .concours-filter-bar,
+html.theme-harvard .journal-panel {
+    border: 1px solid #ddd5c8 !important;
+    background: #fffdf9 !important;
+    box-shadow: 0 12px 24px rgba(52, 38, 33, 0.08) !important;
+}
+
+html.theme-harvard .journal-card {
+    border-color: #ddd5c8 !important;
+    box-shadow: 0 10px 24px rgba(52, 38, 33, 0.08) !important;
+}
+
+html.theme-harvard .journal-card:hover {
+    border-color: rgba(125, 21, 37, 0.25) !important;
+    box-shadow: 0 16px 30px rgba(52, 38, 33, 0.12) !important;
+}
+
+html.theme-harvard .journal-card-title,
+html.theme-harvard .journal-section-title {
+    color: #2a2623 !important;
+}
+
+html.theme-harvard .journal-card-excerpt {
+    color: #675f58 !important;
+}
+
+html.theme-harvard .journal-type-badge {
+    background: rgba(0, 107, 60, 0.09) !important;
+    color: #6c1d2a !important;
+}
+
+html.theme-harvard .journal-card-link {
+    color: #6c1d2a !important;
+}
+
+html.theme-harvard .journal-card-link:hover {
+    color: #4d141d !important;
+}
+
+/* -----------------------------------------------------------
+   Journal article route
+   ----------------------------------------------------------- */
+html.theme-harvard .journal-hero-card,
+html.theme-harvard .journal-interaction-card,
+html.theme-harvard .journal-state-card,
+html.theme-harvard .journal-social-card {
+    border: 1px solid #ddd5c8 !important;
+    background: #fffdf9 !important;
+    box-shadow: 0 14px 28px rgba(52, 38, 33, 0.08) !important;
+}
+
+html.theme-harvard .journal-meta-pill {
+    color: #6c1d2a !important;
+    background: rgba(0, 107, 60, 0.09) !important;
+}
+
+html.theme-harvard .journal-poll-option {
+    border-color: #ddd5c8 !important;
+    background: linear-gradient(180deg, #fffdf9 0%, #f9f4ea 100%) !important;
+}
+
+html.theme-harvard .journal-poll-option.active {
+    border-color: rgba(125, 21, 37, 0.34) !important;
+    box-shadow: 0 12px 24px rgba(125, 21, 37, 0.1) !important;
+}
+
+html.theme-harvard .journal-poll-progress {
+    background: #e8dfcf !important;
+}
+
+html.theme-harvard .journal-poll-progress span {
+    background: linear-gradient(90deg, #004D2A, #006B3C) !important;
+}
+
+html.theme-harvard .journal-comment-item {
+    border-bottom-color: #e8dfcf !important;
+}
+
+html.theme-harvard .journal-comment-avatar {
+    background: #f3ebe0 !important;
+    color: #6c1d2a !important;
+}
+
+html.theme-harvard .journal-rich-content a {
+    color: #6c1d2a !important;
+}
+
+html.theme-harvard .journal-rich-content blockquote {
+    border-left: 4px solid #004D2A !important;
+    color: #675f58 !important;
+}
+
+/* -----------------------------------------------------------
+   Register / Login / Pending
+   ----------------------------------------------------------- */
+html.theme-harvard .emsp-register-shell,
+html.theme-harvard .emsp-login-shell,
+html.theme-harvard .emsp-status-shell {
+    background:
+        radial-gradient(circle at top left, rgba(0, 107, 60, 0.08), transparent 28%),
+        linear-gradient(180deg, #f6f2ea 0%, #fffdf8 100%) !important;
+}
+
+html.theme-harvard .emsp-register-banner,
+html.theme-harvard .emsp-login-side,
+html.theme-harvard .emsp-status-side {
+    background:
+        linear-gradient(120deg, rgba(18, 14, 12, 0.9) 0%, rgba(82, 23, 32, 0.82) 52%, rgba(125, 21, 37, 0.68) 100%) !important;
+    color: #fff7ef !important;
+}
+
+html.theme-harvard .emsp-register-banner::before {
+    background: linear-gradient(90deg, rgba(12, 10, 9, 0.82) 0%, rgba(12, 10, 9, 0.56) 46%, rgba(12, 10, 9, 0.14) 100%) !important;
+}
+
+html.theme-harvard .emsp-register-card,
+html.theme-harvard .emsp-register-aside,
+html.theme-harvard .emsp-login-panel,
+html.theme-harvard .emsp-signup-callout,
+html.theme-harvard .emsp-status-panel,
+html.theme-harvard .emsp-status-note,
+html.theme-harvard .emsp-status-card {
+    border: 1px solid #ddd5c8 !important;
+    background: #fffdf9 !important;
+    box-shadow: 0 14px 28px rgba(52, 38, 33, 0.08) !important;
+}
+
+html.theme-harvard .emsp-register-method-eyebrow,
+html.theme-harvard .emsp-login-trust-pill {
+    background: rgba(0, 107, 60, 0.09) !important;
+    color: #6c1d2a !important;
+}
+
+html.theme-harvard .emsp-register-method-card {
+    border-color: #ddd5c8 !important;
+    background: linear-gradient(180deg, #fffdf9 0%, #f9f4ea 100%) !important;
+    box-shadow: 0 12px 24px rgba(52, 38, 33, 0.08) !important;
+}
+
+html.theme-harvard .emsp-register-method-card:hover,
+html.theme-harvard .emsp-register-method-card:focus-visible {
+    border-color: rgba(125, 21, 37, 0.25) !important;
+    box-shadow: 0 16px 30px rgba(52, 38, 33, 0.12) !important;
+}
+
+html.theme-harvard .emsp-register-method-card-icon,
+html.theme-harvard .emsp-password-toggle:hover,
+html.theme-harvard .emsp-password-toggle:focus-visible,
+html.theme-harvard .emsp-status-step-index {
+    background: rgba(0, 107, 60, 0.1) !important;
+    color: #6c1d2a !important;
+}
+
+html.theme-harvard .emsp-status-step {
+    border-bottom-color: #e8dfcf !important;
+}
+
+html.theme-harvard .emsp-status-step.is-done .emsp-status-step-index {
+    background: rgba(45, 93, 74, 0.14) !important;
+    color: #2d5d4a !important;
+}
+
+html.theme-harvard .emsp-status-step.is-warning .emsp-status-step-index {
+    background: rgba(139, 94, 26, 0.16) !important;
+    color: #8b5e1a !important;
+}
+
+/* -----------------------------------------------------------
+   Formations / Institution pages
+   ----------------------------------------------------------- */
+html.theme-harvard .formations-hero {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    background:
+        linear-gradient(122deg, rgba(18, 14, 12, 0.9) 0%, rgba(82, 23, 32, 0.82) 52%, rgba(125, 21, 37, 0.68) 100%) !important;
+}
+
+html.theme-harvard .formations-panel,
+html.theme-harvard .formation-card,
+html.theme-harvard .institution-panel,
+html.theme-harvard .institution-stat,
+html.theme-harvard .institution-quote {
+    border: 1px solid #ddd5c8 !important;
+    background: #fffdf9 !important;
+    box-shadow: 0 12px 24px rgba(52, 38, 33, 0.08) !important;
+}
+
+html.theme-harvard .formations-section-head h2,
+html.theme-harvard .formation-card h3,
+html.theme-harvard .text-emsp {
+    color: #2a2623 !important;
+}
+
+html.theme-harvard .formation-card-summary,
+html.theme-harvard .institution-panel p,
+html.theme-harvard .institution-quote p {
+    color: #675f58 !important;
+}
+
+html.theme-harvard .formation-card-media {
+    background: linear-gradient(135deg, #f7f1e8, #ece2d2) !important;
+}
+
+html.theme-harvard .formation-card-placeholder {
+    color: #6c1d2a !important;
+}
+
+html.theme-harvard .formation-card-licence,
+html.theme-harvard .formations-hero-pill,
+html.theme-harvard .formations-licence-pill,
+html.theme-harvard .formations-tronc-link {
+    background: #f3ebe0 !important;
+    border: 1px solid #e4dbcd !important;
+    color: #5b252d !important;
+}
+
+html.theme-harvard .institution-stat .stat-number,
+html.theme-harvard .dg-quote-mark {
+    color: #004D2A !important;
+}
+
+html.theme-harvard .institution-stat .stat-label {
+    color: #675f58 !important;
+}
+
+html.theme-harvard .card-dg {
+    border-left-color: #004D2A !important;
+}
+
+html.theme-harvard .card-de {
+    border-left-color: #2d5d4a !important;
+}
+
+html.theme-harvard .dg-photo {
+    border-color: #004D2A !important;
+}
+
+html.theme-harvard .de-photo,
+html.theme-harvard .de-quote-mark,
+html.theme-harvard .text-emsp-green {
+    border-color: #2d5d4a !important;
+    color: #2d5d4a !important;
+}
+
+html.theme-harvard .dg-avatar-placeholder {
+    background: linear-gradient(135deg, #004D2A, #006B3C) !important;
+}
+
+html.theme-harvard .de-avatar-placeholder {
+    background: linear-gradient(135deg, #2d5d4a, #3f7a62) !important;
+}
+
+/* -----------------------------------------------------------
+   Forgot / Reset password pages
+   ----------------------------------------------------------- */
+html.theme-harvard .emsp-auth-shell,
+html.theme-harvard .emsp-reset-shell {
+    background:
+        radial-gradient(circle at top left, rgba(0, 107, 60, 0.09), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(125, 21, 37, 0.08), transparent 34%),
+        linear-gradient(180deg, #f6f2ea 0%, #fffdf8 100%) !important;
+}
+
+html.theme-harvard .emsp-auth-panel,
+html.theme-harvard .emsp-auth-side,
+html.theme-harvard .emsp-auth-note,
+html.theme-harvard .emsp-auth-success,
+html.theme-harvard .emsp-reset-panel,
+html.theme-harvard .emsp-reset-side,
+html.theme-harvard .emsp-reset-note {
+    border: 1px solid #ddd5c8 !important;
+    background: #fffdf9 !important;
+    box-shadow: 0 14px 28px rgba(52, 38, 33, 0.08) !important;
+}
+
+html.theme-harvard .emsp-auth-side,
+html.theme-harvard .emsp-reset-side {
+    color: #fff7ef !important;
+    background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 30%),
+        linear-gradient(120deg, rgba(18, 14, 12, 0.9) 0%, rgba(82, 23, 32, 0.82) 52%, rgba(125, 21, 37, 0.68) 100%) !important;
+}
+
+html.theme-harvard .emsp-auth-trust-pill,
+html.theme-harvard .emsp-auth-success-index,
+html.theme-harvard .emsp-reset-trust-pill,
+html.theme-harvard .emsp-reset-password-toggle:hover,
+html.theme-harvard .emsp-reset-password-toggle:focus-visible {
+    background: rgba(0, 107, 60, 0.1) !important;
+    color: #6c1d2a !important;
+}
+
+html.theme-harvard .emsp-auth-success-step {
+    border-bottom-color: #e8dfcf !important;
+}
+
+/* -----------------------------------------------------------
+   Upload page
+   ----------------------------------------------------------- */
+html.theme-harvard .upload-drop-zone {
+    border-color: #d5c8b6 !important;
+    background: #f8f2e8 !important;
+}
+
+html.theme-harvard .upload-drop-zone.dragover {
+    border-color: #004D2A !important;
+    background: #f3e6e6 !important;
+}
+
+html.theme-harvard .file-preview,
+html.theme-harvard .filiere-check {
+    border-color: #ddd5c8 !important;
+    background: #fffdf9 !important;
+}
+
+html.theme-harvard .doc-type-btn {
+    border-color: #ddd5c8 !important;
+    background: #fffdf9 !important;
+    color: #4f4842 !important;
+}
+
+html.theme-harvard .doc-type-btn.active {
+    border-color: rgba(125, 21, 37, 0.3) !important;
+    background: #f3e7e7 !important;
+    color: #6c1d2a !important;
+}
+
+html.theme-harvard .upload-format-chip,
+html.theme-harvard .upload-scan-hint {
+    background: #f3ebe0 !important;
+    border-color: #e4dbcd !important;
+    color: #5b252d !important;
+}
+
+html.theme-harvard .upload-mobile-hint,
+html.theme-harvard .matiere-hint {
+    color: #6f6760 !important;
+}
+
+/* -----------------------------------------------------------
+   Utility remap (Bootstrap helpers)
+   ----------------------------------------------------------- */
+html.theme-harvard .text-primary,
+html.theme-harvard .link-primary,
+html.theme-harvard .text-primary-emphasis {
+    color: #004D2A !important;
+}
+
+html.theme-harvard .bg-primary,
+html.theme-harvard .text-bg-primary {
+    background-color: #006B3C !important;
+    color: #fff !important;
+}
+
+html.theme-harvard .bg-primary-subtle {
+    background-color: #f3e3e6 !important;
+}
+
+html.theme-harvard .bg-success {
+    background-color: #2d5d4a !important;
+    color: #fff !important;
+}
+
+html.theme-harvard .bg-info {
+    background-color: #e8dcc8 !important;
+    color: #4c3515 !important;
+}
+
+html.theme-harvard .bg-warning {
+    background-color: #e6c285 !important;
+    color: #402f14 !important;
+}
+
+html.theme-harvard .btn-info {
+    background: #8b5e1a !important;
+    border-color: #8b5e1a !important;
+    color: #fff !important;
+}
+
+html.theme-harvard .btn-info:hover,
+html.theme-harvard .btn-info:focus {
+    background: #6f4a14 !important;
+    border-color: #6f4a14 !important;
+    color: #fff !important;
+}
+
+html.theme-harvard .btn-outline-info {
+    color: #004D2A !important;
+    border-color: rgba(0, 107, 60, 0.34) !important;
+}
+
+html.theme-harvard .btn-outline-info:hover,
+html.theme-harvard .btn-outline-info:focus {
+    background: rgba(0, 107, 60, 0.1) !important;
+    color: #6b1220 !important;
+    border-color: rgba(0, 107, 60, 0.44) !important;
+}
+
+html.theme-harvard .border-primary {
+    border-color: rgba(0, 107, 60, 0.32) !important;
+}
+
+html.theme-harvard .spinner-border.text-primary {
+    color: #004D2A !important;
+}
+
+html.theme-harvard .progress-bar.bg-primary {
+    background-color: #006B3C !important;
+}
+
+/* -----------------------------------------------------------
+   Harvard Motion System
+   ----------------------------------------------------------- */
+@keyframes harvard-fade-up {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 18px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes harvard-soft-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.985);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes harvard-line-sweep {
+    0% {
+        opacity: 0.35;
+        transform: scaleX(0.35);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+html.theme-harvard .emsp-navbar-wrap,
+html.theme-harvard .page-header,
+html.theme-harvard .home-hero-shell,
+html.theme-harvard .doc-hero,
+html.theme-harvard .formations-hero,
+html.theme-harvard .institution-hero,
+html.theme-harvard .news-hero,
+html.theme-harvard .concours-header,
+html.theme-harvard .library-shell-header,
+html.theme-harvard .journal-shell-header,
+html.theme-harvard .emsp-register-banner,
+html.theme-harvard .emsp-login-side,
+html.theme-harvard .emsp-status-side,
+html.theme-harvard .emsp-auth-side,
+html.theme-harvard .emsp-reset-side {
+    animation: harvard-soft-in var(--motion-slow-effective) var(--ease-harvard) both;
+}
+
+html.theme-harvard .home-step-card,
+html.theme-harvard .home-quick-card,
+html.theme-harvard .home-doc-card,
+html.theme-harvard .home-cta-panel,
+html.theme-harvard .doc-card,
+html.theme-harvard .journal-card,
+html.theme-harvard .library-filter-card,
+html.theme-harvard .library-empty-card,
+html.theme-harvard .concours-empty-card,
+html.theme-harvard .formation-card,
+html.theme-harvard .institution-panel,
+html.theme-harvard .emsp-register-card,
+html.theme-harvard .emsp-login-panel,
+html.theme-harvard .emsp-status-card,
+html.theme-harvard .emsp-auth-panel,
+html.theme-harvard .emsp-auth-note,
+html.theme-harvard .emsp-auth-success,
+html.theme-harvard .emsp-reset-panel,
+html.theme-harvard .emsp-reset-note {
+    opacity: 0;
+    animation: harvard-fade-up var(--motion-base-effective) var(--ease-harvard) both;
+    transition:
+        transform var(--motion-fast-effective) var(--ease-soft),
+        box-shadow var(--motion-fast-effective) var(--ease-soft),
+        border-color var(--motion-fast-effective) var(--ease-soft);
+}
+
+html.theme-harvard .home-quick-grid > [class*='col-']:nth-child(1) .home-step-card,
+html.theme-harvard .home-latest-grid > [class*='col-']:nth-child(1) .home-doc-card {
+    animation-delay: var(--stagger-a);
+}
+
+html.theme-harvard .home-quick-grid > [class*='col-']:nth-child(2) .home-step-card,
+html.theme-harvard .home-latest-grid > [class*='col-']:nth-child(2) .home-doc-card {
+    animation-delay: var(--stagger-b);
+}
+
+html.theme-harvard .home-quick-grid > [class*='col-']:nth-child(3) .home-step-card,
+html.theme-harvard .home-latest-grid > [class*='col-']:nth-child(3) .home-doc-card {
+    animation-delay: var(--stagger-c);
+}
+
+html.theme-harvard .home-step-card:hover,
+html.theme-harvard .home-quick-card:hover,
+html.theme-harvard .home-doc-card:hover,
+html.theme-harvard .doc-card:hover,
+html.theme-harvard .journal-card:hover,
+html.theme-harvard .formation-card:hover {
+    transform: translateY(var(--hover-lift-card));
+}
+
+html.theme-harvard .btn,
+html.theme-harvard .home-btn-primary,
+html.theme-harvard .home-btn-secondary,
+html.theme-harvard .home-doc-link,
+html.theme-harvard .doc-card-link {
+    transition:
+        transform var(--motion-fast-effective) var(--ease-soft),
+        background-color var(--motion-fast-effective) var(--ease-soft),
+        border-color var(--motion-fast-effective) var(--ease-soft),
+        color var(--motion-fast-effective) var(--ease-soft),
+        box-shadow var(--motion-fast-effective) var(--ease-soft);
+}
+
+html.theme-harvard .home-btn-primary:hover,
+html.theme-harvard .home-btn-secondary:hover,
+html.theme-harvard .btn:hover {
+    transform: translateY(var(--hover-lift-btn));
+}
+
+html.theme-harvard .home-section-head h2,
+html.theme-harvard .formations-section-head h2,
+html.theme-harvard .journal-section-title {
+    position: relative;
+}
+
+html.theme-harvard .home-section-head h2::after,
+html.theme-harvard .formations-section-head h2::after,
+html.theme-harvard .journal-section-title::after {
+    content: "";
+    display: block;
+    width: 66px;
+    height: 2px;
+    margin-top: .56rem;
+    transform-origin: left center;
+    background: rgba(0, 107, 60, 0.42);
+    animation: harvard-line-sweep var(--motion-slow-effective) var(--ease-soft) .14s both;
+}
+
+/* -----------------------------------------------------------
+   Motion Calibration By Page
+   ----------------------------------------------------------- */
+html.theme-harvard body.emsp-route-index,
+html.theme-harvard body.emsp-route-formations,
+html.theme-harvard body.emsp-route-institution,
+html.theme-harvard body.emsp-route-news-blog,
+html.theme-harvard body.emsp-route-news-article {
+    --motion-base-effective: .56s;
+    --motion-slow-effective: .8s;
+    --hover-lift-card: -5px;
+    --hover-lift-btn: -2px;
+    --stagger-a: .08s;
+    --stagger-b: .18s;
+    --stagger-c: .28s;
+}
+
+html.theme-harvard body.emsp-route-bibliotheque,
+html.theme-harvard body.emsp-route-document,
+html.theme-harvard body.emsp-route-dashboard,
+html.theme-harvard body.emsp-route-historique,
+html.theme-harvard body.emsp-route-mes-favoris,
+html.theme-harvard body.emsp-route-upload,
+html.theme-harvard body.emsp-route-mon-profil,
+html.theme-harvard body.emsp-route-profil-public,
+html.theme-harvard body.emsp-route-mediatheque {
+    --motion-fast-effective: .18s;
+    --motion-base-effective: .36s;
+    --motion-slow-effective: .52s;
+    --hover-lift-card: -2px;
+    --hover-lift-btn: -1px;
+    --stagger-a: .04s;
+    --stagger-b: .1s;
+    --stagger-c: .16s;
+}
+
+html.theme-harvard body.emsp-route-login,
+html.theme-harvard body.emsp-route-register,
+html.theme-harvard body.emsp-route-forgot-password,
+html.theme-harvard body.emsp-route-reset-password,
+html.theme-harvard body.emsp-route-pending-status,
+html.theme-harvard body.emsp-route-verify-email {
+    --motion-fast-effective: .16s;
+    --motion-base-effective: .3s;
+    --motion-slow-effective: .44s;
+    --hover-lift-card: 0px;
+    --hover-lift-btn: 0px;
+    --stagger-a: 0s;
+    --stagger-b: .05s;
+    --stagger-c: .1s;
+}
+
+html.theme-harvard body.emsp-route-login .home-step-card:hover,
+html.theme-harvard body.emsp-route-login .home-quick-card:hover,
+html.theme-harvard body.emsp-route-login .home-doc-card:hover,
+html.theme-harvard body.emsp-route-login .doc-card:hover,
+html.theme-harvard body.emsp-route-login .journal-card:hover,
+html.theme-harvard body.emsp-route-login .formation-card:hover,
+html.theme-harvard body.emsp-route-register .home-step-card:hover,
+html.theme-harvard body.emsp-route-register .home-quick-card:hover,
+html.theme-harvard body.emsp-route-register .home-doc-card:hover,
+html.theme-harvard body.emsp-route-register .doc-card:hover,
+html.theme-harvard body.emsp-route-register .journal-card:hover,
+html.theme-harvard body.emsp-route-register .formation-card:hover,
+html.theme-harvard body.emsp-route-forgot-password .home-step-card:hover,
+html.theme-harvard body.emsp-route-forgot-password .home-quick-card:hover,
+html.theme-harvard body.emsp-route-forgot-password .home-doc-card:hover,
+html.theme-harvard body.emsp-route-forgot-password .doc-card:hover,
+html.theme-harvard body.emsp-route-forgot-password .journal-card:hover,
+html.theme-harvard body.emsp-route-forgot-password .formation-card:hover,
+html.theme-harvard body.emsp-route-reset-password .home-step-card:hover,
+html.theme-harvard body.emsp-route-reset-password .home-quick-card:hover,
+html.theme-harvard body.emsp-route-reset-password .home-doc-card:hover,
+html.theme-harvard body.emsp-route-reset-password .doc-card:hover,
+html.theme-harvard body.emsp-route-reset-password .journal-card:hover,
+html.theme-harvard body.emsp-route-reset-password .formation-card:hover,
+html.theme-harvard body.emsp-route-pending-status .home-step-card:hover,
+html.theme-harvard body.emsp-route-pending-status .home-quick-card:hover,
+html.theme-harvard body.emsp-route-pending-status .home-doc-card:hover,
+html.theme-harvard body.emsp-route-pending-status .doc-card:hover,
+html.theme-harvard body.emsp-route-pending-status .journal-card:hover,
+html.theme-harvard body.emsp-route-pending-status .formation-card:hover,
+html.theme-harvard body.emsp-route-verify-email .home-step-card:hover,
+html.theme-harvard body.emsp-route-verify-email .home-quick-card:hover,
+html.theme-harvard body.emsp-route-verify-email .home-doc-card:hover,
+html.theme-harvard body.emsp-route-verify-email .doc-card:hover,
+html.theme-harvard body.emsp-route-verify-email .journal-card:hover,
+html.theme-harvard body.emsp-route-verify-email .formation-card:hover {
+    transform: none;
+}
+
+/* --- index.php : hero narratif + cadence Ã©ditoriale --- */
+html.theme-harvard body.emsp-route-index {
+    --motion-base-effective: .62s;
+    --motion-slow-effective: .88s;
+    --hover-lift-card: -6px;
+    --hover-lift-btn: -2px;
+    --stagger-a: .1s;
+    --stagger-b: .2s;
+    --stagger-c: .3s;
+}
+
+html.theme-harvard body.emsp-route-index .home-hero-shell {
+    animation-duration: .94s;
+}
+
+html.theme-harvard body.emsp-route-index .home-latest-grid > [class*='col-']:nth-child(4) .home-doc-card {
+    animation-delay: .38s;
+}
+
+html.theme-harvard body.emsp-route-index .home-latest-grid > [class*='col-']:nth-child(5) .home-doc-card {
+    animation-delay: .46s;
+}
+
+html.theme-harvard body.emsp-route-index .home-latest-grid > [class*='col-']:nth-child(6) .home-doc-card {
+    animation-delay: .54s;
+}
+
+/* --- bibliotheque.php : fluiditÃ© listes denses --- */
+html.theme-harvard body.emsp-route-bibliotheque {
+    --motion-fast-effective: .14s;
+    --motion-base-effective: .26s;
+    --motion-slow-effective: .4s;
+    --hover-lift-card: -1px;
+    --hover-lift-btn: 0px;
+    --stagger-a: .02s;
+    --stagger-b: .06s;
+    --stagger-c: .1s;
+}
+
+html.theme-harvard body.emsp-route-bibliotheque .doc-card,
+html.theme-harvard body.emsp-route-bibliotheque .library-filter-card,
+html.theme-harvard body.emsp-route-bibliotheque .library-empty-card,
+html.theme-harvard body.emsp-route-bibliotheque .emsp-doc-row-mobile {
+    opacity: 1;
+    animation: none;
+}
+
+html.theme-harvard body.emsp-route-bibliotheque .doc-card:hover {
+    transform: translateY(-1px);
+}
+
+/* --- document.php : prioritÃ© lecture/confort --- */
+html.theme-harvard body.emsp-route-document {
+    --motion-fast-effective: .14s;
+    --motion-base-effective: .28s;
+    --motion-slow-effective: .42s;
+    --hover-lift-card: 0px;
+    --hover-lift-btn: 0px;
+    --stagger-a: 0s;
+    --stagger-b: .04s;
+    --stagger-c: .08s;
+}
+
+html.theme-harvard body.emsp-route-document .viewer-card,
+html.theme-harvard body.emsp-route-document .desc-card,
+html.theme-harvard body.emsp-route-document .cmt-card,
+html.theme-harvard body.emsp-route-document .side-card {
+    opacity: 0;
+    animation: harvard-fade-up .28s var(--ease-soft) both;
+}
+
+html.theme-harvard body.emsp-route-document .viewer-card:hover,
+html.theme-harvard body.emsp-route-document .desc-card:hover,
+html.theme-harvard body.emsp-route-document .cmt-card:hover,
+html.theme-harvard body.emsp-route-document .side-card:hover,
+html.theme-harvard body.emsp-route-document .btn:hover {
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.theme-harvard *,
+    html.theme-harvard *::before,
+    html.theme-harvard *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* -----------------------------------------------------------
+   Responsive
+   ----------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    html.theme-harvard .emsp-navbar-wrap {
+        background: rgba(252, 248, 240, 0.98);
+    }
+
+    html.theme-harvard .emsp-brand-title {
+        font-size: 1.08rem;
+    }
+
+    html.theme-harvard .home-hero-shell {
+        background-position: 65% center;
+    }
+}
+
+@media (max-width: 767.98px) {
+    html.theme-harvard .home-step-card,
+    html.theme-harvard .home-quick-card,
+    html.theme-harvard .home-doc-card,
+    html.theme-harvard .home-cta-panel {
+        border-radius: 14px;
+    }
+}
+
+/* -----------------------------------------------------------
+   Harvard Model Lock (Closer to Harvard Core)
+   ----------------------------------------------------------- */
+html.theme-harvard {
+    --hv-core-crimson: #006B3C;
+    --hv-core-ink: #1e1e1e;
+    --hv-core-blackboard: #292c2f;
+    --hv-core-parchment: #f3f4f4;
+    --hv-core-grout: #e3e5e5;
+    --hv-core-slate: #8996a0;
+}
+
+html.theme-harvard body.theme-harvard {
+    background: var(--hv-core-parchment) !important;
+    color: var(--hv-core-ink) !important;
+}
+
+html.theme-harvard .emsp-topbar {
+    background: var(--hv-core-crimson) !important;
+    border-bottom: 0 !important;
+}
+
+html.theme-harvard .emsp-topbar-badge {
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+html.theme-harvard .emsp-navbar-wrap {
+    background: #fff !important;
+    border-bottom: 1px solid var(--hv-core-grout) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+html.theme-harvard .emsp-navbar .nav-link {
+    border: 0 !important;
+    background: transparent !important;
+    color: var(--hv-core-ink) !important;
+    position: relative;
+}
+
+html.theme-harvard .emsp-navbar .nav-link::after {
+    content: "";
+    position: absolute;
+    left: .55rem;
+    right: .55rem;
+    bottom: .3rem;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform .3s;
+    opacity: .72;
+}
+
+html.theme-harvard .emsp-navbar .nav-link:hover,
+html.theme-harvard .emsp-navbar .nav-link.active {
+    color: var(--hv-core-crimson) !important;
+}
+
+html.theme-harvard .emsp-navbar .nav-link:hover::after,
+html.theme-harvard .emsp-navbar .nav-link.active::after {
+    transform: scaleX(1);
+}
+
+html.theme-harvard .emsp-nav-dropdown-menu {
+    border: 1px solid var(--hv-core-grout) !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    background: #fff !important;
+}
+
+html.theme-harvard .emsp-nav-dropdown-menu .dropdown-item:hover,
+html.theme-harvard .emsp-nav-dropdown-menu .dropdown-item.active {
+    background: #f5f6f6 !important;
+    color: var(--hv-core-crimson) !important;
+}
+
+html.theme-harvard .btn,
+html.theme-harvard .home-btn-primary,
+html.theme-harvard .home-btn-secondary,
+html.theme-harvard .emsp-btn-signup,
+html.theme-harvard .emsp-btn-admin,
+html.theme-harvard .emsp-btn-deposit {
+    border-radius: 3px !important;
+    letter-spacing: 0 !important;
+}
+
+html.theme-harvard .home-hero-shell,
+html.theme-harvard .page-header,
+html.theme-harvard .doc-hero,
+html.theme-harvard .formations-hero,
+html.theme-harvard .institution-hero,
+html.theme-harvard .news-hero,
+html.theme-harvard .concours-header,
+html.theme-harvard .library-shell-header,
+html.theme-harvard .journal-shell-header {
+    border-radius: 4px !important;
+    border: 1px solid rgba(14, 14, 14, 0.14) !important;
+    box-shadow: none !important;
+}
+
+html.theme-harvard .home-step-card,
+html.theme-harvard .home-quick-card,
+html.theme-harvard .home-doc-card,
+html.theme-harvard .home-cta-panel,
+html.theme-harvard .doc-card,
+html.theme-harvard .journal-card,
+html.theme-harvard .library-filter-card,
+html.theme-harvard .library-empty-card,
+html.theme-harvard .concours-empty-card,
+html.theme-harvard .formation-card,
+html.theme-harvard .institution-panel,
+html.theme-harvard .institution-stat,
+html.theme-harvard .institution-quote,
+html.theme-harvard .emsp-login-panel,
+html.theme-harvard .emsp-register-card,
+html.theme-harvard .emsp-status-card {
+    border-radius: 4px !important;
+    border: 1px solid var(--hv-core-grout) !important;
+    box-shadow: none !important;
+    background: #fff !important;
+}
+
+html.theme-harvard .home-step-card:hover,
+html.theme-harvard .home-quick-card:hover,
+html.theme-harvard .home-doc-card:hover,
+html.theme-harvard .doc-card:hover,
+html.theme-harvard .journal-card:hover,
+html.theme-harvard .formation-card:hover {
+    box-shadow: 0 2px 6px rgba(14, 14, 14, 0.12) !important;
+}
+
+html.theme-harvard .home-eyebrow,
+html.theme-harvard .home-doc-thumb-type,
+html.theme-harvard .home-doc-thumb-new,
+html.theme-harvard .journal-type-badge,
+html.theme-harvard .formations-hero-pill,
+html.theme-harvard .formations-licence-pill {
+    letter-spacing: .05em !important;
+    text-transform: uppercase !important;
+}
+
+html.theme-harvard .home-section-head h2,
+html.theme-harvard .home-hero h1,
+html.theme-harvard .page-header h1,
+html.theme-harvard .doc-hero h1,
+html.theme-harvard .journal-section-title,
+html.theme-harvard .formations-section-head h2 {
+    color: var(--hv-core-ink) !important;
+    letter-spacing: -0.02em !important;
+}
+
+html.theme-harvard .home-section-head p,
+html.theme-harvard .home-hero p,
+html.theme-harvard .doc-hero-summary,
+html.theme-harvard .journal-card-excerpt,
+html.theme-harvard .formation-card-summary,
+html.theme-harvard .institution-panel p {
+    color: #656f77 !important;
+}
+
+html.theme-harvard .site-main > section + section {
+    border-top: 1px solid var(--hv-core-grout);
+}
+
+html.theme-harvard .table thead th {
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    font-size: .72rem;
+    color: #5d666d;
+}
+
+html.theme-harvard .emsp-footer {
+    background: var(--hv-core-blackboard) !important;
+    border-top: 4px solid var(--hv-core-crimson);
+}
+
+html.theme-harvard .emsp-mobile-bottom-nav {
+    background: #fff !important;
+    border-top: 1px solid var(--hv-core-grout) !important;
+    box-shadow: none !important;
+}
+
+/* -----------------------------------------------------------
+   Harvard Editorial Pass
+   Template cues sourced from harvard.edu master.min613e.css
+   ----------------------------------------------------------- */
+html.theme-harvard {
+    --hv-color-crimson: #006B3C;
+    --hv-color-ink: #1e1e1e;
+    --hv-color-parchment: #f3f4f4;
+    --hv-color-grout: #e3e5e5;
+    --hv-color-slate: #8996a0;
+    --hv-color-asphalt: #656f77;
+    --hv-overline-letter: 0.05em;
+    --hv-type-display: clamp(2.1rem, 2.8vw + 1rem, 3.8rem);
+    --hv-type-body: clamp(1.02rem, 0.24vw + 0.92rem, 1.125rem);
+    --hv-radius-soft: 8px;
+    --hv-shadow-soft: 0 2px 6px hsla(0, 0%, 8%, 0.1);
+    --hv-shadow-soft-hover: 0 4px 12px hsla(0, 0%, 8%, 0.15);
+}
+
+html.theme-harvard body.theme-harvard {
+    background: var(--hv-color-parchment);
+    color: var(--hv-color-ink);
+    font-size: var(--hv-type-body);
+    letter-spacing: -0.01em;
+}
+
+html.theme-harvard body.theme-harvard h1,
+html.theme-harvard body.theme-harvard h2,
+html.theme-harvard body.theme-harvard h3,
+html.theme-harvard body.theme-harvard h4 {
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+html.theme-harvard .home-section-head h2,
+html.theme-harvard .home-hero h1,
+html.theme-harvard .page-header h1,
+html.theme-harvard .doc-hero h1 {
+    font-size: var(--hv-type-display);
+}
+
+html.theme-harvard .home-eyebrow,
+html.theme-harvard .home-overline,
+html.theme-harvard .home-doc-thumb-type,
+html.theme-harvard .home-doc-thumb-new,
+html.theme-harvard .formations-hero-pill,
+html.theme-harvard .formations-licence-pill,
+html.theme-harvard .journal-type-badge,
+html.theme-harvard .emsp-login-trust-pill,
+html.theme-harvard .emsp-register-method-eyebrow {
+    letter-spacing: var(--hv-overline-letter) !important;
+    text-transform: uppercase !important;
+    font-size: 0.78rem !important;
+    font-family: var(--font-body) !important;
+}
+
+html.theme-harvard .site-main > section + section {
+    border-top: 1px solid var(--hv-color-grout);
+}
+
+html.theme-harvard .section-pad,
+html.theme-harvard .home-section {
+    padding-top: clamp(2.2rem, 3vw + 1.1rem, 4.5rem);
+    padding-bottom: clamp(2.2rem, 3vw + 1.1rem, 4.5rem);
+}
+
+html.theme-harvard .home-hero-shell,
+html.theme-harvard .doc-hero,
+html.theme-harvard .formations-hero,
+html.theme-harvard .institution-hero,
+html.theme-harvard .news-hero,
+html.theme-harvard .concours-header,
+html.theme-harvard .library-shell-header,
+html.theme-harvard .journal-shell-header {
+    border-radius: var(--hv-radius-soft) !important;
+    border: 1px solid rgba(14, 14, 14, 0.14) !important;
+    box-shadow: var(--hv-shadow-soft) !important;
+    background-blend-mode: multiply;
+}
+
+html.theme-harvard .home-step-card,
+html.theme-harvard .home-quick-card,
+html.theme-harvard .home-doc-card,
+html.theme-harvard .home-cta-panel,
+html.theme-harvard .doc-card,
+html.theme-harvard .journal-card,
+html.theme-harvard .library-filter-card,
+html.theme-harvard .library-empty-card,
+html.theme-harvard .concours-empty-card,
+html.theme-harvard .formation-card,
+html.theme-harvard .institution-panel,
+html.theme-harvard .institution-stat,
+html.theme-harvard .institution-quote {
+    border-radius: var(--hv-radius-soft) !important;
+    box-shadow: var(--hv-shadow-soft) !important;
+}
+
+html.theme-harvard .home-step-card:hover,
+html.theme-harvard .home-quick-card:hover,
+html.theme-harvard .home-doc-card:hover,
+html.theme-harvard .doc-card:hover,
+html.theme-harvard .journal-card:hover,
+html.theme-harvard .formation-card:hover {
+    box-shadow: var(--hv-shadow-soft-hover) !important;
+}
+
+html.theme-harvard .btn,
+html.theme-harvard .home-btn-primary,
+html.theme-harvard .home-btn-secondary {
+    border-radius: 4px !important;
+    font-family: var(--font-body);
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+html.theme-harvard .site-main a:not(.btn):not(.home-btn-primary):not(.home-btn-secondary):not(.home-doc-link):not(.dropdown-item):not(.nav-link):not(.emsp-mobile-bottom-nav__item) {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 1px;
+    transition: background-size .3s;
+}
+
+html.theme-harvard .site-main a:not(.btn):not(.home-btn-primary):not(.home-btn-secondary):not(.home-doc-link):not(.dropdown-item):not(.nav-link):not(.emsp-mobile-bottom-nav__item):hover {
+    background-size: 100% 1px;
+}
+
+html.theme-harvard .home-doc-link,
+html.theme-harvard .journal-card-link,
+html.theme-harvard .formations-tronc-link {
+    font-family: var(--font-body);
+    font-weight: 500;
+}
+
+html.theme-harvard .home-section-head p,
+html.theme-harvard .home-hero p,
+html.theme-harvard .doc-hero-summary,
+html.theme-harvard .formations-panel p,
+html.theme-harvard .institution-panel p,
+html.theme-harvard .journal-card-excerpt {
+    color: var(--hv-color-asphalt) !important;
+    max-width: 64ch;
+}
+
+html.theme-harvard .table thead th {
+    text-transform: uppercase;
+    letter-spacing: var(--hv-overline-letter);
+    font-size: .72rem;
+    color: #5d666d;
+}
+
+@media (max-width: 991.98px) {
+    html.theme-harvard .site-main > section + section {
+        border-top-color: rgba(137, 150, 160, 0.28);
+    }
+}
+
+/* -----------------------------------------------------------
+   Harvard Native Motion Bridge
+   Same motion primitives as harvard.edu (an-will-animate)
+   ----------------------------------------------------------- */
+html.theme-harvard {
+    --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+    --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+    --transition: all 0.15s ease-in-out;
+    --transition-style: 0.3s ease;
+    --transition-opacity: opacity 0.3s ease;
+    --transition-ease-in-opacity: opacity 0.25s 0.3s ease-in;
+    --transition-ease-out-opacity: opacity 0.25s ease-out;
+    --an-slide-up-fast: cubic-bezier(0.4, 0, 0.2, 1) 500ms an-slide-up;
+    --an-slide-up: cubic-bezier(0.4, 0, 0.2, 1) 1s an-slide-up;
+    --an-slide-up-slow: cubic-bezier(0.4, 0, 0.2, 1) 1.5s an-slide-up;
+    --an-slide-right: cubic-bezier(0.4, 0, 0.2, 1) 1.5s an-slide-right;
+    --an-fade-in: cubic-bezier(0.4, 0, 0.2, 1) 1s an-fade-in;
+    --an-fade-out: cubic-bezier(0.4, 0, 0.2, 1) 1s an-fade-out;
+}
+
+@keyframes an-slide-up {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 20%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
+@keyframes an-slide-right {
+    0% {
+        opacity: 0;
+        transform: translate3d(-20%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
+@keyframes an-fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes an-fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+html.theme-harvard .a-line-animation {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 1px;
+    position: relative;
+    transition: background-size 0.3s;
+}
+
+html.theme-harvard .a-line-animation:hover {
+    background-size: 100% 1px;
+}
+
+html.theme-harvard .a-line-animation-active,
+html.theme-harvard .a-line-animation-active:hover {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    position: relative;
+    transition: background-size 0.3s;
+}
+
+html.theme-harvard .an-will-animate {
+    opacity: 0.01;
+    transform: translateY(120px);
+    transition:
+        opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.1s;
+    will-change: opacity, transform;
+}
+
+html.theme-harvard .an-will-animate:nth-child(2) { transition-delay: 0.25s; }
+html.theme-harvard .an-will-animate:nth-child(3) { transition-delay: 0.4s; }
+html.theme-harvard .an-will-animate:nth-child(4) { transition-delay: 0.5s; }
+html.theme-harvard .an-will-animate:nth-child(5) { transition-delay: 0.6s; }
+html.theme-harvard .an-will-animate:nth-child(6) { transition-delay: 0.7s; }
+html.theme-harvard .an-will-animate:nth-child(7) { transition-delay: 0.8s; }
+html.theme-harvard .an-will-animate:nth-child(8) { transition-delay: 0.9s; }
+html.theme-harvard .an-will-animate:nth-child(9) { transition-delay: 1s; }
+html.theme-harvard .an-will-animate:nth-child(10) { transition-delay: 1.1s; }
+
+html.theme-harvard .an-will-animate:not(.an-no-animate).an-was-on-viewport {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (min-width: 960px) {
+    html.theme-harvard .an-will-animate.an-will-animate--left {
+        transform: translateX(-120px);
+    }
+
+    html.theme-harvard .an-will-animate.an-will-animate--left.an-was-on-viewport {
+        transform: translateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.theme-harvard .a-line-animation,
+    html.theme-harvard .a-line-animation-active,
+    html.theme-harvard .an-will-animate {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    html.theme-harvard .an-will-animate {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+

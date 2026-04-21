@@ -1,0 +1,23 @@
+.section-chip {
+    display: inline-block;
+    border-radius: 999px;
+    border: 1px solid #d7e3ef;
+    background: #fff;
+    color: #244f74;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 0.85rem;
+}
+
+.doc-meta {
+    font-size: 0.9rem;
+    color: #58687b;
+}
+
+.min-h-100 {
+    min-height: 100%;
+}
+
+
+

@@ -1,0 +1,17 @@
+{
+  "name": "emsp_docs",
+  "version": "1.0.0",
+  "description": "1. `git clone <repo>` 2. `cp .env.example .env` 3. Editer `.env` avec les valeurs de production 4. `composer install`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.59.1"
+  }
+}
+
+

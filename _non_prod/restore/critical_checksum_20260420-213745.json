@@ -1,0 +1,74 @@
+﻿[
+    {
+        "file":  "assets\\\\css\\\\emsp-theme-harvard.css",
+        "match":  false
+    },
+    {
+        "file":  "assets\\\\css\\\\emsp-theme.css",
+        "match":  false
+    },
+    {
+        "file":  "assets\\\\css\\\\emsp-palette-guard.css",
+        "match":  false
+    },
+    {
+        "file":  "assets\\\\css\\\\emsp-phase-pages.css",
+        "match":  false
+    },
+    {
+        "file":  "assets\\\\css\\\\emsp-fixes.css",
+        "match":  false
+    },
+    {
+        "file":  "assets\\\\js\\\\emsp-experience-upgrade.js",
+        "match":  false
+    },
+    {
+        "file":  "assets\\\\js\\\\emsp-fixes.js",
+        "match":  false
+    },
+    {
+        "file":  "assets\\\\js\\\\emsp-harvard-motion.js",
+        "match":  false
+    },
+    {
+        "file":  "assets\\\\js\\\\emsp-ui.js",
+        "match":  false
+    },
+    {
+        "file":  "index.php",
+        "match":  false
+    },
+    {
+        "file":  "bibliotheque.php",
+        "match":  false
+    },
+    {
+        "file":  "mediatheque.php",
+        "match":  false
+    },
+    {
+        "file":  "document.php",
+        "match":  false
+    },
+    {
+        "file":  "formations.php",
+        "match":  false
+    },
+    {
+        "file":  "historique.php",
+        "match":  false
+    },
+    {
+        "file":  "news-blog.php",
+        "match":  false
+    },
+    {
+        "file":  "news-article.php",
+        "match":  false
+    },
+    {
+        "file":  "includes\\\\navbar.php",
+        "match":  false
+    }
+]

@@ -1,0 +1,407 @@
+/* ============================================================
+   EMSP Admin Variant 2 - Harvard Minimal Premium
+   Loaded last for final admin polish.
+   ============================================================ */
+
+html.theme-harvard body.theme-harvard.bg-body {
+    background:
+        radial-gradient(circle at 96% -10%, rgba(245, 168, 0, 0.12), transparent 28%),
+        radial-gradient(circle at 0% -8%, rgba(0, 107, 60, 0.11), transparent 26%),
+        linear-gradient(180deg, #F4F4F4 0%, #F4F4F4 100%) !important;
+    color: var(--color-text) !important;
+    font-family: var(--font-sans) !important;
+}
+
+html.theme-harvard #miniSidebar {
+    background: linear-gradient(180deg, #004d2a 0%, #006b3c 64%, #004D2A 100%) !important;
+    border-right: 1px solid rgba(245, 168, 0, 0.26);
+}
+
+html.theme-harvard #miniSidebar .nav-link {
+    min-height: 46px;
+    font-size: 16px;
+}
+
+html.theme-harvard #miniSidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.theme-harvard #miniSidebar .nav-link.active {
+    background: rgba(245, 168, 0, 0.18) !important;
+    border-left-color: var(--color-accent) !important;
+}
+
+html.theme-harvard .navbar-glass {
+    background: linear-gradient(180deg, #ffffff 0%, #FFFFFF 100%) !important;
+    border-bottom: 3px solid var(--color-accent) !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.11) !important;
+}
+
+html.theme-harvard #main-content .card,
+html.theme-harvard #main-content .dark-card,
+html.theme-harvard #main-content .sb-card,
+html.theme-harvard #main-content .stat-card,
+html.theme-harvard #main-content .emsp-admin-mobile-card {
+    border-color: rgba(0, 107, 60, 0.16) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+    background: #fff !important;
+}
+
+html.theme-harvard #main-content :is(h1, h2) {
+    font-family: var(--font-serif) !important;
+    letter-spacing: 0.2px;
+}
+
+html.theme-harvard .admin-overview-hero,
+html.theme-harvard .admin-stats-hero {
+    border-radius: 10px !important;
+    border: 1px solid rgba(245, 168, 0, 0.3) !important;
+    background: linear-gradient(140deg, rgba(0, 77, 42, 0.92) 0%, rgba(0, 107, 60, 0.86) 52%, rgba(0, 0, 0, 0.3) 100%) !important;
+}
+
+html.theme-harvard .admin-kpi-card::before,
+html.theme-harvard .admin-stats-card::before,
+html.theme-harvard .stat-card::before {
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%) !important;
+}
+
+html.theme-harvard #main-content .btn.btn-primary,
+html.theme-harvard #main-content .btn-sb-primary,
+html.theme-harvard #main-content .btn.btn-danger,
+html.theme-harvard #main-content .badge.bg-danger,
+html.theme-harvard #main-content .bg-danger,
+html.theme-harvard #main-content .text-danger:not(.invalid-feedback):not(.form-error):not(.emsp-error-message) {
+    background: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+    color: var(--color-text) !important;
+}
+
+html.theme-harvard #main-content .btn.btn-primary:hover,
+html.theme-harvard #main-content .btn-sb-primary:hover,
+html.theme-harvard #main-content .btn.btn-danger:hover {
+    background: var(--color-accent-dark) !important;
+    border-color: var(--color-accent-dark) !important;
+    color: var(--color-text) !important;
+}
+
+html.theme-harvard #main-content .btn-outline-danger {
+    background: #fff !important;
+    border-color: rgba(0, 107, 60, 0.34) !important;
+    color: var(--color-primary-dark) !important;
+}
+
+html.theme-harvard #main-content .btn-outline-danger:hover {
+    background: var(--color-primary-light) !important;
+}
+
+html.theme-harvard #main-content .table thead th,
+html.theme-harvard #main-content .table-emsp-dark thead th,
+html.theme-harvard #main-content .sb-table thead th {
+    background: var(--color-primary) !important;
+    color: #fff !important;
+}
+
+html.theme-harvard #main-content .table tbody tr:hover,
+html.theme-harvard #main-content .table-emsp-dark tbody tr:hover,
+html.theme-harvard #main-content .sb-table tbody tr:hover {
+    background: var(--color-primary-light) !important;
+}
+
+html.theme-harvard .pagination .page-link {
+    min-width: 44px;
+    min-height: 44px;
+    border-color: rgba(0, 107, 60, 0.28) !important;
+    color: var(--color-primary-dark) !important;
+}
+
+html.theme-harvard .pagination .page-item.active .page-link {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #fff !important;
+}
+
+html.theme-harvard #main-content :is(small, .small, .text-muted, .form-text, .badge) {
+    font-size: 13px !important;
+}
+
+html.theme-harvard #main-content {
+    overflow-x: hidden;
+    word-break: break-word;
+}
+
+html.theme-harvard #main-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 991.98px) {
+    html.theme-harvard #miniSidebar {
+        width: min(85vw, 320px) !important;
+        max-width: min(85vw, 320px) !important;
+    }
+}
+
+/* Final tone balance: less flat green, more premium editorial depth */
+html.theme-harvard #miniSidebar {
+    background: linear-gradient(180deg, #0f2a1d 0%, #0f3c28 58%, #0b1f16 100%) !important;
+}
+
+html.theme-harvard .admin-overview-hero,
+html.theme-harvard .admin-stats-hero {
+    background:
+        radial-gradient(circle at 88% 8%, rgba(245, 168, 0, 0.18), transparent 32%),
+        linear-gradient(140deg, rgba(15, 42, 29, 0.95) 0%, rgba(14, 63, 42, 0.9) 50%, rgba(0, 0, 0, 0.45) 100%) !important;
+}
+
+/* ==========================================================
+   Admin immersive shell refresh
+   ========================================================== */
+
+html.theme-harvard.expanded #miniSidebar {
+    width: 272px !important;
+}
+
+html.theme-harvard.collapsed #miniSidebar {
+    width: 86px !important;
+}
+
+html.theme-harvard.expanded #admin-content {
+    margin-left: 272px !important;
+}
+
+html.theme-harvard.collapsed #admin-content {
+    margin-left: 86px !important;
+}
+
+html.theme-harvard.expanded .navbar-glass {
+    width: calc(100% - 272px) !important;
+    margin-left: 272px !important;
+}
+
+html.theme-harvard.collapsed .navbar-glass {
+    width: calc(100% - 86px) !important;
+    margin-left: 86px !important;
+}
+
+html.theme-harvard #miniSidebar {
+    background:
+        radial-gradient(circle at 90% -4%, rgba(245, 168, 0, 0.16), transparent 36%),
+        linear-gradient(180deg, #0f2a1d 0%, #0f3c28 56%, #0b1f16 100%) !important;
+    border-right: 1px solid rgba(245, 168, 0, 0.24);
+    overflow: hidden;
+}
+
+html.theme-harvard .admin-sidebar-shell {
+    display: grid;
+    grid-template-rows: auto auto auto 1fr auto;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+html.theme-harvard .admin-role-pill {
+    margin-left: auto;
+    min-height: 22px;
+    min-width: 46px;
+    padding: 0 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(245, 168, 0, 0.18);
+    border: 1px solid rgba(245, 168, 0, 0.46);
+    color: #f9d27a;
+}
+
+html.theme-harvard .admin-sidebar-search {
+    display: grid;
+    grid-template-columns: 16px minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    min-height: 40px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0 12px;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+html.theme-harvard .admin-sidebar-search input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+}
+
+html.theme-harvard .admin-sidebar-search input::placeholder {
+    color: rgba(255, 255, 255, 0.66);
+}
+
+html.theme-harvard .admin-sidebar-nav {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 2px 0 8px;
+}
+
+html.theme-harvard .admin-nav-section {
+    padding: 0 8px;
+}
+
+html.theme-harvard .admin-nav-section-toggle {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 34px;
+    padding: 0 8px;
+    margin-top: 8px;
+}
+
+html.theme-harvard .admin-nav-section-toggle .nav-heading {
+    margin: 0;
+}
+
+html.theme-harvard .admin-nav-section-toggle i {
+    transition: transform var(--transition);
+    font-size: 13px;
+}
+
+html.theme-harvard .admin-nav-section.is-open .admin-nav-section-toggle i {
+    transform: rotate(180deg);
+}
+
+html.theme-harvard .admin-nav-section-body {
+    display: grid;
+    gap: 2px;
+    max-height: 600px;
+    overflow: hidden;
+    transition: max-height 0.26s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.theme-harvard .admin-nav-section:not(.is-open) .admin-nav-section-body {
+    max-height: 0;
+    opacity: 0;
+}
+
+html.theme-harvard #miniSidebar .nav-link {
+    margin: 0 2px;
+    min-height: 44px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+}
+
+html.theme-harvard #miniSidebar .nav-link .icon-size {
+    font-size: 16px;
+}
+
+html.theme-harvard #miniSidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.09) !important;
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+html.theme-harvard #miniSidebar .nav-link.active {
+    background: linear-gradient(90deg, rgba(245, 168, 0, 0.2), rgba(245, 168, 0, 0.08)) !important;
+    border-left: 3px solid var(--color-accent) !important;
+    border-color: rgba(245, 168, 0, 0.24) !important;
+}
+
+html.theme-harvard .emsp-admin-count,
+html.theme-harvard .emsp-admin-pill-count {
+    min-height: 22px;
+    min-width: 22px;
+    padding: 0 7px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    background: var(--color-accent) !important;
+    color: #1a1a1a !important;
+    border: 0 !important;
+}
+
+html.theme-harvard .admin-sidebar-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: 6px;
+}
+
+html.theme-harvard .admin-sidebar-footer .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+html.theme-harvard.collapsed .admin-brand-copy,
+html.theme-harvard.collapsed .admin-user-meta,
+html.theme-harvard.collapsed .admin-role-pill,
+html.theme-harvard.collapsed .admin-sidebar-search,
+html.theme-harvard.collapsed .admin-nav-section-toggle {
+    display: none !important;
+}
+
+html.theme-harvard.collapsed #miniSidebar .admin-user-card {
+    justify-content: center;
+    padding: 0.52rem;
+}
+
+html.theme-harvard.collapsed #miniSidebar .nav-link {
+    justify-content: center;
+    padding-left: 0.55rem;
+    padding-right: 0.55rem;
+}
+
+html.theme-harvard.collapsed #miniSidebar .nav-link .text,
+html.theme-harvard.collapsed #miniSidebar .nav-link .emsp-admin-count {
+    display: none !important;
+}
+
+html.theme-harvard .navbar-glass {
+    background:
+        radial-gradient(circle at 92% -180%, rgba(245, 168, 0, 0.25), transparent 40%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.96)) !important;
+}
+
+html.theme-harvard .navbar-glass.is-scrolled {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14) !important;
+}
+
+html.theme-harvard .admin-topbar-subtext {
+    margin-top: 1px;
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+@media (max-width: 991.98px) {
+    html.theme-harvard #admin-content {
+        margin-left: 0 !important;
+    }
+
+    html.theme-harvard .navbar-glass {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    html.theme-harvard #miniSidebar {
+        width: min(85vw, 320px) !important;
+        max-width: min(85vw, 320px) !important;
+    }
+
+    html.theme-harvard .admin-sidebar-shell {
+        min-height: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.theme-harvard .admin-nav-section-body,
+    html.theme-harvard .admin-nav-section-toggle i {
+        transition: none !important;
+    }
+}
+
+

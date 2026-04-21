@@ -1,0 +1,774 @@
+/* ============================================================
+   EMSP FIXES - Global visual fixes for ProFreeHost
+   Load after all other CSS files
+   ============================================================ */
+
+/* ============================================================
+   ProFreeHost / InfinityFree banner compensation
+   - JS sets --profreehost-banner-height only when a FIXED banner
+     is detected (to avoid adding empty space locally).
+   ============================================================ */
+:root {
+    --profreehost-banner-height: 0px;
+    --navbar-height: 60px;
+    --total-top-offset: calc(var(--navbar-height, 0px) + var(--profreehost-banner-height, 0px));
+}
+
+html.emsp-host-banner-fixed body {
+    padding-top: var(--profreehost-banner-height, 0px);
+}
+
+html.emsp-host-banner-fixed .emsp-navbar,
+html.emsp-host-banner-fixed #emsp-navbar,
+html.emsp-host-banner-fixed nav.navbar.fixed-top,
+html.emsp-host-banner-fixed .navbar.fixed-top,
+html.emsp-host-banner-fixed .navbar-glass {
+    top: var(--profreehost-banner-height, 0px) !important;
+}
+
+/* Universal reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    scroll-padding-top: var(--total-top-offset, 120px);
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-accent, #F5A800);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+.emsp-skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    transform: translateY(-140%);
+    background: var(--color-accent, #F5A800);
+    color: var(--color-text, #1A1A1A);
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 12000;
+    transition: transform .25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.emsp-skip-link:focus-visible {
+    transform: translateY(0);
+}
+
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+iframe,
+canvas,
+svg,
+video,
+pre {
+    max-width: 100%;
+}
+
+/* Tables responsive */
+.table-responsive-auto {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+table {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Long text */
+p, h1, h2, h3, h4, h5, h6,
+.card-title, .doc-title, .stat-label {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+/* Cards */
+.card, .emsp-card, .dark-card, .sb-card,
+.doc-card, .stat-card {
+    overflow: hidden;
+    min-width: 0;
+}
+
+/* Text truncate utilities */
+.text-truncate-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.text-truncate-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.text-truncate-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* iOS input font-size */
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="search"],
+    input[type="number"],
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Buttons - touch size */
+@media (max-width: 768px) {
+    .btn, button, a.btn, .navbar-toggler, [role="button"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Modals with banner offset */
+.modal {
+    padding-top: var(--profreehost-banner-height, 0) !important;
+}
+.modal-dialog {
+    margin-top: max(1.75rem, var(--profreehost-banner-height, 0));
+}
+
+/* Dropdown z-index */
+.dropdown-menu { z-index: 1050; }
+.emsp-navbar { z-index: 1030; }
+.navbar-glass { z-index: 1034; }
+.modal-backdrop { z-index: 1040; }
+.modal { z-index: 1055; }
+
+/* Chart.js responsive */
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+}
+.chart-wrapper canvas {
+    max-width: 100%;
+}
+
+/* Quill editor responsive */
+.ql-toolbar {
+    flex-wrap: wrap !important;
+}
+.ql-container {
+    font-size: 14px;
+}
+.ql-editor img {
+    max-width: 100% !important;
+}
+
+/* Navbar responsive â€” Ã©viter tout dÃ©bordement (sans changer le positionnement) */
+.navbar,
+.emsp-navbar,
+.navbar-glass {
+    width: 100%;
+    max-width: 100vw;
+}
+.emsp-navbar,
+.navbar-glass {
+    overflow: visible; /* dropdowns */
+}
+.emsp-navbar .container,
+.emsp-navbar .container-fluid,
+.navbar-glass .container,
+.navbar-glass .container-fluid {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+@media (max-width: 991px) {
+    .emsp-navbar .navbar-collapse {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    .emsp-navbar .navbar-nav {
+        padding: 0.5rem 0;
+    }
+}
+
+/* Bibliotheque thumbs */
+.doc-thumb {
+    height: 180px;
+}
+.doc-thumb img,
+.doc-thumb canvas,
+.doc-thumb .thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Admin sidebar responsive */
+@media (max-width: 991px) {
+    #admin-wrapper,
+    #admin-content {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+    #admin-topbar {
+        left: 0 !important;
+        right: 0 !important;
+    }
+}
+
+/* Admin sidebar overlay */
+#sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 1040;
+}
+#sidebar-overlay.active { display: block; }
+
+/* Banners */
+.emsp-banner,
+.site-banner {
+    max-width: 100vw;
+    overflow: hidden;
+}
+.emsp-banner .banner-text,
+.site-banner .banner-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Flash messages */
+.flash-message,
+.alert-floating,
+#flash-container {
+    position: fixed;
+    top: calc(var(--total-top-offset, 70px) + 10px);
+    right: 1rem;
+    z-index: 1060;
+    max-width: calc(100vw - 2rem);
+}
+
+/* === FIXES RESPONSIVE MOBILE â€” includes/navbar.php === */
+
+@media (max-width: 767.98px) {
+    /* FIX: masquer la topbar non essentielle sur mobile */
+    .emsp-topbar {
+        display: none !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    /* FIX: garantir une marge latÃ©rale minimale de 12px */
+    .emsp-navbar .container,
+    .emsp-nav-search-mobile.container {
+        padding-left: .75rem !important;
+        padding-right: .75rem !important;
+    }
+}
+
+@media (pointer: coarse) {
+    /* FIX: neutraliser les effets hover-only sur tactile */
+    .emsp-navbar .nav-link,
+    .emsp-icon-btn,
+    .emsp-avatar-btn,
+    .emsp-mobile-links a,
+    .select2-results__option,
+    .swal2-styled {
+        -webkit-tap-highlight-color: rgba(26, 60, 110, 0.12);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    /* FIX: dÃ©sactiver les transitions et animations */
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* === FIXES RESPONSIVE MOBILE â€” bibliotheque.php === */
+
+@media (max-width: 767.98px) {
+    .swal2-container {
+        padding: .75rem !important;
+    }
+
+    .emsp-swal-popup.swal2-popup,
+    .emsp-swal-toast.swal2-popup {
+        width: min(100%, 32rem) !important;
+    }
+
+    .select2-results__option {
+        padding-top: .9rem;
+        padding-bottom: .9rem;
+    }
+
+    /* FIX: rendre les pills de type scrollables au toucher sur mobile */
+    .doc-type-pills {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: .15rem;
+    }
+
+    .doc-type-pills::-webkit-scrollbar {
+        display: none;
+    }
+
+    .doc-type-pills .btn {
+        flex: 0 0 auto;
+        min-height: 44px;
+        white-space: nowrap;
+    }
+}
+
+@media (pointer: coarse) {
+    /* FIX: rendre l'overlay des cartes document lisible sans hover sur tactile */
+    .doc-thumb .thumb-overlay {
+        transform: translateY(0) !important;
+        background: linear-gradient(to top, rgba(10,20,50,.88) 0%, rgba(10,20,50,.52) 44%, rgba(10,20,50,.10) 100%);
+    }
+
+    .doc-thumb .overlay-title,
+    .doc-thumb .overlay-meta,
+    .doc-thumb .overlay-btn {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .doc-thumb .overlay-meta {
+        flex-wrap: wrap;
+        align-items: flex-end;
+    }
+
+    .doc-thumb .overlay-btn {
+        min-height: 44px;
+        padding: .45rem .95rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    /* FIX: garder la carte filtre confortable et lisible sur 360-390px */
+    .doc-type-pills {
+        margin-inline: -.125rem;
+        padding-inline: .125rem;
+    }
+
+    .doc-thumb .thumb-overlay {
+        padding: .75rem;
+    }
+
+    .doc-thumb .overlay-title {
+        font-size: .78rem;
+    }
+
+    .doc-thumb .overlay-meta {
+        font-size: .7rem;
+        gap: .3rem;
+    }
+}
+
+/* FIX: rendre l'overlay accessible au focus clavier */
+.doc-card:focus-within .thumb-overlay {
+    transform: translateY(0);
+}
+
+.doc-card:focus-within .overlay-title,
+.doc-card:focus-within .overlay-meta,
+.doc-card:focus-within .overlay-btn {
+    opacity: 1;
+    transform: none;
+}
+
+/* Maintenance: emsp-fixes.css only carries responsive/accessibility overrides on top of emsp-theme.css. */
+@media (max-width: 767.98px) {
+    .doc-card-wrap[class*="col-"],
+    .doc-card-wrap {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    body.emsp-mobile-bottom-nav-enabled .site-main {
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+/* PWA install banner */
+.emsp-install-banner {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    z-index: 1065;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    padding: .75rem .9rem;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: var(--shadow-md);
+}
+.emsp-install-banner.is-visible {
+    display: flex;
+}
+.emsp-install-banner-content {
+    display: grid;
+    gap: .2rem;
+    min-width: 0;
+}
+.emsp-install-banner-content span {
+    color: var(--color-text-secondary);
+    font-size: .86rem;
+}
+.emsp-install-banner-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    white-space: nowrap;
+}
+
+/* PWA bottom nav (shown only in installed app mode) */
+.pwa-bottom-nav {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1055;
+    height: 60px;
+    padding: .35rem .6rem calc(.35rem + env(safe-area-inset-bottom, 0px));
+    background: #fff;
+    border-top: .5px solid #E0E0E0;
+    align-items: center;
+    justify-content: space-around;
+}
+.pwa-bottom-nav-link {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .15rem;
+    color: #495057;
+    text-decoration: none;
+    font-size: .72rem;
+    font-weight: 600;
+}
+.pwa-bottom-nav-link i {
+    font-size: 1rem;
+}
+.pwa-bottom-nav-link.is-active {
+    color: var(--color-primary);
+}
+@media (display-mode: standalone) {
+    .pwa-bottom-nav {
+        display: flex;
+    }
+    .emsp-install-banner {
+        display: none !important;
+    }
+    .site-main {
+        padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    }
+}
+@media (max-width: 575.98px) {
+    .emsp-install-banner {
+        left: .65rem;
+        right: .65rem;
+    }
+    .emsp-install-banner {
+        flex-wrap: wrap;
+    }
+    .emsp-install-banner-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+/* Home featured documents */
+html.theme-harvard .home-vitrine-featured-docs .home-vitrine-card {
+    border-top: 3px solid rgba(245, 168, 0, 0.82);
+}
+html.theme-harvard .home-vitrine-featured-docs .home-vitrine-kicker {
+    background: rgba(0, 107, 60, 0.1);
+    color: var(--color-primary);
+    border-radius: 999px;
+    display: inline-flex;
+    padding: .25rem .65rem;
+    font-size: .72rem;
+    font-weight: 700;
+}
+html.theme-harvard .home-vitrine-featured-docs .home-vitrine-card h3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+html.theme-harvard .home-vitrine-featured-docs .home-vitrine-card p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Document stats coherence */
+html.theme-harvard body.emsp-route-document .stats-bar .stat-item {
+    min-height: 32px;
+    padding: .28rem .7rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 107, 60, 0.18);
+    background: #fff;
+    color: #495057;
+}
+html.theme-harvard body.emsp-route-document .stats-bar .stat-item i {
+    color: var(--color-primary);
+}
+html.theme-harvard body.emsp-route-document .stats-bar #lk-error.stat-item {
+    border-color: rgba(220, 53, 69, 0.24);
+    color: #b02a37;
+}
+
+/* ============================================================
+   PWA Bottom Navigation — visible uniquement en mode standalone
+   ============================================================ */
+
+.pwa-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #ffffff;
+    border-top: 1px solid #E0E0E0;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* N'afficher la bottom nav QUE dans l'app installée */
+@media (display-mode: standalone) {
+    .pwa-bottom-nav {
+        display: flex;
+    }
+    /* Éviter que le contenu passe sous la barre */
+    body {
+        padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+.pwa-bottom-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex: 1;
+    padding: 6px 0;
+    color: #6B6B6B;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: var(--font-sans, 'Lato', sans-serif);
+    transition: color 0.2s ease;
+    min-height: 44px; /* touch target minimum */
+}
+
+.pwa-bottom-nav-link i {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.pwa-bottom-nav-link:hover {
+    color: #006B3C;
+}
+
+.pwa-bottom-nav-link.is-active {
+    color: #006B3C;
+}
+
+.pwa-bottom-nav-link.is-active i {
+    color: #F5A800;
+}
+
+/* Bouton central dépôt — mis en avant */
+.pwa-bottom-nav-link.pwa-nav-upload {
+    background: #F5A800;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    margin-top: -14px;
+    box-shadow: 0 4px 16px rgba(245, 168, 0, 0.4);
+    color: #1A1A1A;
+    flex: 0 0 48px;
+    padding: 0;
+    font-size: 0; /* cacher le label texte */
+}
+
+.pwa-bottom-nav-link.pwa-nav-upload i {
+    font-size: 22px;
+    color: #1A1A1A;
+}
+
+.pwa-bottom-nav-link.pwa-nav-upload:hover {
+    background: #D4900A;
+    color: #1A1A1A;
+}
+
+/* Bannière d'installation PWA */
+.emsp-install-banner {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #006B3C;
+    color: #fff;
+    border-radius: 50px;
+    padding: 12px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    align-items: center;
+    gap: 12px;
+    max-width: calc(100vw - 32px);
+    white-space: nowrap;
+}
+
+.emsp-install-banner.is-visible {
+    display: flex;
+}
+
+.emsp-install-banner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.emsp-install-banner-content strong {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.emsp-install-banner-content span {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.emsp-install-banner-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .emsp-install-banner {
+        bottom: 80px; /* au-dessus de la bottom nav */
+        border-radius: 12px;
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+        white-space: normal;
+    }
+}
+
+/* Correction badge hover dans les cards bibliothèque */
+.doc-card:hover .thumb-badge-type {
+    transform: scale(calc(1 / 1.06));
+    transition: transform 0.35s ease;
+}
+
+/* Stat pills cohérentes (likes / téléchargements / commentaires) */
+.emsp-stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1.5px solid;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+    text-decoration: none;
+}
+
+.emsp-stat-pill.likes {
+    border-color: #F5A800;
+    color: #F5A800;
+}
+
+.emsp-stat-pill.likes:hover,
+.emsp-stat-pill.likes.active {
+    background: #F5A800;
+    color: #1A1A1A;
+}
+
+.emsp-stat-pill.downloads {
+    border-color: #006B3C;
+    color: #006B3C;
+}
+
+.emsp-stat-pill.downloads:hover {
+    background: #006B3C;
+    color: #ffffff;
+}
+
+.emsp-stat-pill.comments {
+    border-color: #6B6B6B;
+    color: #6B6B6B;
+}
+
+.emsp-stat-pill.comments:hover {
+    background: #6B6B6B;
+    color: #ffffff;
+}

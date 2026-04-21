@@ -1,0 +1,45 @@
+[
+  {
+    "i": 0,
+    "src": "",
+    "type": "",
+    "text": "\n(function() {\n    var bar = document.getElementById('emsp-progress-bar');\n    if (!bar) return;\n    var w = 0;\n    var iv = setInterval(function() {\n        w += Math.random() * 15;\n        if (w > 85) { clearInterval(iv); w = 85; }\n        bar.style.width = w + '%';\n    }, 100);\n    window.addEventListener('load', function() {\n        clearInterval(iv);\n        bar.style.width = '100%';\n        setTimeout(function() {\n            bar.style.opacity = '0';\n            setTimeout(function() { bar.style.width = '0%'; bar.style.opacity = '1'; }, 300);\n        }, 300);\n    });\n})();\n"
+  },
+  {
+    "i": 1,
+    "src": "https://emspdocs.unaux.com/assets/js/emsp-push.js",
+    "type": "",
+    "text": ""
+  },
+  {
+    "i": 2,
+    "src": "",
+    "type": "",
+    "text": "\n(function () {\n    function isVisible(el) {\n        return !!(el && (el.offsetWidth || el.offsetHeight || el.getClientRects().length));\n    }\n    function detect() {\n        var selectors = [\n            '#adcenter', '#ads_banner', '#banner_ad',\n            '.profreehost-ad', '.host-ad', '.ad-top', '.ad-banner',\n            'body > div:first-child > iframe',\n            'body > iframe:first-child',\n            'body > center:first-child',\n            'body > table:first-child'\n        ];\n        var bestH = 0;\n        var bestEl = null;\n        selectors.forEach(function (sel) {\n            v"
+  },
+  {
+    "i": 3,
+    "src": "https://emspdocs.unaux.com/assets/js/bootstrap5.bundle.min.js",
+    "type": "",
+    "text": ""
+  },
+  {
+    "i": 4,
+    "src": "https://emspdocs.unaux.com/assets/js/emsp-confirm.js",
+    "type": "",
+    "text": ""
+  },
+  {
+    "i": 5,
+    "src": "https://emspdocs.unaux.com/assets/js/emsp-fixes.js",
+    "type": "",
+    "text": ""
+  },
+  {
+    "i": 6,
+    "src": "",
+    "type": "",
+    "text": "\n(function () {\n    function initTooltips() {\n        if (!window.bootstrap || !bootstrap.Tooltip) {\n            return;\n        }\n        document.querySelectorAll('[data-bs-toggle=\"tooltip\"]').forEach(function (el) {\n            if (!bootstrap.Tooltip.getInstance(el)) {\n                new bootstrap.Tooltip(el);\n            }\n        });\n    }\n\n    if (document.readyState === 'loading') {\n        document.addEventListener('DOMContentLoaded', initTooltips);\n    } else {\n        initTooltips();\n    }\n})();\n"
+  }
+]
+

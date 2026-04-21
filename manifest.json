@@ -1,0 +1,66 @@
+{
+  "name": "EMSP Docs",
+  "short_name": "EMSP Docs",
+  "start_url": "./index.php",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "lang": "fr",
+  "background_color": "#006B3C",
+  "theme_color": "#006B3C",
+  "categories": ["education", "productivity", "reference"],
+  "shortcuts": [
+    {
+      "name": "Bibliotheque",
+      "short_name": "Docs",
+      "description": "Ouvrir la bibliotheque",
+      "url": "./bibliotheque.php",
+      "icons": [
+        {
+          "src": "assets/images/logo-emsp.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Formations",
+      "short_name": "Formations",
+      "description": "Voir les filieres et niveaux",
+      "url": "./formations.php",
+      "icons": [
+        {
+          "src": "assets/images/logo-emsp.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Journal",
+      "short_name": "Journal",
+      "description": "Lire les actualites",
+      "url": "./news-blog.php",
+      "icons": [
+        {
+          "src": "assets/images/logo-emsp.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "src": "assets/images/logo-emsp.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo-emsp.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+

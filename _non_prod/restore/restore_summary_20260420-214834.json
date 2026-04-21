@@ -1,0 +1,86 @@
+﻿{
+    "timestamp":  "20260420-214834",
+    "backup_zip":  "SKIPPED",
+    "source_report":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\rapport_complet.txt",
+    "report_paths_count":  4647,
+    "restored_count":  4647,
+    "failed_count":  0,
+    "missing_in_snapshot":  57,
+    "extras_now_file":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\_non_prod\\restore\\extras_now_20260420-214834.txt",
+    "missing_after_restore_file":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\_non_prod\\restore\\missing_after_restore_20260420-214834.txt",
+    "failed_restore_file":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\_non_prod\\restore\\failed_restore_20260420-214834.txt",
+    "critical_checks":  [
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\assets\\css\\emsp-theme-harvard.css",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\assets\\css\\emsp-theme.css",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\assets\\css\\emsp-palette-guard.css",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\assets\\css\\emsp-phase-pages.css",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\assets\\css\\emsp-fixes.css",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\assets\\js\\emsp-experience-upgrade.js",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\assets\\js\\emsp-fixes.js",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\assets\\js\\emsp-harvard-motion.js",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\assets\\js\\emsp-ui.js",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\index.php",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\bibliotheque.php",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\mediatheque.php",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\document.php",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\formations.php",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\historique.php",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\news-blog.php",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\news-article.php",
+                                "status":  "present"
+                            },
+                            {
+                                "path":  "C:\\xampp\\htdocs\\COMPO FINAL\\emsp_docs\\includes\\navbar.php",
+                                "status":  "present"
+                            }
+                        ]
+}

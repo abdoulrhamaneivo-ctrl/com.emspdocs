@@ -1,0 +1,24 @@
+# Logs et debug
+debug_email.txt
+*.log
+debug_*.txt
+
+# Config secrets
+.env
+admin/config/config.php
+
+# Uploads (contenu, pas le dossier)
+/uploads/*
+!/uploads/.gitkeep
+/admin/uploads/*
+!/admin/uploads/.gitkeep
+
+# Scripts one-shot
+admin/cleanup-artifacts.php
+admin/repair-encoding.php
+
+# Artefacts OS
+.DS_Store
+Thumbs.db
+
+

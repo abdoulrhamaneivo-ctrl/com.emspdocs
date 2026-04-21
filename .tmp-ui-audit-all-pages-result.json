@@ -1,0 +1,399 @@
+{
+  "totalRoutes": 75,
+  "totalChecks": 150,
+  "issueCount": 78,
+  "issues": [
+    {
+      "route": "/verify-email.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/verify-email.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/verify-email.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/verify-email.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/verify-email.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/verify-email.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/add-journal.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/add-journal.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/add-journal.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/add-journal.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/add-journal.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/add-journal.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/add-licence.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/add-licence.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/add-licence.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/add-licence.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/add-licence.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/add-licence.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/add-matiere.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/add-matiere.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/add-matiere.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/add-matiere.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/add-matiere.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/add-matiere.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/add-media.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/add-media.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/add-media.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/add-media.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/add-media.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/add-media.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/add-module.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/add-module.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/add-module.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/add-module.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/add-module.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/add-module.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/add-user.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/add-user.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/add-user.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/add-user.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/add-user.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/add-user.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/authentication.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/authentication.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/authentication.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/authentication.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/authentication.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/authentication.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/badge-or-batch.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/badge-or-batch.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/badge-or-batch.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/badge-or-batch.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/badge-or-batch.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/badge-or-batch.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/bootstrap.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/bootstrap.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/bootstrap.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/bootstrap.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/bootstrap.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/bootstrap.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/cleanup-artifacts.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/cleanup-artifacts.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/cleanup-artifacts.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/cleanup-artifacts.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/cleanup-artifacts.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/cleanup-artifacts.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/comments-moderation.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/comments-moderation.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/comments-moderation.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/comments-moderation.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/comments-moderation.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/comments-moderation.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/edit-institution.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/edit-institution.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/edit-institution.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/edit-institution.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/edit-institution.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/edit-institution.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/edit-licence.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/edit-licence.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/edit-licence.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/edit-licence.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/edit-licence.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/edit-licence.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/edit-matiere.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/edit-matiere.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/edit-matiere.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/edit-matiere.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/edit-matiere.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/edit-matiere.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/edit-module.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/edit-module.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/edit-module.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/edit-module.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/edit-module.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/edit-module.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/edit-user.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/edit-user.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/edit-user.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/edit-user.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/edit-user.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/edit-user.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/index.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/index.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/index.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/index.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/index.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/index.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/journal.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/journal.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/journal.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/journal.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/journal.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/journal.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/manage-filiere.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/manage-filiere.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/manage-filiere.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/manage-filiere.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/manage-filiere.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/manage-filiere.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/media-categories.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/media-categories.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/media-categories.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/media-categories.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/media-categories.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/media-categories.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/media-poster.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/media-poster.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/media-poster.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/media-poster.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/media-poster.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/media-poster.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/mediatheque.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/mediatheque.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/mediatheque.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/mediatheque.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/mediatheque.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/mediatheque.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/pending-documents.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/pending-documents.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/pending-documents.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/pending-documents.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/pending-documents.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/pending-documents.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/pending-users.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/pending-users.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/pending-users.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/pending-users.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/pending-users.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/pending-users.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/preview-doc.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/preview-doc.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/preview-doc.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/preview-doc.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/preview-doc.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/preview-doc.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/school-domains.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/school-domains.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/school-domains.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/school-domains.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/school-domains.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/school-domains.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/settings.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/settings.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/settings.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/settings.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/settings.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/settings.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/stats.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/stats.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/stats.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/stats.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/stats.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/stats.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/upload-filiere-image.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/upload-filiere-image.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/upload-filiere-image.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/upload-filiere-image.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/upload-filiere-image.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/upload-filiere-image.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/upload-institution-image.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/upload-institution-image.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/upload-institution-image.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/upload-institution-image.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/upload-institution-image.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/upload-institution-image.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/upload-journal-image.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/upload-journal-image.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/upload-journal-image.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/upload-journal-image.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/upload-journal-image.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/upload-journal-image.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/view-documents.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/view-documents.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/view-documents.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/view-documents.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/view-documents.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/view-documents.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/view-filieres.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/view-filieres.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/view-filieres.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/view-filieres.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/view-filieres.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/view-filieres.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/view-licences.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/view-licences.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/view-licences.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/view-licences.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/view-licences.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/view-licences.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/view-matieres.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/view-matieres.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/view-matieres.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/view-matieres.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/view-matieres.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/view-matieres.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/view-modules.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/view-modules.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/view-modules.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/view-modules.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/view-modules.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/view-modules.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/view-users.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/view-users.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/view-users.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/view-users.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/view-users.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/view-users.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/voir-carte.php",
+      "width": 390,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/voir-carte.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/voir-carte.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "route": "/admin/voir-carte.php",
+      "width": 1024,
+      "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:8099/admin/voir-carte.php\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8099/admin/voir-carte.php\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    }
+  ]
+}
+
+

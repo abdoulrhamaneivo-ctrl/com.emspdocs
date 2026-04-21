@@ -1,0 +1,21 @@
+{
+  "name": "emsp_docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".tmp-smoke.spec.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "playwright": "^1.59.1"
+  }
+}
+
+

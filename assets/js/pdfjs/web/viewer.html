@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecteur PDF EMSP Docs</title>
+    <style>
+    :root {
+        color-scheme: light;
+        --viewer-bg: #eef3f8;
+        --viewer-card: #ffffff;
+        --viewer-border: #d9e3ef;
+        --viewer-navy: #1a3c6e;
+        --viewer-green: #1a5c2a;
+        --viewer-text: #243447;
+        --viewer-muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+        margin: 0;
+        min-height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--viewer-bg);
+        color: var(--viewer-text);
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    .viewer-shell {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+    .viewer-toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: .75rem;
+        padding: .85rem 1rem;
+        border: 1px solid var(--viewer-border);
+        border-radius: 16px;
+        background: rgba(255,255,255,.92);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 12px 28px rgba(15,35,69,.08);
+    }
+    .viewer-toolbar-left,
+    .viewer-toolbar-right {
+        display: flex;
+        align-items: center;
+        gap: .6rem;
+        flex-wrap: wrap;
+    }
+    .viewer-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: .45rem;
+        padding: .45rem .8rem;
+        border-radius: 999px;
+        background: rgba(26,60,110,.08);
+        color: var(--viewer-navy);
+        font-weight: 700;
+        font-size: .86rem;
+    }
+    .viewer-btn {
+        border: 1px solid var(--viewer-border);
+        background: #fff;
+        color: var(--viewer-navy);
+        border-radius: 12px;
+        padding: .55rem .9rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .viewer-btn:hover:not(:disabled) {
+        transform: translateY(-1px);
+        background: #f8fbff;
+        border-color: #b9c9dd;
+    }
+    .viewer-btn:disabled {
+        opacity: .45;
+        cursor: not-allowed;
+    }
+    .viewer-stage {
+        margin-top: 1rem;
+        padding: 1rem;
+        border: 1px solid var(--viewer-border);
+        border-radius: 20px;
+        background: linear-gradient(180deg, #ffffff 0%, #f7fafd 100%);
+        box-shadow: 0 18px 38px rgba(15,35,69,.08);
+    }
+    .viewer-state {
+        min-height: 40vh;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--viewer-muted);
+        padding: 2rem 1rem;
+    }
+    .viewer-state.is-visible {
+        display: flex;
+    }
+    .viewer-spinner {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 4px solid rgba(26,60,110,.12);
+        border-top-color: var(--viewer-green);
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1rem;
+    }
+    .viewer-canvas-wrap {
+        display: none;
+        width: 100%;
+        overflow: auto;
+        text-align: center;
+    }
+    .viewer-canvas-wrap.is-visible {
+        display: block;
+    }
+    #pdf-canvas {
+        max-width: 100%;
+        height: auto;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 18px 36px rgba(15,35,69,.14);
+    }
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    @media (max-width: 640px) {
+        .viewer-shell {
+            padding: .75rem;
+        }
+        .viewer-toolbar {
+            flex-direction: column;
+            align-items: stretch;
+            border-radius: 14px;
+            padding: .8rem;
+        }
+        .viewer-toolbar-left,
+        .viewer-toolbar-right {
+            width: 100%;
+            justify-content: space-between;
+        }
+        .viewer-btn {
+            flex: 1 1 0;
+            text-align: center;
+        }
+        .viewer-stage {
+            padding: .75rem;
+            border-radius: 16px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="viewer-shell">
+        <div class="viewer-toolbar">
+            <div class="viewer-toolbar-left">
+                <span class="viewer-chip">AperÃ§u PDF EMSP</span>
+                <span id="page-indicator" class="viewer-chip">Page 1 / 1</span>
+            </div>
+            <div class="viewer-toolbar-right">
+                <button type="button" id="prev-page" class="viewer-btn">PrÃ©cÃ©dent</button>
+                <button type="button" id="next-page" class="viewer-btn">Suivant</button>
+            </div>
+        </div>
+
+        <div class="viewer-stage">
+            <div id="loading-state" class="viewer-state is-visible">
+                <div>
+                    <div class="viewer-spinner"></div>
+                    <div>Chargement du document...</div>
+                </div>
+            </div>
+            <div id="error-state" class="viewer-state">
+                <div>
+                    <strong>AperÃ§u indisponible</strong>
+                    <div style="margin-top:.45rem;">Le document n'a pas pu Ãªtre affichÃ©.</div>
+                </div>
+            </div>
+            <div id="canvas-wrap" class="viewer-canvas-wrap">
+                <canvas id="pdf-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../pdf.min.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        var params = new URLSearchParams(window.location.search);
+        var file = params.get('file') || '';
+        var pageIndicator = document.getElementById('page-indicator');
+        var prevBtn = document.getElementById('prev-page');
+        var nextBtn = document.getElementById('next-page');
+        var loadingState = document.getElementById('loading-state');
+        var errorState = document.getElementById('error-state');
+        var canvasWrap = document.getElementById('canvas-wrap');
+        var canvas = document.getElementById('pdf-canvas');
+        var ctx = canvas.getContext('2d');
+        var pdfDoc = null;
+        var currentPage = 1;
+        var totalPages = 1;
+        var rendering = false;
+
+        function setState(state) {
+            loadingState.classList.toggle('is-visible', state === 'loading');
+            errorState.classList.toggle('is-visible', state === 'error');
+            canvasWrap.classList.toggle('is-visible', state === 'ready');
+        }
+
+        function updateToolbar() {
+            pageIndicator.textContent = 'Page ' + currentPage + ' / ' + totalPages;
+            prevBtn.disabled = currentPage <= 1 || rendering;
+            nextBtn.disabled = currentPage >= totalPages || rendering;
+        }
+
+        function renderPage(pageNumber) {
+            if (!pdfDoc || rendering) {
+                return;
+            }
+
+            rendering = true;
+            updateToolbar();
+
+            pdfDoc.getPage(pageNumber).then(function (page) {
+                var unscaled = page.getViewport({ scale: 1 });
+                var availableWidth = Math.max(document.documentElement.clientWidth - 64, 320);
+                var targetWidth = Math.min(availableWidth, 920);
+                var scale = targetWidth / unscaled.width;
+                scale = Math.min(Math.max(scale, 0.55), 2.6);
+                var viewport = page.getViewport({ scale: scale });
+
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                return page.render({
+                    canvasContext: ctx,
+                    viewport: viewport
+                }).promise;
+            }).then(function () {
+                rendering = false;
+                setState('ready');
+                updateToolbar();
+            }).catch(function () {
+                rendering = false;
+                setState('error');
+                updateToolbar();
+            });
+        }
+
+        prevBtn.addEventListener('click', function () {
+            if (currentPage <= 1 || rendering) {
+                return;
+            }
+            currentPage -= 1;
+            renderPage(currentPage);
+        });
+
+        nextBtn.addEventListener('click', function () {
+            if (currentPage >= totalPages || rendering) {
+                return;
+            }
+            currentPage += 1;
+            renderPage(currentPage);
+        });
+
+        window.addEventListener('resize', function () {
+            if (pdfDoc && !rendering) {
+                renderPage(currentPage);
+            }
+        });
+
+        if (!file || typeof pdfjsLib === 'undefined') {
+            setState('error');
+            updateToolbar();
+            return;
+        }
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc = '../../pdf.worker.min.js';
+        setState('loading');
+        updateToolbar();
+
+        var task = pdfjsLib.getDocument({ url: file, withCredentials: true });
+        task.promise.then(function (pdf) {
+            pdfDoc = pdf;
+            totalPages = pdf.numPages || 1;
+            currentPage = 1;
+            renderPage(currentPage);
+        }).catch(function () {
+            setState('error');
+            updateToolbar();
+        });
+    })();
+    </script>
+</body>
+</html>
+
+

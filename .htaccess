@@ -1,0 +1,101 @@
+# DÃ©sactiver le listage des rÃ©pertoires
+Options -Indexes
+AddDefaultCharset UTF-8
+
+# Relever les limites d'upload quand Apache tourne avec mod_php.
+<IfModule mod_php.c>
+    php_value upload_max_filesize 70M
+    php_value post_max_size 75M
+    php_value memory_limit 256M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>
+<IfModule mod_php7.c>
+    php_value upload_max_filesize 70M
+    php_value post_max_size 75M
+    php_value memory_limit 256M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>
+<IfModule mod_php8.c>
+    php_value upload_max_filesize 70M
+    php_value post_max_size 75M
+    php_value memory_limit 256M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>
+
+# Bloquer l'accÃ¨s direct aux fichiers sensibles (noms explicites)
+<FilesMatch "^(?:\.env|composer\.(?:json|lock|phar)|phinx\.php|phinx\.yml|README\.md)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Bloquer l'accÃ¨s direct aux fichiers sensibles (extensions)
+<FilesMatch "\.(sql|bak|log|ini|env|yml|yaml)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Bloquer les rapports et audits potentiellement sensibles, meme s'ils restent dans le webroot.
+<FilesMatch "^(?:rapport_.*|.*(?:report|rapport|audit).*\.(?:txt|md|sql|log))$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Bloquer l'accÃ¨s direct au dossier vendor/
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^vendor/ - [F,L]
+</IfModule>
+
+# Conserver les rÃ¨gles de rÃ©Ã©criture existantes
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Bloquer accÃ¨s direct Ã  /uploads/documents/ (accÃ¨s via telecharger.php)
+    RewriteRule ^uploads/documents/ - [F,L]
+</IfModule>
+
+# En-tÃªtes de sÃ©curitÃ© basiques (si mod_headers est actif)
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# Bloquer les scripts d'audit développement
+<FilesMatch "^(?:pw_audit|pw_local_check)\.js$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Bloquer aussi les fichiers .tmp temporaires
+<FilesMatch "^\.tmp-.*$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+

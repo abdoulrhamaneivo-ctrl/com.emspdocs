@@ -1,0 +1,242 @@
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../fonts/PlusJakartaSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../fonts/PlusJakartaSans-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Canela Web';
+  src: url('../fonts/harvard/canela/Canela-Regular-Web.woff2') format('woff2'),
+       url('../fonts/harvard/canela/Canela-Regular-Web.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Canela Deck Web';
+  src: url('../fonts/harvard/canela/CanelaDeck-Regular-Web.woff2') format('woff2'),
+       url('../fonts/harvard/canela/CanelaDeck-Regular-Web.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT America Standard';
+  src: url('../fonts/harvard/gt-america/GT-America-Standard-Regular.woff2') format('woff2'),
+       url('../fonts/harvard/gt-america/GT-America-Standard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT America Standard';
+  src: url('../fonts/harvard/gt-america/GT-America-Standard-Regular-Italic.woff2') format('woff2'),
+       url('../fonts/harvard/gt-america/GT-America-Standard-Regular-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT America Standard';
+  src: url('../fonts/harvard/gt-america/GT-America-Standard-Medium.woff2') format('woff2'),
+       url('../fonts/harvard/gt-america/GT-America-Standard-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT America Standard';
+  src: url('../fonts/harvard/gt-america/GT-America-Standard-Bold.woff2') format('woff2'),
+       url('../fonts/harvard/gt-america/GT-America-Standard-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-display : 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-body    : 'Inter', -apple-system, 'Segoe UI', sans-serif;
+  --font-mono    : 'JetBrains Mono', 'Courier New', monospace;
+
+  --text-xs   : .72rem;
+  --text-sm   : .8rem;
+  --text-base : .875rem;
+  --text-md   : .95rem;
+  --text-lg   : 1.1rem;
+  --text-xl   : 1.3rem;
+  --text-2xl  : 1.6rem;
+  --text-3xl  : 2rem;
+
+  --leading-tight  : 1.25;
+  --leading-normal : 1.55;
+  --leading-relaxed: 1.75;
+
+  --tracking-tight  : -.02em;
+  --tracking-normal : 0em;
+  --tracking-wide   : .04em;
+  --tracking-wider  : .08em;
+  --tracking-widest : .12em;
+}
+
+html.theme-harvard,
+body.theme-harvard,
+:root.theme-harvard {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Lato', 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --text-base: .95rem;
+  --leading-normal: 1.6;
+  --tracking-tight: -.012em;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary, #1e293b);
+}
+h1 { font-size: var(--text-2xl); font-weight: 800; }
+h2 { font-size: var(--text-xl);  font-weight: 700; }
+h3 { font-size: var(--text-lg);  font-weight: 700; }
+
+.nav-section-label,
+.sb-card-title,
+.section-title,
+.stat-label,
+.emsp-label,
+.sb-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.stat-value,
+.counter-value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: var(--tracking-tight);
+}
+
+.sb-badge,
+.emsp-badge,
+.badge {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+}
+
+.file-ext,
+code, kbd, pre,
+.mono {
+  font-family: var(--font-mono);
+  font-size: .85em;
+}
+
+.sidebar-link {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-sm);
+}
+.sidebar-link.active {
+  font-weight: 600;
+}
+
+button, .btn, [class*="btn-"] {
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+input, select, textarea {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+}
+
+.sb-table td,
+.emsp-table td {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+}
+.sb-table td strong,
+.emsp-table td strong {
+  font-weight: 600;
+}
+.sb-table thead th,
+.emsp-table thead th {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+}
+
+a {
+  font-family: inherit;
+}
+
+.sidebar-brand-name,
+.navbar-brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: var(--tracking-tight);
+}
+
+.card-title,
+.sb-card-title,
+.page-header h1 {
+  font-family: var(--font-display);
+}
+
+.text-muted, small, .small,
+.sb-hint, .emsp-hint {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 400;
+}
+
+
