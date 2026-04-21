@@ -62,7 +62,9 @@
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js').catch(() => {});
+      navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function(e) {
+        console.warn('[PWA] SW registration failed:', e);
+      });
     });
   }
 })();

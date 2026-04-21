@@ -772,3 +772,112 @@ html.theme-harvard body.emsp-route-document .stats-bar #lk-error.stat-item {
     background: #6B6B6B;
     color: #ffffff;
 }
+
+/* ============================================================
+   Dropdown navbar — overrides couleur EMSP
+   ============================================================ */
+html.theme-harvard .dropdown-item:hover,
+html.theme-harvard .dropdown-item:focus {
+    background-color: var(--color-primary-light, #E8F5EE) !important;
+    color: var(--color-primary, #006B3C) !important;
+}
+
+html.theme-harvard .dropdown-item.active,
+html.theme-harvard .dropdown-item:active {
+    background-color: var(--color-primary, #006B3C) !important;
+    color: #fff !important;
+}
+
+html.theme-harvard .emsp-nav-dropdown-menu {
+    border: .5px solid var(--color-border, #E0E0E0);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+    border-radius: 10px;
+    padding: 6px;
+    min-width: 200px;
+}
+
+html.theme-harvard .emsp-nav-dropdown-menu .dropdown-item {
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+/* Séparateur discret */
+html.theme-harvard .emsp-nav-dropdown-menu .dropdown-divider {
+    border-color: var(--color-border, #E0E0E0);
+    margin: 4px 6px;
+}
+
+/* Item "Déconnexion" en rouge doux */
+html.theme-harvard .emsp-nav-dropdown-menu .dropdown-item.text-danger:hover {
+    background-color: #FEF2F2 !important;
+    color: #C0392B !important;
+}
+
+/* ============================================================
+   Featured cards (Documents du moment sur index.php)
+   ============================================================ */
+.emsp-featured-card {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.emsp-featured-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13) !important;
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.emsp-featured-card h3,
+.emsp-featured-card .fw-bold {
+    color: #1A1A1A !important;
+}
+
+.emsp-featured-card .text-muted {
+    color: #6B6B6B !important;
+}
+
+/* Section chip "Documents du moment" */
+.emsp-featured-section .section-chip {
+    background: rgba(245, 168, 0, 0.12);
+    border-color: #F5A800;
+    color: #D4900A;
+    font-weight: 700;
+}
+
+/* Bouton "Voir tout" */
+.emsp-featured-section .btn-outline-primary {
+    border-color: var(--color-primary, #006B3C) !important;
+    color: var(--color-primary, #006B3C) !important;
+}
+
+.emsp-featured-section .btn-outline-primary:hover {
+    background: var(--color-primary, #006B3C) !important;
+    color: #fff !important;
+}
+
+/* ============================================================
+   Bibliothèque gate — texte blanc forcé sur fond vert
+   ============================================================ */
+.emsp-library-gate-hero *,
+.emsp-library-gate-hero h1,
+.emsp-library-gate-hero h2,
+.emsp-library-gate-hero p {
+    color: #fff !important;
+}
+
+.emsp-library-gate-hero .text-white-50 {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* ============================================================
+   Document hero — vert EMSP override (si theme override échoue)
+   ============================================================ */
+html.theme-harvard .doc-hero {
+    background:
+        linear-gradient(130deg, rgba(0,50,28,.96) 0%, rgba(0,107,60,.88) 55%, rgba(0,143,82,.65) 100%),
+        url('assets/images/emsp-campus-ceremony.jpg') center 28% / cover no-repeat !important;
+}

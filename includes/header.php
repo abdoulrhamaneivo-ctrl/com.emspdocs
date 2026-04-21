@@ -102,6 +102,7 @@ $bodyIsAuthenticated = !empty($_SESSION['auth']) || !empty($_SESSION['auth_user'
     <!-- Bootstrap local -->
     <link rel="stylesheet" href="<?= $asset ?>css/bootstrap5.min.css">
     <link rel="stylesheet" href="<?= $asset ?>css/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= $asset ?>vendor/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="<?= $asset ?>vendor/select2/select2.min.css">
     <link rel="stylesheet" href="<?= $asset ?>css/emsp-theme.css">
@@ -214,4 +215,3 @@ $bodyIsAuthenticated = !empty($_SESSION['auth']) || !empty($_SESSION['auth_user'
 <?php include __DIR__ . '/navbar.php'; ?>
 <?php include __DIR__ . '/banner.php'; ?>
 <main id="main-content-anchor" class="site-main" tabindex="-1">
-

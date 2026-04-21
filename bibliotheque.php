@@ -26,6 +26,17 @@ if (empty($_SESSION['auth'])) {
             linear-gradient(120deg, rgba(9,27,49,.86) 0%, rgba(18,41,74,.82) 48%, rgba(8,97,54,.56) 100%),
             url('assets/images/emsp-campus-ceremony.jpg') center 30% / cover no-repeat;
     }
+    .emsp-library-gate-hero h1,
+    .emsp-library-gate-hero h2,
+    .emsp-library-gate-hero h3,
+    .emsp-library-gate-hero p {
+        color: #fff !important;
+    }
+    .emsp-library-gate-hero .h2 {
+        color: #fff !important;
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+    }
     .emsp-library-gate-hero::before {
         content: '';
         position: absolute;
@@ -1799,6 +1810,5 @@ include __DIR__ . '/includes/header.php';
 </script>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>
-
 
 

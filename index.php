@@ -414,7 +414,12 @@ include __DIR__ . '/includes/header.php';
                     Les plus téléchargés
                 </h2>
             </div>
-            <a href="bibliotheque.php" class="btn btn-outline-primary btn-sm">
+            <a href="bibliotheque.php"
+               class="btn btn-sm fw-semibold"
+               style="border:1.5px solid #006B3C;color:#006B3C;border-radius:8px;
+                      padding:6px 18px;transition:all .2s ease;"
+               onmouseover="this.style.background='#006B3C';this.style.color='#fff'"
+               onmouseout="this.style.background='transparent';this.style.color='#006B3C'">
                 Voir tout <i class="bi bi-arrow-right ms-1"></i>
             </a>
         </div>
@@ -424,17 +429,25 @@ include __DIR__ . '/includes/header.php';
                 <a href="document.php?id=<?= (int)$fd['id'] ?>"
                    class="card h-100 text-decoration-none emsp-featured-card"
                    style="border-radius:12px;border:1px solid #E0E0E0;overflow:hidden;
-                          transition:transform .2s,box-shadow .2s;">
+                          transition:transform .2s,box-shadow .2s;color:inherit;">
                     <div class="card-body d-flex flex-column p-3">
                         <span class="badge mb-2 text-uppercase"
                               style="width:fit-content;font-size:10px;letter-spacing:.5px;
-                                     background:<?= $fd['doc_type']==='concours'?'#C0392B':($fd['doc_type']==='examen'?'#006B3C':'#1A3A8F') ?>;
+                                     background:<?= match($fd['doc_type'] ?? '') {
+                                         'concours'   => '#C0392B',
+                                         'examen'     => '#8B0000',
+                                         'cours'      => '#006B3C',
+                                         'td'         => '#004D2A',
+                                         'correction' => '#D4900A',
+                                         default      => '#006B3C'
+                                     } ?>;
                                      color:#fff">
                             <?= htmlspecialchars((string) $fd['doc_type'], ENT_QUOTES, 'UTF-8') ?>
                         </span>
                         <h3 class="h6 fw-bold mb-2" style="font-size:14px;line-height:1.4;
                                    display:-webkit-box;-webkit-line-clamp:2;
-                                   -webkit-box-orient:vertical;overflow:hidden">
+                                   -webkit-box-orient:vertical;overflow:hidden;
+                                   color:#1A1A1A;">
                             <?= htmlspecialchars((string) $fd['title'], ENT_QUOTES, 'UTF-8') ?>
                         </h3>
                         <?php if (!empty($fd['filiere_name'])): ?>

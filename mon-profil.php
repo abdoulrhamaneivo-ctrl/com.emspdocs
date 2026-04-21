@@ -10,7 +10,7 @@ if (empty($_SESSION['auth'])) {
     flash_set(
         'warning',
         'Connexion requise',
-        'Connectez-vous pour accÃ©der Ã  votre profil.',
+        'Connectez-vous pour accéder à votre profil.',
         'login.php',
         'Se connecter'
     );
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         $last_name  = trim($_POST['last_name']  ?? '');
 
         if ($first_name === '' || $last_name === '') {
-            flash_set('error', 'Champs obligatoires', 'PrÃ©nom et nom sont obligatoires.');
+            flash_set('error', 'Champs obligatoires', 'Prénom et nom sont obligatoires.');
             header('Location: mon-profil.php'); exit(0);
         }
 
@@ -37,13 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             $real_mime = emsp_detect_mime($_FILES['photo']['tmp_name']);
 
             if (!in_array($real_mime, ['image/jpeg','image/png'], true)) {
-                flash_set('error', 'Photo invalide', 'Seuls les fichiers JPG ou PNG sont acceptÃ©s.');
+                flash_set('error', 'Photo invalide', 'Seuls les fichiers JPG ou PNG sont acceptés.');
                 header('Location: mon-profil.php'); exit(0);
             }
             $maxUpload = emsp_max_upload_size(defined('MAX_UPLOAD_SIZE') ? MAX_UPLOAD_SIZE : (5 * 1024 * 1024));
             $limit = min($maxUpload, 2 * 1024 * 1024);
             if (($_FILES['photo']['size'] ?? 0) > $limit) {
-                flash_set('error', 'Photo trop lourde', 'La photo ne doit pas dÃ©passer ' . round($limit / 1024 / 1024, 1) . ' Mo.');
+                flash_set('error', 'Photo trop lourde', 'La photo ne doit pas dépasser ' . round($limit / 1024 / 1024, 1) . ' Mo.');
                 header('Location: mon-profil.php'); exit(0);
             }
 
@@ -51,13 +51,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             if (!is_dir($profilesDir)) {
                 @mkdir($profilesDir, 0755, true);
             }
-            // FIX: dÃ©duire l'extension depuis le MIME rÃ©el plutÃ´t que depuis le nom fourni par le client.
+            // FIX: déduire l'extension depuis le MIME réel plutôt que depuis le nom fourni par le client.
             $mimeToExt = ['image/jpeg' => 'jpg', 'image/png' => 'png'];
             $ext = $mimeToExt[$real_mime] ?? 'jpg';
             $photo_path = bin2hex(random_bytes(16)) . '.' . $ext;
             $dest = $profilesDir . '/' . $photo_path;
             if (!move_uploaded_file($_FILES['photo']['tmp_name'], $dest)) {
-                flash_set('error', 'Upload Ã©chouÃ©', 'Impossible d\'enregistrer la photo sur le serveur.');
+                flash_set('error', 'Upload échoué', 'Impossible d\'enregistrer la photo sur le serveur.');
                 header('Location: mon-profil.php'); exit(0);
             }
 
@@ -77,9 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         }
 
         if ($photo_path) {
-            flash_set('success', 'Photo mise Ã  jour', 'Votre nouvelle photo de profil est visible immÃ©diatement.');
+            flash_set('success', 'Photo mise à jour', 'Votre nouvelle photo de profil est visible immédiatement.');
         } else {
-            flash_set('success', 'Profil mis Ã  jour', 'Vos informations ont Ã©tÃ© enregistrÃ©es avec succÃ¨s.');
+            flash_set('success', 'Profil mis à jour', 'Vos informations ont été enregistrées avec succès.');
         }
         header('Location: mon-profil.php'); exit(0);
     }
@@ -586,5 +586,4 @@ document.addEventListener('DOMContentLoaded', function() {
 <?php endif; ?>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>
-
 

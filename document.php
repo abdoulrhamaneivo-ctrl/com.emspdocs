@@ -511,7 +511,7 @@ include __DIR__ . '/includes/header.php';
 /* --- Hero --- */
 .doc-hero {
     background:
-        linear-gradient(120deg, rgba(0,20,70,.94) 0%, rgba(0,48,135,.86) 48%, rgba(0,85,204,.62) 100%),
+        linear-gradient(130deg, rgba(0,50,28,.96) 0%, rgba(0,107,60,.88) 55%, rgba(0,143,82,.65) 100%),
         url('assets/images/emsp-campus-ceremony.jpg') center 28% / cover no-repeat;
     padding: 2.5rem 0 2rem;
     color: #fff;
@@ -523,7 +523,7 @@ include __DIR__ . '/includes/header.php';
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(4,12,28,.88) 0%, rgba(6,20,44,.62) 52%, rgba(6,20,44,.18) 100%);
+    background: linear-gradient(90deg, rgba(0,30,15,.82) 0%, rgba(0,60,30,.55) 52%, rgba(0,80,40,.18) 100%);
 }
 .doc-hero::after {
     content: '';
@@ -730,20 +730,30 @@ include __DIR__ . '/includes/header.php';
     flex-wrap: wrap;
 }
 .stat-item {
-    display: flex; align-items: center; gap: .35rem;
-    font-size: .8rem; color: #6B6B6B;
+    display: inline-flex; align-items: center; gap: .4rem;
+    padding: .28rem .9rem; border-radius: 999px;
+    font-size: .82rem; font-weight: 600;
+    border: 1.5px solid #006B3C; color: #006B3C;
+    background: transparent;
+}
+.stat-item.stat-comments {
+    border-color: #6B6B6B;
+    color: #6B6B6B;
 }
 .btn-like {
     display: inline-flex; align-items: center; gap: .35rem;
-    padding: .28rem .8rem; border-radius: 999px;
-    font-size: .8rem; font-weight: 600;
-    border: 2px solid #e11d48; color: #e11d48;
+    padding: .28rem .9rem; border-radius: 999px;
+    font-size: .82rem; font-weight: 700;
+    border: 2px solid #F5A800; color: #F5A800;
     background: transparent; cursor: pointer;
-    transition: all .18s;
-    min-height: 44px;
-    min-width: 44px;
+    transition: all .2s ease;
+    min-height: 44px; min-width: 44px;
 }
-.btn-like:hover, .btn-like.liked { background: #e11d48; color: #fff; }
+.btn-like:hover, .btn-like.liked {
+    background: #F5A800;
+    color: #1A1A1A;
+    border-color: #F5A800;
+}
 
 /* --- Commentaires --- */
 .cmt-card {
@@ -1159,9 +1169,9 @@ include __DIR__ . '/includes/header.php';
         <span id="lk-error" class="stat-item text-danger emsp-hidden"></span>
         <span class="stat-item">
             <i class="bi bi-download"></i>
-            <?= intval($doc['download_count']) ?> telechargement<?= intval($doc['download_count']) > 1 ? 's' : '' ?>
+            <?= intval($doc['download_count']) ?> téléchargement<?= intval($doc['download_count']) > 1 ? 's' : '' ?>
         </span>
-        <span class="stat-item">
+        <span class="stat-item stat-comments">
             <i class="bi bi-chat"></i>
             <?= $cmt_count ?> commentaire<?= $cmt_count > 1 ? 's' : '' ?>
         </span>
@@ -2053,7 +2063,6 @@ document.querySelectorAll('.toggle-reply').forEach(function(btn){
 </script>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>
-
 
 
 

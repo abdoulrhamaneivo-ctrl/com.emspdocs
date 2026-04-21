@@ -1,8 +1,8 @@
 {
   "name": "EMSP Docs",
   "short_name": "EMSP Docs",
-  "start_url": "./index.php",
-  "scope": "./",
+  "start_url": "/index.php",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "lang": "fr",
@@ -63,4 +63,3 @@
     }
   ]
 }
-
