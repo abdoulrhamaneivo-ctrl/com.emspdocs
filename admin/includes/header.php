@@ -694,6 +694,7 @@ $bodyClasses = trim('bg-body ' . $adminRouteClass . ($harvardThemeEnabled ? ' th
     <link rel="stylesheet" href="<?= $admin_asset ?>css/admin-palette-guard.css">
     <link rel="stylesheet" href="<?= $admin_asset ?>css/admin-experience-upgrade.css">
     <link rel="stylesheet" href="<?= $admin_asset ?>css/admin-variant2-ultra.css">
+    <link rel="stylesheet" href="<?= $admin_asset ?>css/admin-shell-modern.css">
 </head>
 <body class="<?= h($bodyClasses) ?>" data-role="<?= h($_SESSION['auth_role'] ?? 'guest') ?>">
 <a class="emsp-skip-link" href="#main-content">Aller au contenu principal</a>
