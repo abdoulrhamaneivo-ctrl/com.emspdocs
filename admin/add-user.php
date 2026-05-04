@@ -79,93 +79,156 @@ include __DIR__ . '/includes/sidebar.php';
 <div id="admin-content">
     <div id="main-content" class="container-fluid">
 
+<!-- Page header -->
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-4">
+    <div>
+        <h1 class="h4 mb-1 d-flex align-items-center gap-2">
+            <i class="bi bi-person-plus text-primary"></i>
+            Ajouter un utilisateur
+        </h1>
+        <p class="text-body-secondary small mb-0">Creez un nouveau compte etudiant, moderateur ou administrateur.</p>
+    </div>
+    <a href="view-users.php" class="btn btn-outline-secondary btn-sm">
+        <i class="bi bi-arrow-left me-1"></i>Retour a la liste
+    </a>
+</div>
+
 <?php if (!empty($_SESSION['message'])): ?>
-    <div class="alert alert-info alert-dismissible fade show">
-        <?= htmlspecialchars($_SESSION['message']) ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <div class="alert alert-warning alert-dismissible fade show d-flex align-items-center gap-2 border-0 shadow-sm">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <span><?= htmlspecialchars($_SESSION['message']) ?></span>
+        <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Fermer"></button>
     </div>
     <?php unset($_SESSION['message']); ?>
 <?php endif; ?>
 
-<div class="row justify-content-center">
-<div class="col-md-7">
-<div class="card shadow-sm">
-    <div class="card-header bg-white fw-semibold">
-        <i class="bi bi-person-plus me-2 text-primary"></i>Ajouter un utilisateur
-    </div>
-    <div class="card-body">
-        <form method="POST" data-emsp-submit="1">
+<div class="row g-4 justify-content-center">
+    <div class="col-xl-8 col-lg-10">
+        <form method="POST" data-emsp-submit="1" autocomplete="off">
             <input type="hidden" name="csrf_token" value="<?= generate_csrf_token() ?>">
 
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <label class="form-label fw-semibold">PrÃ©nom <span class="text-danger">*</span></label>
-                    <input class="form-control" type="text" name="first_name" required autocomplete="given-name"
-                           placeholder="Ex : Amadou">
+            <!-- Bloc 1 : identite -->
+            <div class="card mb-4">
+                <div class="card-header d-flex align-items-center gap-2">
+                    <i class="bi bi-person-badge text-primary"></i>
+                    <span class="fw-semibold">Identite</span>
                 </div>
-                <div class="col-md-6">
-                    <label class="form-label fw-semibold">Nom <span class="text-danger">*</span></label>
-                    <input class="form-control" type="text" name="last_name" required autocomplete="family-name"
-                           placeholder="Ex : Diallo">
-                </div>
-                <div class="col-12">
-                    <label class="form-label fw-semibold">Email <span class="text-danger">*</span></label>
-                    <input class="form-control" type="email" name="email" required autocomplete="email"
-                           placeholder="Ex : amadou.diallo@emsp.int">
-                </div>
-                <div class="col-12">
-                    <label class="form-label fw-semibold">Mot de passe <span class="text-danger">*</span></label>
-                    <input class="form-control" type="password" name="password" required autocomplete="new-password"
-                           minlength="8" placeholder="Minimum 8 caractÃ¨res">
-                    <div class="form-text">L'utilisateur pourra le modifier depuis son profil.</div>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label fw-semibold">RÃ´le</label>
-                    <?php if ($canAssignRoles): ?><select class="form-select" name="role">
-                        <option value="etudiant">Ã‰tudiant</option>
-                        <option value="moderateur">ModÃ©rateur</option>
-                        <option value="admin">Admin</option>
-                    </select><?php else: ?><input type="hidden" name="role" value="etudiant"><input class="form-control" type="text" value="Etudiant" readonly><div class="form-text">Seul un administrateur peut attribuer un rÃ´le staff ou admin.</div><?php endif; ?>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label fw-semibold">Statut</label>
-                    <select class="form-select" name="status">
-                        <option value="active">Actif</option>
-                        <option value="pending">En attente</option>
-                        <option value="suspended">Suspendu</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label fw-semibold">FiliÃ¨re</label>
-                    <select class="form-select" name="filiere_id" data-emsp-select2="1" data-emsp-select2-placeholder="â€” Aucune â€”">
-                        <option value="">â€” Aucune â€”</option>
-                        <?php while ($f = mysqli_fetch_assoc($filieres)): ?>
-                            <option value="<?= $f['id'] ?>"><?= htmlspecialchars($f['name']) ?></option>
-                        <?php endwhile; ?>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label fw-semibold">Niveau</label>
-                    <select class="form-select" name="licence_id" data-emsp-select2="1" data-emsp-select2-placeholder="â€” Aucun â€”">
-                        <option value="">â€” Aucun â€”</option>
-                        <?php while ($l = mysqli_fetch_assoc($licences)): ?>
-                            <option value="<?= $l['id'] ?>"><?= htmlspecialchars($l['name']) ?></option>
-                        <?php endwhile; ?>
-                    </select>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Prenom <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" name="first_name" required autocomplete="given-name"
+                                   placeholder="Ex : Amadou">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Nom <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" name="last_name" required autocomplete="family-name"
+                                   placeholder="Ex : Diallo">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Email <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-body"><i class="bi bi-envelope"></i></span>
+                                <input class="form-control" type="email" name="email" required autocomplete="email"
+                                       placeholder="Ex : amadou.diallo@emsp.int">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Mot de passe <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-body"><i class="bi bi-key"></i></span>
+                                <input class="form-control" type="password" name="password" required autocomplete="new-password"
+                                       minlength="8" placeholder="Minimum 8 caracteres">
+                                <button class="btn btn-outline-secondary" type="button"
+                                        onclick="(function(b){var i=b.previousElementSibling;i.type=i.type==='password'?'text':'password';b.querySelector('i').className=i.type==='password'?'bi bi-eye':'bi bi-eye-slash';})(this)"
+                                        aria-label="Afficher / masquer le mot de passe">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                            <div class="form-text">L'utilisateur pourra le modifier depuis son profil.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="d-flex gap-2 mt-4">
-                <button type="submit" class="btn btn-primary" data-loading-text="CrÃ©ation du compte...">
-                    <i class="bi bi-check-lg me-1"></i>CrÃ©er le compte
+            <!-- Bloc 2 : acces et role -->
+            <div class="card mb-4">
+                <div class="card-header d-flex align-items-center gap-2">
+                    <i class="bi bi-shield-lock text-primary"></i>
+                    <span class="fw-semibold">Acces et role</span>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Role</label>
+                            <?php if ($canAssignRoles): ?>
+                                <select class="form-select" name="role">
+                                    <option value="etudiant">Etudiant</option>
+                                    <option value="moderateur">Moderateur</option>
+                                    <option value="admin">Administrateur</option>
+                                </select>
+                            <?php else: ?>
+                                <input type="hidden" name="role" value="etudiant">
+                                <input class="form-control" type="text" value="Etudiant" readonly>
+                                <div class="form-text">Seul un administrateur peut attribuer un role staff ou admin.</div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Statut initial</label>
+                            <select class="form-select" name="status">
+                                <option value="active">Actif</option>
+                                <option value="pending">En attente</option>
+                                <option value="suspended">Suspendu</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloc 3 : rattachement academique -->
+            <div class="card mb-4">
+                <div class="card-header d-flex align-items-center gap-2">
+                    <i class="bi bi-mortarboard text-primary"></i>
+                    <span class="fw-semibold">Rattachement academique</span>
+                    <span class="badge bg-body-tertiary text-body-secondary border ms-auto">Optionnel</span>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Filiere</label>
+                            <select class="form-select" name="filiere_id" data-emsp-select2="1" data-emsp-select2-placeholder="Aucune">
+                                <option value="">Aucune</option>
+                                <?php while ($f = mysqli_fetch_assoc($filieres)): ?>
+                                    <option value="<?= $f['id'] ?>"><?= htmlspecialchars($f['name']) ?></option>
+                                <?php endwhile; ?>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Niveau</label>
+                            <select class="form-select" name="licence_id" data-emsp-select2="1" data-emsp-select2-placeholder="Aucun">
+                                <option value="">Aucun</option>
+                                <?php while ($l = mysqli_fetch_assoc($licences)): ?>
+                                    <option value="<?= $l['id'] ?>"><?= htmlspecialchars($l['name']) ?></option>
+                                <?php endwhile; ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="d-flex flex-column flex-md-row gap-2 justify-content-end mb-4">
+                <a href="view-users.php" class="btn btn-outline-secondary order-md-1 order-2">
+                    Annuler
+                </a>
+                <button type="submit" class="btn btn-primary order-md-2 order-1" data-loading-text="Creation du compte...">
+                    <i class="bi bi-check-lg me-1"></i>Creer le compte
                 </button>
-                <a href="view-users.php" class="btn btn-outline-secondary">Annuler</a>
             </div>
         </form>
     </div>
 </div>
-</div>
-</div>
+
 </div><!-- /#main-content -->
 </div><!-- /#admin-content -->
 <?php include __DIR__ . '/includes/footer.php'; ?>

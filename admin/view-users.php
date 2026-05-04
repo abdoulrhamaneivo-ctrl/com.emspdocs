@@ -155,59 +155,89 @@ include __DIR__ . '/includes/sidebar.php';
 <div id="admin-content">
 <div id="main-content" class="container-fluid">
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h5 class="mb-0 fw-bold">
-        <i class="bi bi-people me-2 text-primary"></i>Utilisateurs
-        <span class="badge bg-secondary ms-2"><?= (int) $total_users ?></span>
-    </h5>
-    <a href="add-user.php" class="btn btn-sm btn-primary">
-        <i class="bi bi-person-plus me-1"></i>Ajouter
-    </a>
+<!-- Page header -->
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-4">
+    <div>
+        <h1 class="h4 mb-1 d-flex align-items-center gap-2">
+            <i class="bi bi-people text-primary"></i>
+            Utilisateurs
+            <span class="badge rounded-pill bg-body-tertiary text-body-secondary border ms-1"><?= (int) $total_users ?></span>
+        </h1>
+        <p class="text-body-secondary small mb-0">Gerez les comptes etudiants, moderateurs et administrateurs.</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a href="pending-users.php" class="btn btn-outline-warning btn-sm">
+            <i class="bi bi-person-check me-1"></i>Validation
+        </a>
+        <a href="add-user.php" class="btn btn-primary btn-sm">
+            <i class="bi bi-person-plus me-1"></i>Ajouter un utilisateur
+        </a>
+    </div>
 </div>
 
 <!-- Filtres -->
-<div class="card shadow-sm mb-3">
-    <div class="card-body py-2">
-        <form method="GET" class="row g-2 align-items-end">
-            <div class="col-md-4">
-                <input type="text" class="form-control form-control-sm" name="q"
-                       placeholder="Rechercher nom, prÃ©nom, email..."
-                       value="<?= htmlspecialchars($search) ?>">
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="GET" class="row g-3 align-items-end">
+            <div class="col-md-5">
+                <label class="form-label small text-body-secondary mb-1">Rechercher</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-body"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control" name="q"
+                           placeholder="Nom, prenom ou email..."
+                           value="<?= htmlspecialchars($search) ?>">
+                </div>
             </div>
-            <div class="col-md-2">
-                <select class="form-select form-select-sm" name="role">
-                    <option value="">Tous rÃ´les</option>
-                    <option value="etudiant"   <?= $filter_role==='etudiant'   ? 'selected':'' ?>>Ã‰tudiant</option>
-                    <option value="moderateur" <?= $filter_role==='moderateur' ? 'selected':'' ?>>ModÃ©rateur</option>
+            <div class="col-md-2 col-6">
+                <label class="form-label small text-body-secondary mb-1">Role</label>
+                <select class="form-select" name="role">
+                    <option value="">Tous</option>
+                    <option value="etudiant"   <?= $filter_role==='etudiant'   ? 'selected':'' ?>>Etudiant</option>
+                    <option value="moderateur" <?= $filter_role==='moderateur' ? 'selected':'' ?>>Moderateur</option>
                     <option value="admin"      <?= $filter_role==='admin'      ? 'selected':'' ?>>Admin</option>
                 </select>
             </div>
-            <div class="col-md-2">
-                <select class="form-select form-select-sm" name="status">
-                    <option value="">Tous statuts</option>
+            <div class="col-md-2 col-6">
+                <label class="form-label small text-body-secondary mb-1">Statut</label>
+                <select class="form-select" name="status">
+                    <option value="">Tous</option>
                     <option value="active"    <?= $filter_status==='active'    ? 'selected':'' ?>>Actif</option>
                     <option value="pending"   <?= $filter_status==='pending'   ? 'selected':'' ?>>En attente</option>
                     <option value="suspended" <?= $filter_status==='suspended' ? 'selected':'' ?>>Suspendu</option>
-                    <option value="rejected"  <?= $filter_status==='rejected'  ? 'selected':'' ?>>RejetÃ©</option>
+                    <option value="rejected"  <?= $filter_status==='rejected'  ? 'selected':'' ?>>Rejete</option>
                 </select>
             </div>
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-sm btn-primary w-100">
-                    <i class="bi bi-search me-1"></i>Filtrer
+            <div class="col-md-3 d-flex gap-2">
+                <button type="submit" class="btn btn-primary flex-grow-1">
+                    <i class="bi bi-funnel me-1"></i>Filtrer
                 </button>
-            </div>
-            <div class="col-md-2">
-                <a href="view-users.php" class="btn btn-sm btn-outline-secondary w-100">
-                    RÃ©initialiser
+                <a href="view-users.php" class="btn btn-outline-secondary" title="Reinitialiser">
+                    <i class="bi bi-arrow-clockwise"></i>
                 </a>
             </div>
         </form>
     </div>
 </div>
 
-<div class="card shadow-sm">
+<div class="card">
+    <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-list-ul text-body-secondary"></i>
+            <span class="fw-semibold">Liste des utilisateurs</span>
+            <?php if ($search !== '' || $filter_role !== '' || $filter_status !== ''): ?>
+                <span class="badge bg-info-subtle text-info-emphasis border border-info-subtle">Filtre actif</span>
+            <?php endif; ?>
+        </div>
+        <div class="text-body-secondary small">
+            <?php
+            $shown_from = $users_count > 0 ? $offset + 1 : 0;
+            $shown_to = $offset + $users_count;
+            ?>
+            <?= $shown_from ?>&ndash;<?= $shown_to ?> sur <?= (int) $total_users ?>
+        </div>
+    </div>
     <div class="card-body p-0 d-none d-md-block">
-        <table class="table table-admin table-hover mb-0">
+        <table class="table table-admin table-hover align-middle mb-0">
             <thead>
                 <tr>
                     <th class="ps-3">#</th>
@@ -416,24 +446,45 @@ include __DIR__ . '/includes/sidebar.php';
         <?php endif; ?>
     </div>
     <?php if ($total_pages > 1): ?>
-    <div class="card-footer bg-white">
-        <nav><ul class="pagination pagination-sm justify-content-center mb-0">
-            <li class="page-item <?= $page_num <= 1 ? 'disabled' : '' ?>">
-                <a class="page-link" href="<?= user_url($page_num - 1) ?>">
-                    <i class="bi bi-chevron-left"></i>
-                </a>
-            </li>
-            <?php for ($p = 1; $p <= $total_pages; $p++): ?>
-                <li class="page-item <?= $p === $page_num ? 'active' : '' ?>">
-                    <a class="page-link" href="<?= user_url($p) ?>"><?= $p ?></a>
+    <div class="card-footer d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2">
+        <span class="text-body-secondary small">
+            Page <strong><?= $page_num ?></strong> sur <?= $total_pages ?>
+        </span>
+        <nav aria-label="Pagination utilisateurs">
+            <ul class="pagination pagination-sm mb-0">
+                <li class="page-item <?= $page_num <= 1 ? 'disabled' : '' ?>">
+                    <a class="page-link" href="<?= user_url(max(1, $page_num - 1)) ?>" aria-label="Precedent">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
                 </li>
-            <?php endfor; ?>
-            <li class="page-item <?= $page_num >= $total_pages ? 'disabled' : '' ?>">
-                <a class="page-link" href="<?= user_url($page_num + 1) ?>">
-                    <i class="bi bi-chevron-right"></i>
-                </a>
-            </li>
-        </ul></nav>
+                <?php
+                $window = 2;
+                $start_p = max(1, $page_num - $window);
+                $end_p = min($total_pages, $page_num + $window);
+                if ($start_p > 1): ?>
+                    <li class="page-item"><a class="page-link" href="<?= user_url(1) ?>">1</a></li>
+                    <?php if ($start_p > 2): ?>
+                        <li class="page-item disabled"><span class="page-link">&hellip;</span></li>
+                    <?php endif; ?>
+                <?php endif;
+                for ($p = $start_p; $p <= $end_p; $p++): ?>
+                    <li class="page-item <?= $p === $page_num ? 'active' : '' ?>">
+                        <a class="page-link" href="<?= user_url($p) ?>"><?= $p ?></a>
+                    </li>
+                <?php endfor;
+                if ($end_p < $total_pages): ?>
+                    <?php if ($end_p < $total_pages - 1): ?>
+                        <li class="page-item disabled"><span class="page-link">&hellip;</span></li>
+                    <?php endif; ?>
+                    <li class="page-item"><a class="page-link" href="<?= user_url($total_pages) ?>"><?= $total_pages ?></a></li>
+                <?php endif; ?>
+                <li class="page-item <?= $page_num >= $total_pages ? 'disabled' : '' ?>">
+                    <a class="page-link" href="<?= user_url(min($total_pages, $page_num + 1)) ?>" aria-label="Suivant">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
     <?php endif; ?>
 </div>
