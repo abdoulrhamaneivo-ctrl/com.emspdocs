@@ -90,11 +90,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         $confirm  = (string) ($_POST['confirm_password']  ?? '');
 
         if (strlen($new_pwd) < 8) {
-            flash_set('error', 'Mot de passe trop court', 'Le nouveau mot de passe doit contenir au moins 8 caractÃ¨res.');
+            flash_set('error', 'Mot de passe trop court', 'Le nouveau mot de passe doit contenir au moins 8 caractères.');
             header('Location: mon-profil.php'); exit(0);
         }
         if ($new_pwd !== $confirm) {
-            flash_set('error', 'Les mots de passe ne correspondent pas', 'VÃ©rifiez votre saisie puis rÃ©essayez.');
+            flash_set('error', 'Les mots de passe ne correspondent pas', 'Vérifiez votre saisie puis réessayez.');
             header('Location: mon-profil.php'); exit(0);
         }
 
@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         mysqli_stmt_close($s);
 
         if (!$r || !password_verify($current, $r['password_hash'])) {
-            flash_set('error', 'Mot de passe actuel incorrect', 'VÃ©rifiez votre mot de passe actuel puis rÃ©essayez.');
+            flash_set('error', 'Mot de passe actuel incorrect', 'Vérifiez votre mot de passe actuel puis réessayez.');
             header('Location: mon-profil.php'); exit(0);
         }
 
@@ -114,12 +114,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         mysqli_stmt_bind_param($upd, 'si', $new_hash, $uid);
         mysqli_stmt_execute($upd); mysqli_stmt_close($upd);
 
-        flash_set('success', 'Mot de passe modifiÃ©', 'Votre mot de passe a Ã©tÃ© mis Ã  jour avec succÃ¨s.');
+        flash_set('success', 'Mot de passe modifié', 'Votre mot de passe a été mis à jour avec succès.');
         header('Location: mon-profil.php'); exit(0);
     }
 }
 
-// RÃ©cupÃ©rer les donnÃ©es du profil
+// Récupérer les données du profil
 $stmt = mysqli_prepare($con,
     "SELECT u.*, f.name AS filiere_name, l.name AS licence_name
      FROM users u
@@ -221,7 +221,7 @@ include __DIR__ . '/includes/header.php';
                         </div>
                         <div class="col-4">
                             <div class="fw-bold fs-5"><?= $dl_count ?></div>
-                            <div class="text-muted emsp-profile-stat-label">TÃ©lÃ©ch.</div>
+                            <div class="text-muted emsp-profile-stat-label">Téléch.</div>
                         </div>
                     </div>
                 </div>
@@ -229,22 +229,22 @@ include __DIR__ . '/includes/header.php';
 
             <div class="card shadow-sm">
                 <div class="card-header bg-white fw-semibold small">
-                    <i class="bi bi-mortarboard me-2"></i>Informations acadÃ©miques
+                    <i class="bi bi-mortarboard me-2"></i>Informations académiques
                 </div>
                 <div class="card-body p-0">
                     <table class="table table-sm mb-0">
                         <tr>
-                            <td class="text-muted small ps-3">FiliÃ¨re</td>
-                            <td class="small"><?= h($user['filiere_name'] ?? 'â€”') ?></td>
+                            <td class="text-muted small ps-3">Filière</td>
+                            <td class="small"><?= h($user['filiere_name'] ?? '—') ?></td>
                         </tr>
                         <tr>
                             <td class="text-muted small ps-3">Niveau</td>
-                            <td class="small"><?= h($user['licence_name'] ?? 'â€”') ?></td>
+                            <td class="small"><?= h($user['licence_name'] ?? '—') ?></td>
                         </tr>
                         <tr>
                             <td class="text-muted small ps-3">Inscription</td>
                             <td class="small">
-                                <?= $user['registration_method'] === 'school_email' ? 'Email Ã©cole' : 'Carte Ã©tudiante' ?>
+                                <?= $user['registration_method'] === 'school_email' ? 'Email école' : 'Carte étudiante' ?>
                             </td>
                         </tr>
                         <tr>
@@ -253,7 +253,7 @@ include __DIR__ . '/includes/header.php';
                         </tr>
                         <?php if (!empty($user['last_login_at'])): ?>
                         <tr>
-                            <td class="text-muted small ps-3">DerniÃ¨re connexion</td>
+                            <td class="text-muted small ps-3">Dernière connexion</td>
                             <td class="small"><?= date('d/m/Y H:i', strtotime($user['last_login_at'])) ?></td>
                         </tr>
                         <?php endif; ?>
@@ -274,7 +274,7 @@ include __DIR__ . '/includes/header.php';
 
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <label class="form-label fw-semibold">PrÃ©nom</label>
+                                <label class="form-label fw-semibold">Prénom</label>
                                 <input class="form-control" type="text" name="first_name" autocomplete="given-name"
                                        value="<?= h($user['first_name']) ?>" required>
                             </div>
@@ -378,7 +378,7 @@ include __DIR__ . '/includes/header.php';
                     <a href="upload.php" class="card shadow-sm text-decoration-none text-dark h-100">
                         <div class="card-body text-center py-3">
                             <i class="bi bi-cloud-upload fs-3 text-success d-block mb-1"></i>
-                            <span class="small fw-semibold">DÃ©poser un doc</span>
+                            <span class="small fw-semibold">Déposer un doc</span>
                         </div>
                     </a>
                 </div>
@@ -559,16 +559,16 @@ $page_scripts = '<script>
       <div class="badge-celebration mb-3">
         <?php if ($badge === 'bronze'): ?>
           <div class="emsp-badge-emoji">ðŸ¥‰</div>
-          <h3>Badge Bronze dÃ©bloquÃ© !</h3>
-          <p>FÃ©licitations ! Votre premier document a Ã©tÃ© approuvÃ©. Continuez Ã  contribuer pour obtenir le badge Argent.</p>
+          <h3>Badge Bronze débloqué !</h3>
+          <p>Félicitations ! Votre premier document a été approuvé. Continuez à contribuer pour obtenir le badge Argent.</p>
         <?php elseif ($badge === 'argent'): ?>
           <div class="emsp-badge-emoji">ðŸ¥ˆ</div>
-          <h3>Badge Argent dÃ©bloquÃ© !</h3>
-          <p>Excellent ! Vous avez 5 documents approuvÃ©s. Encore 5 pour atteindre le badge Or !</p>
+          <h3>Badge Argent débloqué !</h3>
+          <p>Excellent ! Vous avez 5 documents approuvés. Encore 5 pour atteindre le badge Or !</p>
         <?php elseif ($badge === 'or'): ?>
           <div class="emsp-badge-emoji">ðŸ¥‡</div>
           <h3>Badge Or obtenu !</h3>
-          <p>FÃ©licitations ! L'administration vous a rÃ©compensÃ© du badge Or pour votre contribution exceptionnelle.</p>
+          <p>Félicitations ! L'administration vous a récompensé du badge Or pour votre contribution exceptionnelle.</p>
         <?php endif; ?>
       </div>
       <button class="btn btn-primary" type="button" data-bs-dismiss="modal">
@@ -586,4 +586,3 @@ document.addEventListener('DOMContentLoaded', function() {
 <?php endif; ?>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>
-

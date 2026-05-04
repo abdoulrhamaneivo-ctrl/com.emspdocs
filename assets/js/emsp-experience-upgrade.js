@@ -132,7 +132,11 @@
             return child && child.nodeType === 1 && child.tagName !== 'SCRIPT' && child.tagName !== 'STYLE';
         });
 
-        if (items.length < 3) return;
+        var minItems = parseInt((container.dataset && container.dataset.emspCarouselMinItems) ? container.dataset.emspCarouselMinItems : '3', 10);
+        if (!Number.isFinite(minItems) || minItems < 1) {
+            minItems = 3;
+        }
+        if (items.length < minItems) return;
 
         container.dataset.emspCarouselReady = '1';
 
@@ -654,5 +658,4 @@
         initImageFallbacks();
     });
 })(window, document);
-
 

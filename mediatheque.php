@@ -48,10 +48,34 @@ function emsp_video_cache_key(array $video): string
     return 'video_' . md5((string) ($video['file_path'] ?? ''));
 }
 
+function emsp_local_asset_exists(string $src): bool
+{
+    $src = trim($src);
+    if ($src === '' || emsp_is_external_url($src) || str_starts_with($src, 'data:') || str_starts_with($src, 'blob:')) {
+        return $src !== '';
+    }
+
+    $path = strtok($src, '?') ?: $src;
+    $path = ltrim(str_replace('\\', '/', $path), '/');
+    $fullPath = __DIR__ . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $path);
+
+    return is_file($fullPath);
+}
+
+function emsp_existing_media_src(?string $path, string $fallback = 'assets/images/video-placeholder.jpg'): string
+{
+    $src = emsp_media_src((string) $path);
+    if ($src === '' || !emsp_local_asset_exists($src)) {
+        return $fallback;
+    }
+
+    return $src;
+}
+
 function emsp_video_poster_src(array $video): string
 {
     $poster = trim((string) ($video['poster'] ?? ''));
-    if ($poster !== '') {
+    if ($poster !== '' && emsp_local_asset_exists($poster)) {
         return $poster;
     }
 
@@ -166,7 +190,7 @@ $rAlbums = emsp_stmt_fetch_all($sAlbums);
 foreach ($rAlbums as $row) {
     $row['category_raw'] = (string)($row['category'] ?? '');
     $row['category'] = emsp_mediatheque_fix_text($row['category_raw']);
-    $row['cover_src'] = $row['cover_path'] ? emsp_media_src((string)$row['cover_path']) : 'assets/images/video-placeholder.jpg';
+    $row['cover_src'] = $row['cover_path'] ? emsp_existing_media_src((string)$row['cover_path']) : 'assets/images/video-placeholder.jpg';
     $row['category_label'] = $row['category'] !== '' ? $row['category'] : 'Sans titre';
     $albums[] = $row;
 }
@@ -207,7 +231,7 @@ if ($album_view !== '') {
     $rPhotos = emsp_stmt_fetch_all($sPhotos);
     foreach ($rPhotos as $row) {
         $row['title'] = emsp_mediatheque_fix_text((string)($row['title'] ?? ''));
-        $row['src'] = emsp_media_src((string)$row['file_path']);
+        $row['src'] = emsp_existing_media_src((string)$row['file_path']);
         $album_photos[] = $row;
     }
     mysqli_stmt_close($sPhotos);
@@ -251,7 +275,8 @@ if ($sVid) {
         $row['thumb'] = $row['is_youtube'] ? emsp_youtube_thumb($src) : '';
         $row['poster'] = '';
         if (!$row['is_youtube'] && !empty($row['poster_path'])) {
-            $row['poster'] = emsp_media_src((string) $row['poster_path']);
+            $posterSrc = emsp_media_src((string) $row['poster_path']);
+            $row['poster'] = emsp_local_asset_exists($posterSrc) ? $posterSrc : '';
         }
         $row['initial'] = emsp_video_initial((string) $row['title']);
         $row['cache_key'] = emsp_video_cache_key($row);
@@ -868,7 +893,7 @@ include __DIR__ . '/includes/header.php';
             </div>
             <div class="modal-body d-flex align-items-center justify-content-center position-relative">
                 <button class="btn btn-outline-light position-absolute start-0 ms-3" type="button" id="lbPrev"><i class="bi bi-chevron-left"></i></button>
-                <img id="lbImage" src="" alt="Photo" class="img-fluid rounded lb-image-max">
+                <img id="lbImage" src="assets/images/video-placeholder.jpg" alt="Photo" class="img-fluid rounded lb-image-max">
                 <button class="btn btn-outline-light position-absolute end-0 me-3" type="button" id="lbNext"><i class="bi bi-chevron-right"></i></button>
             </div>
             <div class="modal-footer border-0 justify-content-center text-white">
@@ -964,11 +989,21 @@ ob_start();
   }
 
   function readStoredPoster(cacheKey) {
-    return '';
+    if (!cacheKey) return '';
+    try {
+      return sessionStorage.getItem('emsp_video_poster_' + cacheKey) || '';
+    } catch (error) {
+      return '';
+    }
   }
 
   function storePoster(cacheKey, posterUrl) {
-    return;
+    if (!cacheKey || !posterUrl) return;
+    try {
+      sessionStorage.setItem('emsp_video_poster_' + cacheKey, posterUrl);
+    } catch (error) {
+      // no-op
+    }
   }
 
   function applyPoster(container, posterUrl) {
@@ -997,10 +1032,85 @@ ob_start();
     if (!src) {
       return Promise.resolve('');
     }
+    var key = cacheKey || src;
+    var stored = readStoredPoster(key);
+    if (stored) {
+      posterCache.set(src, stored);
+      return Promise.resolve(stored);
+    }
     if (posterCache.has(src)) {
       return Promise.resolve(posterCache.get(src));
     }
-    return Promise.resolve('');
+
+    return new Promise(function (resolve) {
+      var loader = document.createElement('video');
+      loader.preload = 'metadata';
+      loader.muted = true;
+      loader.playsInline = true;
+      loader.crossOrigin = 'anonymous';
+      loader.style.position = 'absolute';
+      loader.style.width = '1px';
+      loader.style.height = '1px';
+      loader.style.opacity = '0';
+      loader.style.pointerEvents = 'none';
+      loader.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(loader);
+
+      var settled = false;
+      function done(url) {
+        if (settled) return;
+        settled = true;
+        cleanupPosterLoader(loader);
+        if (url) {
+          posterCache.set(src, url);
+          storePoster(key, url);
+        }
+        resolve(url || '');
+      }
+
+      function captureFrame() {
+        try {
+          var canvas = document.createElement('canvas');
+          canvas.width = loader.videoWidth || 640;
+          canvas.height = loader.videoHeight || 360;
+          var ctx = canvas.getContext('2d');
+          if (!ctx) {
+            done('');
+            return;
+          }
+          ctx.drawImage(loader, 0, 0, canvas.width, canvas.height);
+          done(canvas.toDataURL('image/jpeg', 0.86));
+        } catch (error) {
+          done('');
+        }
+      }
+
+      loader.addEventListener('loadedmetadata', function () {
+        var duration = Number(loader.duration || 0);
+        if (!isFinite(duration) || duration <= 0) {
+          captureFrame();
+          return;
+        }
+        var target = Math.min(1, Math.max(duration * 0.1, 0.12));
+        try {
+          loader.currentTime = target;
+        } catch (error) {
+          captureFrame();
+        }
+      }, { once: true });
+
+      loader.addEventListener('seeked', captureFrame, { once: true });
+      loader.addEventListener('error', function () {
+        done('');
+      }, { once: true });
+
+      window.setTimeout(function () {
+        done('');
+      }, 4000);
+
+      loader.src = src;
+      loader.load();
+    });
   }
 
   function renderLocalPlaceholder(letter, label, src, posterUrl, cacheKey) {
@@ -1117,11 +1227,17 @@ ob_start();
     var cacheKey = card.dataset.videoCacheKey || src;
     if (!src) return;
 
-    var cachedPoster = posterCache.get(src) || getPosterUrl(card) || '';
+    var cachedPoster = posterCache.get(src) || readStoredPoster(cacheKey) || getPosterUrl(card) || '';
     if (cachedPoster) {
       posterCache.set(src, cachedPoster);
       applyPoster(card, cachedPoster);
+      return;
     }
+
+    ensureVideoPoster(src, cacheKey).then(function (generatedPoster) {
+      if (!generatedPoster) return;
+      applyPoster(card, generatedPoster);
+    });
   }
 
   function bootstrapThumbHydration() {
@@ -1332,5 +1448,3 @@ ob_start();
 $page_scripts = ob_get_clean();
 include __DIR__ . '/includes/footer.php';
 ?>
-
-

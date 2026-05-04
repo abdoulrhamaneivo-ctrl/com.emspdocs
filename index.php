@@ -23,6 +23,30 @@ $featuredDocs = [];
 $guestCountFilter = $isAuth ? '' : " AND is_public=1";
 $guestConcoursFilter = $isAuth ? '' : " AND d.is_public=1";
 
+if (!function_exists('emsp_home_local_asset_exists')) {
+    function emsp_home_local_asset_exists(string $src): bool
+    {
+        $src = trim($src);
+        if ($src === '' || emsp_is_external_url($src) || str_starts_with($src, 'data:') || str_starts_with($src, 'blob:')) {
+            return $src !== '';
+        }
+
+        $path = strtok($src, '?') ?: $src;
+        $path = ltrim(str_replace('\\', '/', $path), '/');
+
+        return is_file(__DIR__ . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $path));
+    }
+}
+
+if (!function_exists('emsp_home_media_cover_src')) {
+    function emsp_home_media_cover_src(string $path): string
+    {
+        $src = emsp_media_src($path);
+
+        return emsp_home_local_asset_exists($src) ? $src : 'assets/images/video-placeholder.jpg';
+    }
+}
+
 $countResult = mysqli_query($con, "SELECT COUNT(*) AS total FROM documents WHERE status='approved'" . $guestCountFilter);
 if ($countResult) {
     $countRow = mysqli_fetch_assoc($countResult);
@@ -99,7 +123,7 @@ foreach ($mediaHighlights as &$mediaItem) {
     $mediaItem['category'] = emsp_fix_mojibake($categoryRaw);
     $mediaItem['category_label'] = trim($mediaItem['category']) !== '' ? $mediaItem['category'] : 'Album EMSP';
     $coverPath = trim((string) ($mediaItem['cover_path'] ?? ''));
-    $mediaItem['cover_src'] = $coverPath !== '' ? emsp_media_src($coverPath) : 'assets/images/video-placeholder.jpg';
+    $mediaItem['cover_src'] = $coverPath !== '' ? emsp_home_media_cover_src($coverPath) : 'assets/images/video-placeholder.jpg';
 }
 unset($mediaItem);
 
@@ -423,7 +447,15 @@ include __DIR__ . '/includes/header.php';
                 Voir tout <i class="bi bi-arrow-right ms-1"></i>
             </a>
         </div>
-        <div class="row g-3">
+        <div class="row g-3"
+             data-emsp-carousel="1"
+             data-emsp-carousel-style="immersive"
+             data-emsp-carousel-title="Documents du moment"
+             data-emsp-carousel-interval="4800"
+             data-emsp-carousel-min-items="2"
+             data-emsp-per-view-desktop="4"
+             data-emsp-per-view-tablet="2"
+             data-emsp-per-view-mobile="1">
             <?php foreach ($featuredDocs as $fd): ?>
             <div class="col-12 col-sm-6 col-lg-3">
                 <a href="document.php?id=<?= (int)$fd['id'] ?>"

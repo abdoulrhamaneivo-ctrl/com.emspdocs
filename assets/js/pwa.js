@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   let deferredPrompt = null;
   let installBanner = null;
   let installBtn = null;
@@ -62,7 +62,23 @@
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function(e) {
+      // Detect base path dynamically so SW works in subdirectory deployments
+      var basePath = '/';
+      try {
+        var scripts = document.querySelectorAll('script[src*="pwa.js"]');
+        if (scripts.length) {
+          var src = scripts[0].getAttribute('src') || '';
+          var idx = src.indexOf('assets/js/pwa.js');
+          if (idx > 0) basePath = src.substring(0, idx);
+        }
+        if (basePath === '/') {
+          var pathname = window.location.pathname || '/';
+          var lastSlash = pathname.lastIndexOf('/');
+          if (lastSlash > 0) basePath = pathname.substring(0, lastSlash + 1);
+        }
+      } catch (e) {}
+      var swUrl = basePath + 'sw.js';
+      navigator.serviceWorker.register(swUrl, { scope: basePath }).catch(function(e) {
         console.warn('[PWA] SW registration failed:', e);
       });
     });

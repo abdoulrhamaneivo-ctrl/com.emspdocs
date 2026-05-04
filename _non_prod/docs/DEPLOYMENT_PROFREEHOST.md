@@ -1,124 +1,103 @@
-# Deployment ProFreeHost - EMSP Docs
+# Déploiement ProFreeHost - EMSP Docs
 
-Ce document explique quel fichier config utiliser, comment deployer, et comment connecter Brevo.
+Ce guide couvre le déploiement du cahier de charge EMSP Docs sur un hébergement mutualisé type ProFreeHost/InfinityFree.
 
-## 1) Quel fichier est le bon ?
+## 1. Préparer les fichiers
 
-- Fichier principal a modifier :
-  `emsp_plateforme_docs/admin/config/config.php`
-  C'est la source de verite (DB + Brevo + BASE_URL + PRODUCTION).
+À envoyer sur l’hébergement :
 
-- Fichier de connexion :
-  `emsp_plateforme_docs/admin/config/dbcon.php`
-  Il lit automatiquement `config.php`. Tu ne modifies pas DB ici.
+- tous les fichiers PHP de la racine ;
+- `admin/`, `ajax/`, `assets/`, `errors/`, `includes/`, `vendor/`, `uploads/` ;
+- `.htaccess`, `manifest.json`, `sw.js`, `php.ini` si l’hébergeur l’accepte.
 
-En resume : tu modifies **config.php** uniquement.
+À ne pas exposer publiquement en production :
 
----
+- `_non_prod/` sauf besoin temporaire d’import SQL ;
+- `node_modules/`, `test-results/`, `.phpunit.cache/`, `.git/`, `.qodo/` ;
+- fichiers `.tmp-*`, `rapport_complet.txt`, scripts QA.
 
-## 2) Pre-requis ProFreeHost
+## 2. Configurer l’environnement
 
-1) Creer la base de donnees
-2) Creer un utilisateur MySQL
-3) Donner les droits a cet utilisateur
-4) Importer le dump SQL
+Créer ou adapter `.env` :
 
----
+```env
+APP_ENV=production
+APP_URL=https://votre-domaine.example
 
-## 3) Configuration DB (config.php)
+DB_HOST=sqlXXX.profreehost.com
+DB_NAME=votre_base
+DB_USER=votre_user
+DB_PASS=votre_mot_de_passe
 
-Ouvre `emsp_plateforme_docs/admin/config/config.php` et mets :
+BREVO_API_KEY=votre_cle_brevo
+BREVO_FROM_EMAIL=noreply@votre-domaine.example
+BREVO_FROM_NAME="EMSP Docs"
 
-```php
-// Base de donnees
-define('DB_HOST', 'localhost');
-define('DB_USER', 'TON_USER_PROFREEHOST');
-define('DB_PASS', 'TON_MDP_PROFREEHOST');
-define('DB_NAME', 'TON_NOM_BDD_PROFREEHOST');
-
-// URL de base (sans slash final)
-define('BASE_URL', 'https://ton-domaine.profreehost.com');
-
-// Mode prod
-define('PRODUCTION', true);
+EMSP_DEBUG_EMAIL=false
+SCHOOL_EMAIL_DOMAIN=@fsmenum24.emsp.int
 ```
 
----
+`admin/config/dbcon.php` lit la configuration et force `utf8mb4`. Ne mettez pas d’identifiants directement dans les pages métier.
 
-## 4) Importer la base
+## 3. Importer la base de données
 
-Utilise ton dump SQL (phpMyAdmin) :
-- Importe le fichier `emsp_plateforme_docs (7).sql` dans la base
+Dans phpMyAdmin :
 
-Optionnel (si besoin) :
-- Importer `emsp_plateforme_docs/admin/migration_school_domains.sql`
+1. créer la base ;
+2. sélectionner la base ;
+3. importer `_non_prod/db/emsp_docs_full.sql` ;
+4. appliquer ensuite les fichiers incrémentaux `_non_prod/db/2026-*.sql` seulement si votre dump de départ est ancien.
 
----
+Le dump complet contient les tables du cahier de charge : utilisateurs, documents, référentiels, favoris, likes, commentaires, notifications, journal, médias, institution, domaines école, paramètres, logs email, push et historique.
 
-## 5) Dossiers upload et droits
+## 4. Dossiers nécessaires
 
-Assure-toi que ces dossiers existent et sont en 755 :
+Créer ces dossiers si absents :
 
-- `uploads/`
 - `uploads/documents/`
 - `uploads/media/`
 - `uploads/media/journal/`
 - `uploads/media/institution/`
+- `uploads/formations/covers/`
 - `uploads/profiles/`
 - `uploads/student-cards/`
 
----
+Permissions recommandées : `755` pour les dossiers. Éviter les `chmod()` agressifs sur hébergement mutualisé.
 
-## 6) Brevo (Email)
+## 5. Vérifications après mise en ligne
 
-### Etapes Brevo
-1) Creer un compte Brevo
-2) Creer une cle API
-3) Verifier ton domaine d'envoi si possible
+- Accueil, bibliothèque, médiathèque, journal, institution et formations chargent sans erreur.
+- Inscription email école : compte actif immédiatement si domaine autorisé.
+- Inscription par carte : compte pending + visible dans `admin/pending-users.php`.
+- Connexion étudiant, admin et modérateur.
+- Dépôt document : création en `pending`.
+- Validation/rejet document dans `admin/pending-documents.php`.
+- Prévisualisation PDF/image/DOCX/XLSX/texte sans téléchargement automatique.
+- Téléchargement uniquement via formulaire POST + CSRF.
+- Favoris, likes, commentaires et réactions.
+- Emails Brevo en production, debug email désactivé.
+- PWA : manifest, icônes 192/512, service worker.
 
-### Configuration dans config.php
+## 6. Commandes de maintenance locale
 
-```php
-// Brevo API (email)
-define('BREVO_API_KEY', 'TA_CLE_BREVO');
-define('BREVO_FROM_EMAIL', 'noreply@ton-domaine.com');
-define('BREVO_FROM_NAME', 'EMSP Docs');
+```powershell
+C:\xampp\php\php.exe vendor\bin\phpunit --colors=never
+C:\xampp\php\php.exe -l index.php
+node _non_prod\qa\audit-platform.js
 ```
 
-Le code utilise l'API Brevo via cURL.
+Pour Phinx :
 
----
+```powershell
+C:\xampp\php\php.exe vendor\bin\phinx -c phinx.php migrate
+```
 
-## 7) Domaines email ecole
+La configuration Phinx pointe vers `_non_prod/db/migrations`.
 
-Tu peux configurer les domaines autorises depuis l'admin :
-- Menu admin > "Domaines email"
-- Ajoute : @emsp.int, @emsp.edu, etc.
+## 7. Dépannage
 
-Le systeme accepte tous les domaines actifs dans la table `school_email_domains`.
-
----
-
-## 8) Checklist apres deploiement
-
-- Connexion admin OK
-- Upload document OK
-- Preview PDF OK
-- Journal (Quill) OK
-- Institution (blocs) OK
-- Emails Brevo OK (test inscription)
-
----
-
-## 9) Depannage rapide
-
-- Erreur 500 : verifier `config.php` (host/user/pass) + droits uploads
-- Email non recu : verifier cle Brevo + domaine from
-- Caractere casse : verifier `utf8mb4` + importer le dump en UTF-8
-
----
-
-Si tu veux, je peux ajouter un script test d'email Brevo ou un seed
-`app_settings` par defaut.
-
-
+- Page blanche : vérifier logs PHP, `.env`, connexion DB.
+- Caractères illisibles : vérifier import SQL en UTF-8/utf8mb4.
+- Images absentes : vérifier que les fichiers référencés existent dans `uploads/`.
+- Upload impossible : vérifier taille PHP, `php.ini`, permissions et limites ProFreeHost.
+- Emails absents : vérifier `BREVO_API_KEY`, expéditeur Brevo, `EMSP_DEBUG_EMAIL=false`.

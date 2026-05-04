@@ -2,11 +2,18 @@
 debug_email.txt
 *.log
 debug_*.txt
+rapport_complet.txt
+rapport_*.txt
 
 # Config secrets
 .env
-.env.local
+.env.*
 admin/config/config.php
+
+# Dépendances
+node_modules/
+vendor/
+.phpunit.cache/
 
 # Uploads (contenu, pas le dossier)
 /uploads/*
@@ -14,24 +21,15 @@ admin/config/config.php
 /admin/uploads/*
 !/admin/uploads/.gitkeep
 
-# Scripts one-shot
-admin/cleanup-artifacts.php
-admin/repair-encoding.php
+# Fichiers temporaires et outils
+.tmp-*
+composer.phar
+*.bak
+*.tmp
 
 # Artefacts OS
 .DS_Store
 Thumbs.db
-
-# Fichiers volumineux / rapports
-rapport_complet.txt
-rapport_*.txt
-
-# Fichiers temporaires
-.tmp-*
-*.tmp
-
-# Cache PHPUnit
-.phpunit.cache/
 
 # IDE
 .idea/
@@ -39,4 +37,7 @@ rapport_*.txt
 *.swp
 *.swo
 
-
+# Dashboard template dependencies
+dashboard/**/node_modules/
+dashboard/**/dist/
+dashboard/**/.git/

@@ -43,8 +43,8 @@ if (!headers_sent()) {
     header('Referrer-Policy: strict-origin-when-cross-origin');
     // Permissions policy
     header("Permissions-Policy: camera=(), microphone=(), geolocation=()");
-    // CSP â€” compatible ProFreeHost (banniÃ¨re injectÃ©e) + PDF.js (blob: workers) + Bootstrap Icons local
-    header("Content-Security-Policy: default-src 'self' https://profreehost.com https://*.profreehost.com https://ezyro.com https://*.ezyro.com https://*.unaux.com; script-src 'self' 'nonce-{$csp_nonce}' blob: https://cdnjs.cloudflare.com https://profreehost.com https://*.profreehost.com https://*.ezyro.com https://*.unaux.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://profreehost.com https://*.profreehost.com https://*.ezyro.com; font-src 'self' data: https://fonts.gstatic.com https://profreehost.com https://*.profreehost.com https://*.ezyro.com; img-src 'self' data: blob: https://img.youtube.com https://i.ytimg.com https://api.dicebear.com https://profreehost.com https://*.profreehost.com https://*.ezyro.com https://*.unaux.com; frame-src 'self' blob: https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://profreehost.com https://*.profreehost.com; worker-src 'self' blob:; connect-src 'self' blob: https://www.disify.com https://disify.com https://profreehost.com https://*.profreehost.com https://*.ezyro.com https://*.unaux.com;");
+    // CSP — compatible ProFreeHost (bannière injectée) + PDF.js (blob: workers) + Bootstrap Icons local
+    header("Content-Security-Policy: default-src 'self' https://profreehost.com https://*.profreehost.com https://ezyro.com https://*.ezyro.com https://*.unaux.com; script-src 'self' 'nonce-{$csp_nonce}' blob: https://cdnjs.cloudflare.com https://profreehost.com https://*.profreehost.com https://*.ezyro.com https://*.unaux.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://profreehost.com https://*.profreehost.com https://*.ezyro.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://profreehost.com https://*.profreehost.com https://*.ezyro.com; img-src 'self' data: blob: https://img.youtube.com https://i.ytimg.com https://api.dicebear.com https://profreehost.com https://*.profreehost.com https://*.ezyro.com https://*.unaux.com; frame-src 'self' blob: https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://profreehost.com https://*.profreehost.com; worker-src 'self' blob:; connect-src 'self' blob: https://www.disify.com https://disify.com https://profreehost.com https://*.profreehost.com https://*.ezyro.com https://*.unaux.com;");
 }
 
 $scriptName = str_replace('\\', '/', (string) ($_SERVER['SCRIPT_NAME'] ?? ''));
@@ -102,7 +102,6 @@ $bodyIsAuthenticated = !empty($_SESSION['auth']) || !empty($_SESSION['auth_user'
     <!-- Bootstrap local -->
     <link rel="stylesheet" href="<?= $asset ?>css/bootstrap5.min.css">
     <link rel="stylesheet" href="<?= $asset ?>css/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= $asset ?>vendor/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="<?= $asset ?>vendor/select2/select2.min.css">
     <link rel="stylesheet" href="<?= $asset ?>css/emsp-theme.css">
@@ -130,6 +129,8 @@ $bodyIsAuthenticated = !empty($_SESSION['auth']) || !empty($_SESSION['auth_user'
     <link rel="stylesheet" href="<?= $asset ?>css/emsp-phase-pages.css">
     <link rel="stylesheet" href="<?= $asset ?>css/emsp-palette-guard.css">
     <link rel="stylesheet" href="<?= $asset ?>css/emsp-variant2-ultra.css">
+    <!-- Améliorations UI front — chargé en dernier -->
+    <link rel="stylesheet" href="<?= $asset ?>css/emsp-frontend-enhance.css">
 </head>
 <body class="<?= h(trim(implode(' ', $bodyClasses))) ?>" data-role="<?= h($bodyRole) ?>" data-authenticated="<?= $bodyIsAuthenticated ? '1' : '0' ?>" data-route="<?= h($currentBodyPath) ?>">
 <a class="emsp-skip-link" href="#main-content-anchor">Aller au contenu principal</a>

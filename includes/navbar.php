@@ -298,9 +298,9 @@ $mobileBottomNavItems = !$isAuth
         : $pendingBottomNav);
 
 $topbarStaticMessage = !$isAuth
-    ? 'Journal, mediatheque, concours et ressources academiques dans une vitrine institutionnelle premium.'
+    ? 'Ressources, journal, médiathèque et concours EMSP.'
     : ($isActiveAccount
-        ? 'Bibliotheque, favoris, notifications, journal et mediatheque accessibles en un clic.'
+        ? 'Bibliothèque, favoris, notifications et médias en un clic.'
         : "Confirme ton email pour finaliser l'activation de ton espace EMSP Docs.");
 ?>
 
@@ -309,7 +309,7 @@ $topbarStaticMessage = !$isAuth
         <div class="container emsp-topbar-track emsp-topbar-track--static" data-emsp-topbar>
             <span class="emsp-topbar-badge">
                 <i class="bi bi-mortarboard-fill" aria-hidden="true"></i>
-                Acces gratuit pour les etudiants EMSP
+                Accès gratuit pour les étudiants EMSP
             </span>
             <span class="emsp-topbar-message"><?= h($topbarStaticMessage) ?></span>
         </div>
@@ -322,7 +322,7 @@ $topbarStaticMessage = !$isAuth
                     <img src="<?= $asset ?>images/logo-emsp.png" alt="Logo EMSP" class="emsp-brand-logo">
                     <div class="emsp-brand-label">
                         <p class="emsp-brand-title">EMSP Docs</p>
-                        <p class="emsp-brand-subtitle">Bibliotheque academique EMSP</p>
+                        <p class="emsp-brand-subtitle">Bibliothèque EMSP</p>
                     </div>
                 </a>
 
@@ -822,5 +822,4 @@ $topbarStaticMessage = !$isAuth
     }
 })();
 </script>
-
 

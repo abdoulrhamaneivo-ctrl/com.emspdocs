@@ -11,8 +11,6 @@ final class DocumentTaxonomyTest extends TestCase
 
     public function testNormalizeTaxonomyLabelRemovesAccentsAndExtraSpaces(): void
     {
-        self::assertSame('comptabilite generale', emsp_normalize_taxonomy_label('  ComptabilitÃ©   gÃ©nÃ©rale  '));
+        self::assertSame('comptabilite generale', emsp_normalize_taxonomy_label('  Comptabilité   générale  '));
     }
 }
-
-

@@ -5,8 +5,8 @@ require_once __DIR__ . '/admin/config/config.php';
 
 return [
     'paths' => [
-        'migrations' => 'db/migrations',
-        'seeds' => 'db/seeds',
+        'migrations' => '_non_prod/db/migrations',
+        'seeds' => '_non_prod/db/seeds',
     ],
     'environments' => [
         'default_migration_table' => 'phinxlog',

@@ -35,55 +35,68 @@ if (!empty($auth_user['photo_path'])) {
     }
 }
 ?>
-<nav class="navbar navbar-glass px-0 px-lg-4" id="admin-topbar">
-    <div class="container-fluid px-lg-0">
-        <div class="d-flex align-items-center gap-3">
-            <button class="btn admin-topbar-btn d-lg-none" id="sidebar-toggle" type="button" aria-label="Ouvrir le menu admin" aria-controls="miniSidebar" aria-expanded="false">
-                <i class="bi bi-list"></i>
-            </button>
-            <button class="sidebar-toggle d-none d-lg-flex align-items-center gap-2 p-2 admin-topbar-btn" id="sidebar-collapse-toggle" type="button" aria-label="Réduire ou étendre la barre latérale">
-                <span class="collapse-mini"><i class="bi bi-arrow-left"></i></span>
-                <span class="collapse-expanded"><i class="bi bi-arrow-right"></i></span>
-            </button>
-            <div class="admin-topbar-copy">
-                <div class="small text-uppercase admin-topbar-kicker">Administration EMSP</div>
-                <div class="fw-semibold text-dark"><?= htmlspecialchars($page_title ?: 'Tableau de bord') ?></div>
-                <div class="admin-topbar-subtext"><?= $is_admin ? 'Vue administrateur' : 'Vue moderateur' ?></div>
-            </div>
-        </div>
-
-        <ul class="list-unstyled d-flex align-items-center mb-0 gap-2 admin-topbar-actions">
-            <li><a class="btn admin-topbar-btn" href="../index.php" title="Aller sur le site"><i class="bi bi-globe2"></i></a></li>
-            <li>
-                <a class="btn admin-topbar-btn position-relative" href="pending-documents.php" title="Documents en attente">
-                    <i class="bi bi-file-earmark-check"></i>
-                    <?php if ($pending_docs > 0): ?><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill emsp-admin-pill-count"><?= $pending_docs ?></span><?php endif; ?>
-                </a>
-            </li>
-            <li>
-                <a class="btn admin-topbar-btn position-relative" href="pending-users.php" title="Comptes en attente">
-                    <i class="bi bi-person-check"></i>
-                    <?php if ($pending_users > 0): ?><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill emsp-admin-pill-count"><?= $pending_users ?></span><?php endif; ?>
-                </a>
-            </li>
-            <li class="dropdown">
-                <button class="btn admin-avatar-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <?php if ($photo_src): ?>
-                        <img src="<?= htmlspecialchars($photo_src) ?>" alt="Avatar" class="admin-avatar-img">
-                    <?php else: ?>
-                        <span class="admin-avatar-fallback"><?= $initials ?></span>
-                    <?php endif; ?>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="../mon-profil.php"><i class="bi bi-person me-2"></i>Mon profil</a></li>
-                    <li><a class="dropdown-item" href="../dashboard.php"><i class="bi bi-grid me-2"></i>Espace étudiant</a></li>
-                    <?php if ($is_admin): ?><li><a class="dropdown-item" href="settings.php"><i class="bi bi-gear me-2"></i>Paramètres</a></li><?php endif; ?>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="../logout.php"><i class="bi bi-box-arrow-right me-2"></i>Déconnexion</a></li>
-                </ul>
-            </li>
-        </ul>
+<header class="header header-sticky p-0 mb-4">
+  <div class="container-fluid border-bottom px-4">
+    <button class="header-toggler" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()" style="margin-inline-start: -14px">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+    
+    <div class="d-none d-md-flex ms-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb my-0">
+                <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none">Admin</a></li>
+                <li class="breadcrumb-item active"><span><?= h($page_title ?: 'Dashboard') ?></span></li>
+            </ol>
+        </nav>
     </div>
-</nav>
+
+    <ul class="header-nav ms-auto gap-2">
+      <li class="nav-item">
+        <a class="nav-link position-relative" href="pending-documents.php" title="Documents en attente">
+          <i class="bi bi-file-earmark-check fs-5"></i>
+          <?php if ($pending_docs > 0): ?>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;"><?= $pending_docs ?></span>
+          <?php endif; ?>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link position-relative" href="pending-users.php" title="Comptes en attente">
+          <i class="bi bi-person-check fs-5"></i>
+          <?php if ($pending_users > 0): ?>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark" style="font-size: 0.6rem;"><?= $pending_users ?></span>
+          <?php endif; ?>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="header-nav ms-3">
+      <li class="nav-item dropdown">
+        <a class="nav-link py-0 pe-0 d-flex align-items-center gap-2" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <div class="admin-avatar shadow-sm" style="width: 36px; height: 36px;">
+            <?php if ($photo_src): ?>
+              <img src="<?= h($photo_src) ?>" class="rounded-circle w-100 h-100 object-fit-cover" alt="User">
+            <?php else: ?>
+              <span style="font-size: 0.8rem;"><?= h($initials) ?></span>
+            <?php endif; ?>
+          </div>
+          <span class="d-none d-lg-block fw-semibold small"><?= h($auth_user['first_name'] ?? 'Admin') ?></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end pt-0 shadow-lg border-0" style="min-width: 200px; border-radius: 1rem;">
+          <div class="dropdown-header bg-light fw-bold rounded-top mb-2">Compte</div>
+          <a class="dropdown-item py-2" href="../mon-profil.php"><i class="bi bi-person me-2"></i> Mon profil</a>
+          <a class="dropdown-item py-2" href="../dashboard.php"><i class="bi bi-grid me-2"></i> Espace étudiant</a>
+          <?php if ($is_admin): ?>
+            <a class="dropdown-item py-2" href="settings.php"><i class="bi bi-gear me-2"></i> Paramètres</a>
+          <?php endif; ?>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item py-2 text-danger" href="../logout.php"><i class="bi bi-box-arrow-right me-2"></i> Déconnexion</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<div class="body flex-grow-1">
+  <div class="container-lg px-4">
 
 

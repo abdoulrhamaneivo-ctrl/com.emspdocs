@@ -455,6 +455,7 @@ include __DIR__ . '/includes/header.php';
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     var methodInput = document.getElementById('registration_method');
+    var methodGrid = document.querySelector('.emsp-register-method-grid');
     var methodStep = document.getElementById('register-method-step');
     var formStage = document.getElementById('register-form-stage');
     var methodCards = document.querySelectorAll('[data-method-choice]');
@@ -487,6 +488,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var livePreviewCopy = document.getElementById('register-live-preview-copy');
     var livePreviewPoints = document.getElementById('register-live-preview-points');
     var methodConfig = <?= json_encode($registration_method_ui, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>;
+    var methodPreviewTimer = null;
+    var methodPreviewIndex = 0;
+    var methodPreviewLocked = false;
 
     function currentMethod() {
         return methodInput ? methodInput.value : '';
@@ -620,6 +624,7 @@ document.addEventListener('DOMContentLoaded', function () {
         methodCards.forEach(function (card) {
             var active = card.getAttribute('data-method-choice') === method;
             card.classList.toggle('is-active', active);
+            card.classList.remove('is-preview-focus');
             card.setAttribute('aria-pressed', active ? 'true' : 'false');
         });
 
@@ -682,6 +687,69 @@ document.addEventListener('DOMContentLoaded', function () {
 
         clearChoiceFeedback();
         toggleCardField();
+
+        if (method) {
+            stopMethodPreview(false);
+            var activeCard = document.querySelector('.emsp-register-method-card.is-active');
+            if (activeCard) {
+                scrollCardIntoView(activeCard);
+            }
+        } else if (!methodPreviewLocked) {
+            startMethodPreview();
+        }
+    }
+
+    function scrollCardIntoView(card) {
+        if (!card || !methodGrid || window.innerWidth >= 992) {
+            return;
+        }
+        try {
+            card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        } catch (error) {
+            card.scrollIntoView();
+        }
+    }
+
+    function highlightPreviewCard(index) {
+        if (!methodCards.length || currentMethod()) {
+            return;
+        }
+        methodCards.forEach(function (card, i) {
+            card.classList.toggle('is-preview-focus', i === index);
+        });
+        scrollCardIntoView(methodCards[index] || null);
+    }
+
+    function stopMethodPreview(lock) {
+        if (methodPreviewTimer) {
+            window.clearInterval(methodPreviewTimer);
+            methodPreviewTimer = null;
+        }
+        methodCards.forEach(function (card) {
+            card.classList.remove('is-preview-focus');
+        });
+        if (lock) {
+            methodPreviewLocked = true;
+        }
+    }
+
+    function startMethodPreview() {
+        if (methodPreviewLocked || methodCards.length < 2 || currentMethod()) {
+            return;
+        }
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            return;
+        }
+        stopMethodPreview(false);
+        highlightPreviewCard(methodPreviewIndex % methodCards.length);
+        methodPreviewTimer = window.setInterval(function () {
+            if (currentMethod()) {
+                stopMethodPreview(false);
+                return;
+            }
+            methodPreviewIndex = (methodPreviewIndex + 1) % methodCards.length;
+            highlightPreviewCard(methodPreviewIndex);
+        }, 3000);
     }
 
     function selectMethod(method) {
@@ -721,9 +789,19 @@ document.addEventListener('DOMContentLoaded', function () {
     if (methodCards.length > 0) {
         methodCards.forEach(function (card) {
             card.addEventListener('click', function () {
+                stopMethodPreview(true);
                 selectMethod(this.getAttribute('data-method-choice') || '');
             });
         });
+    }
+
+    if (methodGrid) {
+        methodGrid.addEventListener('pointerdown', function () {
+            stopMethodPreview(true);
+        });
+        methodGrid.addEventListener('wheel', function () {
+            stopMethodPreview(true);
+        }, { passive: true });
     }
 
     if (changeMethodButton) {
@@ -731,8 +809,11 @@ document.addEventListener('DOMContentLoaded', function () {
             if (methodInput) {
                 methodInput.value = '';
             }
+            methodPreviewLocked = false;
+            methodPreviewIndex = 0;
             clearEmailApiError();
             renderMethodState();
+            startMethodPreview();
             if (methodCards.length > 0) {
                 methodCards[0].focus();
             }
@@ -811,6 +892,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     renderMethodState();
+    startMethodPreview();
 
     if (emailInput) {
         emailInput.addEventListener('input', function () {
@@ -844,5 +926,4 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>
-
 

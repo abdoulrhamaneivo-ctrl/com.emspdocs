@@ -1,8 +1,8 @@
 # NOTE: Phinx YAML cannot read PHP define() values from config.php.
 # Use phinx.php instead (vendor/bin/phinx -c phinx.php migrate).
 paths:
-  migrations: db/migrations
-  seeds: db/seeds
+  migrations: _non_prod/db/migrations
+  seeds: _non_prod/db/seeds
 
 environments:
   default_migration_table: phinxlog
@@ -16,5 +16,4 @@ environments:
     port: 3306
     charset: utf8mb4
     collation: utf8mb4_unicode_ci
-
 

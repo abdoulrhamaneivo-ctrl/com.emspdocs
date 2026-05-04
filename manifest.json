@@ -1,8 +1,8 @@
 {
   "name": "EMSP Docs",
   "short_name": "EMSP Docs",
-  "start_url": "/index.php",
-  "scope": "/",
+  "start_url": "./index.php",
+  "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
   "lang": "fr",
@@ -17,9 +17,10 @@
       "url": "./bibliotheque.php",
       "icons": [
         {
-          "src": "assets/images/logo-emsp.png",
+          "src": "./assets/images/logo-emsp.png",
           "sizes": "192x192",
-          "type": "image/png"
+          "type": "image/png",
+          "purpose": "any"
         }
       ]
     },
@@ -30,9 +31,10 @@
       "url": "./formations.php",
       "icons": [
         {
-          "src": "assets/images/logo-emsp.png",
+          "src": "./assets/images/logo-emsp.png",
           "sizes": "192x192",
-          "type": "image/png"
+          "type": "image/png",
+          "purpose": "any"
         }
       ]
     },
@@ -43,23 +45,32 @@
       "url": "./news-blog.php",
       "icons": [
         {
-          "src": "assets/images/logo-emsp.png",
+          "src": "./assets/images/logo-emsp.png",
           "sizes": "192x192",
-          "type": "image/png"
+          "type": "image/png",
+          "purpose": "any"
         }
       ]
     }
   ],
   "icons": [
     {
-      "src": "assets/images/logo-emsp.png",
+      "src": "./assets/images/logo-emsp-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "assets/images/logo-emsp.png",
+      "src": "./assets/images/logo-emsp-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/images/logo-emsp.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

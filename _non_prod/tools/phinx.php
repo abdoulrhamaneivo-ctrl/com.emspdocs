@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/admin/config/config.php';
+require_once dirname(__DIR__, 2) . '/admin/config/config.php';
 
 return [
     'paths' => [
-        'migrations' => 'db/migrations',
-        'seeds' => 'db/seeds',
+        'migrations' => '_non_prod/db/migrations',
+        'seeds' => '_non_prod/db/seeds',
     ],
     'environments' => [
         'default_migration_table' => 'phinxlog',
@@ -34,5 +34,4 @@ return [
     ],
     'version_order' => 'creation',
 ];
-
 

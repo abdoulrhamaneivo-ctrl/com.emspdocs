@@ -84,100 +84,67 @@ $nav_sections = [
     ],
 ];
 ?>
-<div id="miniSidebar">
-    <div class="admin-sidebar-shell">
-        <div class="brand-logo admin-brand-shell">
-            <a href="index.php" class="admin-brand-link" aria-label="Retour au tableau de bord admin">
-                <img src="../assets/images/logo-emsp.png" alt="Logo EMSP" class="admin-brand-logo">
-                <span class="admin-brand-copy">
-                    <span class="fw-bold fs-5 site-logo-text">EMSP Admin</span>
-                    <small class="admin-brand-subtitle">Pilotage institutionnel</small>
-                </span>
-            </a>
-        </div>
+<div class="sidebar sidebar-dark sidebar-fixed border-end" id="sidebar">
+  <div class="sidebar-header border-bottom">
+    <div class="sidebar-brand">
+      <img src="../assets/images/logo-emsp.png" alt="Logo" height="32" class="me-2 bg-white rounded p-1">
+      <span class="fs-5 fw-bold">EMSP Admin</span>
+    </div>
+  </div>
 
-        <div class="px-3 pb-2">
-            <div class="admin-user-card">
-                <?php if ($photo_src): ?>
-                    <img src="<?= h($photo_src) ?>" alt="Avatar" class="admin-user-avatar">
-                <?php else: ?>
-                    <div class="admin-user-fallback"><?= h($initials) ?></div>
-                <?php endif; ?>
-                <div class="admin-user-meta">
-                    <div class="admin-user-name"><?= h(trim((string) (($auth_user['first_name'] ?? '') . ' ' . ($auth_user['last_name'] ?? '')))) ?></div>
-                    <div class="text-muted"><?= h($role_label) ?></div>
-                </div>
-                <span class="admin-role-pill"><?= $is_admin ? 'ADMIN' : 'MOD' ?></span>
-            </div>
-        </div>
-
-        <div class="px-3 pb-3">
-            <label class="admin-sidebar-search" for="admin-nav-search">
-                <i class="bi bi-search" aria-hidden="true"></i>
-                <input id="admin-nav-search" type="search" placeholder="Rechercher un menu..." aria-label="Rechercher dans le menu admin" autocomplete="off">
-            </label>
-        </div>
-
-        <nav class="admin-sidebar-nav" aria-label="Navigation administration">
-            <?php foreach ($nav_sections as $sectionIndex => $section): ?>
-                <?php
-                $sectionId = 'admin-nav-section-' . $sectionIndex;
-                $groupActive = false;
-                foreach ($section['items'] as $item) {
-                    if (!empty($item['only_admin']) && !$is_admin) {
-                        continue;
-                    }
-                    if (($item['href'] ?? '') === $current) {
-                        $groupActive = true;
-                        break;
-                    }
-                }
-                ?>
-                <section class="admin-nav-section<?= $groupActive ? ' is-open' : '' ?>" data-admin-nav-group>
-                    <button
-                        type="button"
-                        class="admin-nav-section-toggle"
-                        data-admin-nav-toggle
-                        aria-expanded="<?= $groupActive ? 'true' : 'false' ?>"
-                        aria-controls="<?= h($sectionId) ?>"
-                    >
-                        <span class="nav-heading"><?= h((string) $section['label']) ?></span>
-                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
-                    </button>
-                    <div class="admin-nav-section-body" id="<?= h($sectionId) ?>">
-                        <?php foreach ($section['items'] as $item): ?>
-                            <?php
-                            if (!empty($item['only_admin']) && !$is_admin) {
-                                continue;
-                            }
-                            $isActiveItem = ($item['href'] ?? '') === $current;
-                            $itemBadge = max(0, (int) ($item['badge'] ?? 0));
-                            ?>
-                            <a
-                                class="nav-link<?= $isActiveItem ? ' active' : '' ?>"
-                                href="<?= h((string) ($item['href'] ?? '#')) ?>"
-                                data-admin-nav-item
-                                data-admin-nav-label="<?= h(strtolower((string) ($item['label'] ?? ''))) ?>"
-                            >
-                                <i class="bi bi-<?= h((string) ($item['icon'] ?? 'dot')) ?> icon-size" aria-hidden="true"></i>
-                                <span class="text"><?= h((string) ($item['label'] ?? '')) ?></span>
-                                <?php if ($itemBadge > 0): ?>
-                                    <span class="emsp-admin-count ms-auto"><?= $itemBadge > 99 ? '99+' : $itemBadge ?></span>
-                                <?php endif; ?>
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
-                </section>
-            <?php endforeach; ?>
-        </nav>
-
-        <div class="admin-sidebar-footer px-3 pb-3">
-            <a class="nav-link" href="../logout.php">
-                <i class="bi bi-box-arrow-right icon-size" aria-hidden="true"></i>
-                <span class="text">Deconnexion</span>
-            </a>
+  <div class="admin-user-info">
+    <?php if ($photo_src): ?>
+      <img src="<?= h($photo_src) ?>" alt="Avatar" class="rounded-circle" width="38" height="38">
+    <?php else: ?>
+      <div class="admin-avatar-circle"><?= h($initials) ?></div>
+    <?php endif; ?>
+    <div class="overflow-hidden">
+      <div class="text-white fw-bold text-truncate" style="font-size: 0.9rem;"><?= h(trim((string) (($auth_user['first_name'] ?? '') . ' ' . ($auth_user['last_name'] ?? '')))) ?></div>
+      <div class="text-white-50 small text-truncate"><?= h($role_label) ?></div>
+  <div class="sidebar-header border-bottom">
+    <div class="d-flex align-items-center gap-3 p-3">
+        <?php if ($photo_src): ?>
+        <img src="<?= h($photo_src) ?>" alt="Avatar" class="rounded-circle" width="38" height="38">
+        <?php else: ?>
+        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;"><?= h($initials) ?></div>
+        <?php endif; ?>
+        <div class="overflow-hidden">
+            <div class="text-white fw-bold text-truncate"><?= h(trim((string) (($auth_user['first_name'] ?? '') . ' ' . ($auth_user['last_name'] ?? '')))) ?></div>
+            <div class="text-white-50 small text-truncate"><?= h($role_label) ?></div>
         </div>
     </div>
+  </div>
+
+  <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
+    <?php foreach ($nav_sections as $section): ?>
+      <li class="nav-title"><?= h((string) $section['label']) ?></li>
+      <?php foreach ($section['items'] as $item): ?>
+        <?php
+        if (!empty($item['only_admin']) && !$is_admin) continue;
+        $isActive = ($item['href'] ?? '') === $current;
+        $badge = max(0, (int) ($item['badge'] ?? 0));
+        ?>
+        <li class="nav-item">
+          <a class="nav-link<?= $isActive ? ' active' : '' ?>" href="<?= h((string) ($item['href'] ?? '#')) ?>">
+            <i class="nav-icon bi bi-<?= h((string) ($item['icon'] ?? 'circle')) ?>"></i>
+            <?= h((string) ($item['label'] ?? '')) ?>
+            <?php if ($badge > 0): ?>
+              <span class="badge badge-sm bg-danger ms-auto"><?= $badge > 99 ? '99+' : $badge ?></span>
+            <?php endif; ?>
+          </a>
+        </li>
+      <?php endforeach; ?>
+    <?php endforeach; ?>
+
+    <li class="nav-title">Session</li>
+    <li class="nav-item">
+      <a class="nav-link text-warning" href="../logout.php">
+        <i class="nav-icon bi bi-box-arrow-right"></i> Déconnexion
+      </a>
+    </li>
+  </ul>
+  <div class="sidebar-footer border-top d-none d-md-flex">
+    <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+  </div>
 </div>
-
-
+<div class="wrapper d-flex flex-column min-vh-100">

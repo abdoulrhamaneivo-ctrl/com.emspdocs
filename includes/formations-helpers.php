@@ -42,11 +42,13 @@ if (!function_exists('emsp_formation_image_src')) {
         }
 
         $path = ltrim(str_replace('\\', '/', $path), '/');
-        if (strpos($path, 'assets/') === 0 || strpos($path, 'uploads/') === 0) {
-            return $path;
-        }
+        $src = (strpos($path, 'assets/') === 0 || strpos($path, 'uploads/') === 0)
+            ? $path
+            : 'uploads/formations/' . basename($path);
 
-        return 'uploads/formations/' . basename($path);
+        $localPath = dirname(__DIR__) . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $src);
+
+        return is_file($localPath) ? $src : '';
     }
 }
 
@@ -63,7 +65,7 @@ if (!function_exists('emsp_formation_summary')) {
             return function_exists('emsp_excerpt') ? emsp_excerpt($description, $max) : trim(strip_tags($description));
         }
 
-        return 'DÃ©couvre les ressources liÃ©es Ã  cette filiÃ¨re dans la bibliothÃ¨que EMSP.';
+        return 'Découvre les ressources liées à cette filière dans la bibliothèque EMSP.';
     }
 }
 
@@ -73,5 +75,3 @@ if (!function_exists('emsp_formation_has_details')) {
         return trim((string) ($row['description_html'] ?? '')) !== '';
     }
 }
-
-

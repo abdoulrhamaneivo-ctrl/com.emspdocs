@@ -41,6 +41,12 @@ if (!function_exists('emsp_mojibake_score')) {
 
         $score = 0;
 
+        foreach (['Ã', 'Â', 'â€™', 'â€œ', 'â€', 'ï¿½', '�'] as $needle) {
+            if (strpos($text, $needle) !== false) {
+                $score += 4 * substr_count($text, $needle);
+            }
+        }
+
         if (strpos($text, 'Ã¯Â¿Â½') !== false) {
             $score += 10 * substr_count($text, 'Ã¯Â¿Â½');
         }
@@ -100,28 +106,24 @@ if (!function_exists('emsp_fix_mojibake')) {
             }
         }
 
-        for ($pass = 0; $pass < 3 && $bestScore > 0; $pass++) {
+        for ($pass = 0; $pass < 4 && $bestScore > 0; $pass++) {
             $isValidUtf8 = (preg_match('//u', $best) === 1);
             $candidates = [];
 
             if ($isValidUtf8) {
                 if (function_exists('mb_convert_encoding')) {
-                    $c1 = @mb_convert_encoding($best, 'Windows-1252', 'UTF-8');
-                    if ($c1 !== false && $c1 !== '') {
-                        $candidates[] = $c1;
-                    }
-                    $c2 = @mb_convert_encoding($best, 'ISO-8859-1', 'UTF-8');
-                    if ($c2 !== false && $c2 !== '') {
-                        $candidates[] = $c2;
+                    foreach (['Windows-1252', 'ISO-8859-1'] as $encoding) {
+                        $candidate = @mb_convert_encoding($best, $encoding, 'UTF-8');
+                        if ($candidate !== false && $candidate !== '') {
+                            $candidates[] = $candidate;
+                        }
                     }
                 } elseif (function_exists('iconv')) {
-                    $c1 = @iconv('UTF-8', 'Windows-1252//IGNORE', $best);
-                    if ($c1 !== false && $c1 !== '') {
-                        $candidates[] = $c1;
-                    }
-                    $c2 = @iconv('UTF-8', 'ISO-8859-1//IGNORE', $best);
-                    if ($c2 !== false && $c2 !== '') {
-                        $candidates[] = $c2;
+                    foreach (['Windows-1252', 'ISO-8859-1'] as $encoding) {
+                        $candidate = @iconv('UTF-8', $encoding . '//IGNORE', $best);
+                        if ($candidate !== false && $candidate !== '') {
+                            $candidates[] = $candidate;
+                        }
                     }
                 } else {
                     break;
@@ -175,5 +177,4 @@ if (!function_exists('emsp_fix_mojibake')) {
         return $best;
     }
 }
-
 

@@ -133,6 +133,7 @@
     }
 
     function initImageFallbacks() {
+        // Handle data-fallback attribute
         document.querySelectorAll('img[data-fallback]').forEach(function (img) {
             img.addEventListener('error', function () {
                 if (this.src !== this.dataset.fallback) {
@@ -140,17 +141,50 @@
                 }
             });
         });
-        document.querySelectorAll('img.user-avatar').forEach(function (img) {
+        // Handle data-fallback-src attribute (used in template HTML)
+        document.querySelectorAll('img[data-fallback-src]').forEach(function (img) {
+            if (img.dataset.emspFallbackBound) return;
+            img.dataset.emspFallbackBound = '1';
             img.addEventListener('error', function () {
-                this.style.display = 'none';
-                var parent = this.parentNode;
-                if (!parent.querySelector('.avatar-initiales')) {
-                    var av = document.createElement('div');
-                    av.className = 'avatar-initiales';
-                    av.textContent = ((this.dataset.initials || '?')[0] || '?').toUpperCase();
-                    parent.appendChild(av);
+                var fallbackSrc = this.dataset.fallbackSrc || '';
+                if (fallbackSrc && this.src.indexOf(fallbackSrc) === -1) {
+                    this.src = fallbackSrc;
                 }
             });
+        });
+        // Universal broken image handler for all content images
+        document.querySelectorAll('img:not([data-emsp-error-bound])').forEach(function (img) {
+            img.dataset.emspErrorBound = '1';
+            img.addEventListener('error', function () {
+                // Skip if already handled by fallback attributes
+                if (this.dataset.fallback || this.dataset.fallbackSrc) return;
+                // For user avatars, show initials
+                if (this.classList.contains('user-avatar')) {
+                    this.style.display = 'none';
+                    var parent = this.parentNode;
+                    if (parent && !parent.querySelector('.avatar-initiales')) {
+                        var av = document.createElement('div');
+                        av.className = 'avatar-initiales';
+                        av.textContent = ((this.dataset.initials || '?')[0] || '?').toUpperCase();
+                        parent.appendChild(av);
+                    }
+                    return;
+                }
+                // For content images, add a broken-image visual indicator
+                this.classList.add('emsp-img-broken');
+                this.style.minHeight = '60px';
+                this.style.backgroundColor = 'var(--bg-subtle, #f0f0f0)';
+                this.style.objectFit = 'contain';
+            });
+        });
+        // Re-trigger load for lazy images that might have been deferred by browser intervention
+        document.querySelectorAll('img[loading="lazy"]').forEach(function (img) {
+            if (img.complete && img.naturalWidth === 0 && img.src) {
+                var originalSrc = img.src;
+                img.removeAttribute('loading');
+                img.src = '';
+                img.src = originalSrc;
+            }
         });
     }
 

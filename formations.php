@@ -154,7 +154,7 @@ include __DIR__ . '/includes/header.php';
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
-    align-items: stretch;
+    align-items: start;
 }
 .formation-card {
     display: flex;
@@ -162,19 +162,21 @@ include __DIR__ . '/includes/header.php';
     border: 1px solid rgba(0,48,135,.1);
     border-radius: 18px;
     background: #fff;
-    overflow: hidden;
-    min-height: 100%;
-    height: 100%;
+    overflow: visible;
+
+
     box-shadow: 0 8px 22px rgba(0,0,0,.04);
 }
 .formation-card-media {
+    border-radius: 18px 18px 0 0;
+    overflow: hidden;
     position: relative;
     min-height: 220px;
     background: linear-gradient(135deg, #f2f6fb, #e7eff8);
 }
 .formation-card-media img {
     width: 100%;
-    height: 100%;
+
     object-fit: cover;
 }
 .formation-card-placeholder {
@@ -314,6 +316,8 @@ include __DIR__ . '/includes/header.php';
         padding: 1.15rem;
     }
     .formation-card-media {
+    border-radius: 18px 18px 0 0;
+    overflow: hidden;
         min-height: 180px;
     }
 }
@@ -324,10 +328,10 @@ include __DIR__ . '/includes/header.php';
         <div class="formations-hero">
             <h1>Formations EMSP</h1>
             <p>
-                Retrouve ici les filiÃ¨res actives, leur prÃ©sentation et les ressources associÃ©es. Cette page reste reliÃ©e Ã  tes donnÃ©es rÃ©elles : les visuels et les contenus peuvent Ãªtre alimentÃ©s depuis lâ€™administration.
+                Retrouve ici les filières actives, leur présentation et les ressources associées. Cette page reste reliée à tes données réelles : les visuels et les contenus peuvent être alimentés depuis l'administration.
             </p>
             <div class="formations-hero-meta">
-                <span class="formations-hero-pill"><i class="bi bi-diagram-3"></i><?= count($filieresMain) ?> filiÃ¨re(s) active(s)</span>
+                <span class="formations-hero-pill"><i class="bi bi-diagram-3"></i><?= count($filieresMain) ?> filière(s) active(s)</span>
                 <span class="formations-hero-pill"><i class="bi bi-layers"></i><?= count($licences) ?> niveau(x) disponible(s)</span>
                 <a class="formations-hero-pill" href="bibliotheque.php"><i class="bi bi-collection"></i>Voir les ressources</a>
             </div>
@@ -338,7 +342,7 @@ include __DIR__ . '/includes/header.php';
                 <div class="formations-section-head">
                     <div>
                         <h2>Tronc commun</h2>
-                        <p>Une base partagÃ©e avant la spÃ©cialisation.</p>
+                        <p>Une base partagée avant la spécialisation.</p>
                     </div>
                 </div>
                 <div class="formations-tronc-list">
@@ -355,13 +359,13 @@ include __DIR__ . '/includes/header.php';
         <div class="formations-panel">
             <div class="formations-section-head">
                 <div>
-                    <h2>FiliÃ¨res</h2>
-                    <p>Une lecture simple, pilotÃ©e par tes filiÃ¨res et non par du contenu figÃ© en dur.</p>
+                    <h2>Filières</h2>
+                    <p>Une lecture simple, pilotée par tes filières et non par du contenu figé en dur.</p>
                 </div>
             </div>
 
             <?php if (empty($filieresMain)): ?>
-                <div class="alert alert-info mb-0">Aucune filiÃ¨re active pour le moment.</div>
+                <div class="alert alert-info mb-0">Aucune filière active pour le moment.</div>
             <?php else: ?>
                 <div class="formations-grid">
                     <?php foreach ($filieresMain as $filiere): ?>
@@ -376,18 +380,18 @@ include __DIR__ . '/includes/header.php';
                         <article class="formation-card">
                             <div class="formation-card-media">
                                 <?php if ($imageSrc !== ''): ?>
-                                    <img src="<?= h($imageSrc) ?>" alt="<?= h((string) ($filiere['name'] ?? 'FiliÃ¨re EMSP')) ?>">
+                                    <img src="<?= h($imageSrc) ?>" alt="<?= h((string) ($filiere['name'] ?? 'Filière EMSP')) ?>">
                                 <?php else: ?>
                                     <div class="formation-card-placeholder">
                                         <i class="bi bi-image"></i>
-                                        <strong>Visuel Ã  ajouter</strong>
-                                        <span>Ajoute ton image depuis lâ€™administration de la filiÃ¨re.</span>
+                                        <strong>Visuel à ajouter</strong>
+                                        <span>Ajoute ton image depuis l'administration de la filière.</span>
                                     </div>
                                 <?php endif; ?>
                             </div>
                             <div class="formation-card-body">
                                 <div>
-                                    <h3><?= h((string) ($filiere['name'] ?? 'FiliÃ¨re')) ?></h3>
+                                    <h3><?= h((string) ($filiere['name'] ?? 'Filière')) ?></h3>
                                 </div>
 
                                 <?php if (!empty($licenceLabels)): ?>
@@ -404,7 +408,7 @@ include __DIR__ . '/includes/header.php';
                                     <a href="bibliotheque.php?filiere=<?= $filiereId ?>" class="btn btn-emsp">Explorer les documents</a>
                                     <?php if ($hasDetails): ?>
                                         <button class="btn btn-emsp-outline" type="button" data-bs-toggle="collapse" data-bs-target="#<?= h($detailId) ?>" aria-expanded="false" aria-controls="<?= h($detailId) ?>">
-                                            PrÃ©sentation
+                                            Présentation
                                         </button>
                                     <?php endif; ?>
                                 </div>
@@ -428,7 +432,7 @@ include __DIR__ . '/includes/header.php';
                 <div class="formations-section-head">
                     <div>
                         <h2>Niveaux / licences</h2>
-                        <p>RepÃ¨res acadÃ©miques actuellement disponibles sur la plateforme.</p>
+                        <p>Repères académiques actuellement disponibles sur la plateforme.</p>
                     </div>
                 </div>
                 <div class="formations-licence-pills">

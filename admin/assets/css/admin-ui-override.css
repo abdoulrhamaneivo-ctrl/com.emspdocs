@@ -1,0 +1,1366 @@
+/**
+ * EMSP Admin — UI Override
+ * ========================
+ * Fichier de refonte visuelle chargé EN DERNIER pour garantir la priorité.
+ * Objectifs :
+ *   1. Supprimer le vert envahissant sur l'interface admin
+ *   2. Palette propre, sobre et professionnelle (Slate/Zinc)
+ *   3. Sidebar lisible sans surcharge chromatique
+ *   4. Scroll corrigé — aucun overflow caché ne bloque le défilement
+ *   5. Boutons sémantiques correctement colorés
+ *   6. Typographie cohérente et claire
+ */
+
+/* ============================================================
+   0. VARIABLES ADMIN OVERRIDES
+   Redéfinit les tokens pour l'espace admin UNIQUEMENT.
+   Les couleurs de marque EMSP (vert) restent utilisées,
+   mais de façon ciblée (actions primaires, actifs).
+   ============================================================ */
+:root {
+    /* Palette neutre admin */
+    --adm-bg:           #f1f5f9;       /* corps principal */
+    --adm-surface:      #ffffff;       /* cartes, sidebar secondaire */
+    --adm-border:       #e2e8f0;       /* bordures légères */
+    --adm-border-dark:  #cbd5e1;       /* bordures affirmées */
+
+    /* Sidebar */
+    --adm-sidebar-bg:         #0f172a; /* slate-900 */
+    --adm-sidebar-bg-2:       #1e293b; /* slate-800 */
+    --adm-sidebar-text:       #cbd5e1; /* slate-300 */
+    --adm-sidebar-text-muted: rgba(148,163,184,.6);
+    --adm-sidebar-active-bg:  rgba(0,107,60,.18);
+    --adm-sidebar-active-border: #006B3C;
+    --adm-sidebar-hover-bg:   rgba(255,255,255,.06);
+    --adm-sidebar-hover-text: #f1f5f9;
+    --adm-sidebar-section-color: rgba(148,163,184,.55);
+    --adm-sidebar-width:      230px;
+
+    /* Topbar */
+    --adm-topbar-bg:      #ffffff;
+    --adm-topbar-border:  #e2e8f0;
+    --adm-topbar-height:  64px;
+    --adm-topbar-text:    #334155;
+
+    /* Texte */
+    --adm-text-primary:   #0f172a;
+    --adm-text-secondary: #475569;
+    --adm-text-muted:     #94a3b8;
+
+    /* Marque EMSP (utilisée avec parcimonie en admin) */
+    --adm-brand:          #006B3C;
+    --adm-brand-dark:     #004D2A;
+    --adm-brand-light:    #ecfdf5;
+
+    /* Sémantique */
+    --adm-info:           #0ea5e9;
+    --adm-info-bg:        #f0f9ff;
+    --adm-success:        #16a34a;
+    --adm-success-bg:     #f0fdf4;
+    --adm-warning:        #d97706;
+    --adm-warning-bg:     #fffbeb;
+    --adm-danger:         #dc2626;
+    --adm-danger-bg:      #fef2f2;
+
+    /* Ombres */
+    --adm-shadow-xs: 0 1px 2px rgba(0,0,0,.04);
+    --adm-shadow-sm: 0 1px 6px rgba(0,0,0,.06);
+    --adm-shadow-md: 0 4px 16px rgba(0,0,0,.08);
+    --adm-shadow-lg: 0 10px 28px rgba(0,0,0,.1);
+
+    /* Rayon */
+    --adm-radius-sm:  6px;
+    --adm-radius-md:  10px;
+    --adm-radius-lg:  14px;
+    --adm-radius-xl:  20px;
+}
+
+/* ============================================================
+   1. CORPS & LAYOUT GLOBAL
+   ============================================================ */
+html, body {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body.bg-body {
+    background: var(--adm-bg) !important;
+    color: var(--adm-text-primary) !important;
+    font-family: 'Lato', 'Inter', 'Segoe UI', sans-serif !important;
+}
+
+#admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+    overflow: visible !important; /* Corrige le blocage du scroll */
+}
+
+/* ============================================================
+   2. SIDEBAR — Refonte totale
+   ============================================================ */
+#miniSidebar,
+html.theme-harvard #miniSidebar {
+    width: var(--adm-sidebar-width) !important;
+    background: linear-gradient(180deg, var(--adm-sidebar-bg) 0%, var(--adm-sidebar-bg-2) 100%) !important;
+    border-right: 1px solid rgba(255,255,255,.04) !important;
+    box-shadow: 4px 0 24px rgba(0,0,0,.18) !important;
+    color: var(--adm-sidebar-text) !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.12) transparent;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+/* Logo / Brand zone */
+.admin-brand-shell,
+html.theme-harvard .admin-brand-shell {
+    padding: 1rem 1rem .75rem !important;
+    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    margin-bottom: 0 !important;
+}
+
+.admin-brand-link,
+html.theme-harvard .admin-brand-link {
+    gap: .6rem !important;
+}
+
+.admin-brand-logo,
+html.theme-harvard .admin-brand-logo {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,.2) !important;
+}
+
+.site-logo-text,
+html.theme-harvard .site-logo-text {
+    color: #f1f5f9 !important;
+    font-size: .95rem !important;
+    font-weight: 700 !important;
+}
+
+.admin-brand-subtitle,
+html.theme-harvard .admin-brand-subtitle {
+    color: var(--adm-sidebar-text-muted) !important;
+    font-size: .72rem !important;
+    line-height: 1.3 !important;
+}
+
+/* User card in sidebar */
+.admin-user-card,
+html.theme-harvard .admin-user-card {
+    background: rgba(255,255,255,.06) !important;
+    border: 1px solid rgba(255,255,255,.1) !important;
+    border-radius: var(--adm-radius-md) !important;
+    padding: .65rem .8rem !important;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    margin: .65rem .75rem .55rem !important;
+}
+
+.admin-user-fallback,
+html.theme-harvard .admin-user-fallback {
+    background: linear-gradient(135deg, var(--adm-brand-dark), var(--adm-brand)) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    border-radius: 50% !important;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: .8rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.admin-user-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+}
+
+.admin-user-name,
+html.theme-harvard .admin-user-name {
+    color: #f1f5f9 !important;
+    font-size: .82rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.admin-user-card .text-muted,
+html.theme-harvard .admin-user-card .text-muted {
+    color: var(--adm-sidebar-text-muted) !important;
+    font-size: .7rem !important;
+}
+
+.admin-role-pill,
+html.theme-harvard .admin-role-pill {
+    background: rgba(0,107,60,.3) !important;
+    color: #6ee7b7 !important;
+    border: 1px solid rgba(0,107,60,.4) !important;
+    font-size: .6rem !important;
+    font-weight: 800 !important;
+    padding: .2em .5em !important;
+    border-radius: 999px !important;
+    letter-spacing: .05em !important;
+    flex-shrink: 0 !important;
+}
+
+/* Search in sidebar */
+.admin-sidebar-search,
+html.theme-harvard .admin-sidebar-search {
+    display: flex !important;
+    align-items: center !important;
+    gap: .4rem !important;
+    background: rgba(255,255,255,.07) !important;
+    border: 1px solid rgba(255,255,255,.1) !important;
+    border-radius: 8px !important;
+    padding: .42rem .7rem !important;
+    margin: 0 .75rem .6rem !important;
+    color: var(--adm-sidebar-text-muted) !important;
+    font-size: .82rem !important;
+}
+
+.admin-sidebar-search input,
+html.theme-harvard .admin-sidebar-search input {
+    background: transparent !important;
+    border: none !important;
+    color: var(--adm-sidebar-text) !important;
+    font-size: .82rem !important;
+    outline: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+.admin-sidebar-search input::placeholder {
+    color: var(--adm-sidebar-text-muted) !important;
+}
+
+/* Navigation sections */
+.admin-sidebar-nav,
+html.theme-harvard .admin-sidebar-nav {
+    padding: 0 .5rem .75rem !important;
+    flex: 1;
+}
+
+.admin-nav-section,
+html.theme-harvard .admin-nav-section {
+    margin-bottom: .15rem !important;
+}
+
+.admin-nav-section-toggle,
+html.theme-harvard .admin-nav-section-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    background: none !important;
+    border: none !important;
+    padding: .38rem .6rem !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: background .15s !important;
+}
+
+.admin-nav-section-toggle:hover {
+    background: var(--adm-sidebar-hover-bg) !important;
+}
+
+.nav-heading,
+html.theme-harvard .nav-heading {
+    color: var(--adm-sidebar-section-color) !important;
+    font-size: .67rem !important;
+    font-weight: 700 !important;
+    letter-spacing: .07em !important;
+    text-transform: uppercase !important;
+}
+
+.admin-nav-section-toggle .bi-chevron-down {
+    color: var(--adm-sidebar-section-color) !important;
+    font-size: .65rem !important;
+    transition: transform .2s !important;
+}
+
+.admin-nav-section.is-open .admin-nav-section-toggle .bi-chevron-down {
+    transform: rotate(180deg) !important;
+}
+
+.admin-nav-section-body,
+html.theme-harvard .admin-nav-section-body {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    padding: 2px 0 4px !important;
+}
+
+/* Nav links */
+.admin-sidebar-nav .nav-link,
+html.theme-harvard .admin-sidebar-nav .nav-link,
+#miniSidebar .nav-link,
+html.theme-harvard #miniSidebar .nav-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: .55rem !important;
+    padding: .45rem .65rem !important;
+    border-radius: 8px !important;
+    color: var(--adm-sidebar-text) !important;
+    font-size: .82rem !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: background .15s, color .15s !important;
+    position: relative !important;
+    border-left: 2px solid transparent !important;
+}
+
+.admin-sidebar-nav .nav-link:hover,
+html.theme-harvard .admin-sidebar-nav .nav-link:hover {
+    background: var(--adm-sidebar-hover-bg) !important;
+    color: var(--adm-sidebar-hover-text) !important;
+    border-left-color: rgba(255,255,255,.15) !important;
+}
+
+.admin-sidebar-nav .nav-link.active,
+html.theme-harvard .admin-sidebar-nav .nav-link.active {
+    background: var(--adm-sidebar-active-bg) !important;
+    color: #86efac !important;
+    border-left-color: var(--adm-sidebar-active-border) !important;
+    font-weight: 700 !important;
+}
+
+.admin-sidebar-nav .nav-link .bi,
+html.theme-harvard .admin-sidebar-nav .nav-link .bi {
+    font-size: .9rem !important;
+    opacity: .85 !important;
+    flex-shrink: 0 !important;
+    width: 16px !important;
+    text-align: center !important;
+}
+
+.admin-sidebar-nav .nav-link.active .bi {
+    opacity: 1 !important;
+}
+
+/* Badge de notification dans le menu */
+.admin-sidebar-nav .nav-link .badge,
+.admin-sidebar-nav .nav-link .emsp-admin-pill-count {
+    background: var(--adm-danger) !important;
+    color: #fff !important;
+    font-size: .6rem !important;
+    padding: .18em .42em !important;
+    border-radius: 999px !important;
+    font-weight: 800 !important;
+    margin-left: auto !important;
+}
+
+/* Sidebar bottom links */
+#miniSidebar .sidebar-bottom,
+html.theme-harvard #miniSidebar .sidebar-bottom {
+    border-top: 1px solid rgba(255,255,255,.07) !important;
+    padding: .65rem .5rem !important;
+    margin-top: auto !important;
+}
+
+/* ============================================================
+   3. TOPBAR — Refonte
+   ============================================================ */
+.navbar-glass,
+html.theme-harvard .navbar-glass {
+    background: var(--adm-topbar-bg) !important;
+    backdrop-filter: none !important;
+    border-bottom: 1px solid var(--adm-topbar-border) !important;
+    box-shadow: var(--adm-shadow-sm) !important;
+    height: var(--adm-topbar-height) !important;
+    min-height: var(--adm-topbar-height) !important;
+}
+
+.admin-topbar-kicker,
+html.theme-harvard .admin-topbar-kicker {
+    color: var(--adm-text-muted) !important;
+    font-size: .65rem !important;
+    letter-spacing: .06em !important;
+}
+
+.admin-topbar-copy .fw-semibold,
+html.theme-harvard .admin-topbar-copy .fw-semibold {
+    color: var(--adm-text-primary) !important;
+    font-size: .92rem !important;
+}
+
+.admin-topbar-subtext,
+html.theme-harvard .admin-topbar-subtext {
+    color: var(--adm-text-muted) !important;
+    font-size: .7rem !important;
+}
+
+.admin-topbar-btn,
+html.theme-harvard .admin-topbar-btn {
+    color: var(--adm-text-secondary) !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: var(--adm-radius-sm) !important;
+    padding: .4rem .55rem !important;
+    transition: background .15s, color .15s !important;
+}
+
+.admin-topbar-btn:hover,
+html.theme-harvard .admin-topbar-btn:hover {
+    background: var(--adm-bg) !important;
+    color: var(--adm-text-primary) !important;
+    border-color: var(--adm-border) !important;
+}
+
+/* Avatar topbar */
+.admin-avatar-btn,
+html.theme-harvard .admin-avatar-btn {
+    background: transparent !important;
+    border: 1px solid var(--adm-border) !important;
+    border-radius: 50% !important;
+    padding: 2px !important;
+    width: 38px !important;
+    height: 38px !important;
+}
+
+.admin-avatar-img,
+html.theme-harvard .admin-avatar-img {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+}
+
+.admin-avatar-fallback,
+html.theme-harvard .admin-avatar-fallback {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, var(--adm-brand-dark), var(--adm-brand)) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: .8rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Badge notifications topbar */
+.emsp-admin-pill-count,
+html.theme-harvard .emsp-admin-pill-count {
+    background: var(--adm-danger) !important;
+    color: #fff !important;
+    font-size: .55rem !important;
+    font-weight: 800 !important;
+}
+
+/* ============================================================
+   4. CONTENT AREA — Layout + Scroll
+   ============================================================ */
+#admin-content {
+    flex: 1;
+    min-width: 0;
+    overflow-x: hidden;
+    overflow-y: auto !important; /* ← corrige le scroll bloqué */
+    background: var(--adm-bg) !important;
+}
+
+#main-content {
+    padding: 1.25rem !important;
+    max-width: 1500px !important;
+}
+
+@media (min-width: 1400px) {
+    #main-content { padding: 1.5rem 1.75rem !important; }
+}
+
+/* Collapsed sidebar */
+html.collapsed #admin-content { margin-left: 58px !important; }
+html.expanded #admin-content  { margin-left: var(--adm-sidebar-width) !important; }
+
+html.expanded .navbar-glass { width: calc(100% - var(--adm-sidebar-width)) !important; margin-left: var(--adm-sidebar-width) !important; }
+html.collapsed .navbar-glass { width: calc(100% - 58px) !important; margin-left: 58px !important; }
+
+@media (max-width: 991px) {
+    #admin-content { margin-left: 0 !important; padding-top: var(--adm-topbar-height) !important; }
+    .navbar-glass { width: 100% !important; margin-left: 0 !important; }
+}
+
+/* ============================================================
+   5. CARTES & SURFACES
+   ============================================================ */
+.card,
+.dark-card,
+.sb-card,
+html.theme-harvard .card,
+html.theme-harvard .dark-card {
+    background: var(--adm-surface) !important;
+    border: 1px solid var(--adm-border) !important;
+    border-radius: var(--adm-radius-lg) !important;
+    box-shadow: var(--adm-shadow-sm) !important;
+}
+
+.card-header,
+html.theme-harvard .card-header {
+    background: #fafbfc !important;
+    border-bottom: 1px solid var(--adm-border) !important;
+    color: var(--adm-text-primary) !important;
+    font-weight: 700 !important;
+    padding: .85rem 1.1rem !important;
+}
+
+.card-body,
+html.theme-harvard .card-body {
+    padding: 1rem 1.1rem !important;
+}
+
+.card-title,
+html.theme-harvard .card-title {
+    color: var(--adm-text-primary) !important;
+    font-weight: 700 !important;
+}
+
+/* Stat cards */
+.stat-card,
+html.theme-harvard .stat-card {
+    background: var(--adm-surface) !important;
+    border: 1px solid var(--adm-border) !important;
+    border-radius: var(--adm-radius-lg) !important;
+    box-shadow: var(--adm-shadow-sm) !important;
+    padding: 1rem 1.1rem !important;
+    transition: box-shadow .2s, transform .2s !important;
+}
+
+.stat-card:hover {
+    box-shadow: var(--adm-shadow-md) !important;
+    transform: translateY(-2px) !important;
+}
+
+.stat-value,
+html.theme-harvard .stat-value {
+    color: var(--adm-text-primary) !important;
+    font-size: 1.55rem !important;
+    font-weight: 800 !important;
+}
+
+.stat-label,
+html.theme-harvard .stat-label {
+    color: var(--adm-text-muted) !important;
+    font-size: .75rem !important;
+    font-weight: 600 !important;
+}
+
+/* Dark card headings */
+.dark-card-title,
+html.theme-harvard .dark-card-title {
+    color: var(--adm-text-primary) !important;
+    font-weight: 700 !important;
+    font-size: .92rem !important;
+}
+
+/* ============================================================
+   6. BOUTONS — Sémantique correcte, plus de vert partout
+   ============================================================ */
+
+/* PRIMARY → EMSP Vert (actions principales uniquement) */
+#admin-content .btn.btn-primary,
+#admin-content .btn-sb-primary,
+html.theme-harvard #main-content .btn.btn-primary,
+html.theme-harvard #main-content .btn-sb-primary {
+    background: var(--adm-brand) !important;
+    border-color: var(--adm-brand) !important;
+    color: #fff !important;
+}
+
+#admin-content .btn.btn-primary:hover,
+#admin-content .btn-sb-primary:hover,
+html.theme-harvard #main-content .btn.btn-primary:hover {
+    background: var(--adm-brand-dark) !important;
+    border-color: var(--adm-brand-dark) !important;
+    color: #fff !important;
+}
+
+/* SUCCESS → Vert foncé sémantique */
+#admin-content .btn.btn-success,
+html.theme-harvard #main-content .btn.btn-success {
+    background: #15803d !important;
+    border-color: #15803d !important;
+    color: #fff !important;
+}
+
+#admin-content .btn.btn-success:hover,
+html.theme-harvard #main-content .btn.btn-success:hover {
+    background: #166534 !important;
+    border-color: #166534 !important;
+}
+
+/* DANGER → Rouge clair, pas orange ! */
+#admin-content .btn.btn-danger,
+html.theme-harvard #main-content .btn.btn-danger {
+    background: var(--adm-danger) !important;
+    border-color: var(--adm-danger) !important;
+    color: #fff !important;
+}
+
+#admin-content .btn.btn-danger:hover,
+html.theme-harvard #main-content .btn.btn-danger:hover {
+    background: #b91c1c !important;
+    border-color: #b91c1c !important;
+}
+
+/* WARNING → Ambre / orange */
+#admin-content .btn.btn-warning,
+html.theme-harvard #main-content .btn.btn-warning {
+    background: var(--adm-warning) !important;
+    border-color: var(--adm-warning) !important;
+    color: #fff !important;
+}
+
+/* INFO → Bleu ciel */
+#admin-content .btn.btn-info,
+html.theme-harvard #main-content .btn.btn-info {
+    background: var(--adm-info) !important;
+    border-color: var(--adm-info) !important;
+    color: #fff !important;
+}
+
+/* SECONDARY → Gris neutre */
+#admin-content .btn.btn-secondary,
+html.theme-harvard #main-content .btn.btn-secondary {
+    background: #64748b !important;
+    border-color: #64748b !important;
+    color: #fff !important;
+}
+
+/* OUTLINE */
+#admin-content .btn-outline-primary,
+html.theme-harvard #main-content .btn-outline-primary {
+    color: var(--adm-brand) !important;
+    border-color: var(--adm-brand) !important;
+    background: transparent !important;
+}
+
+#admin-content .btn-outline-primary:hover,
+html.theme-harvard #main-content .btn-outline-primary:hover {
+    background: var(--adm-brand-light) !important;
+    color: var(--adm-brand-dark) !important;
+}
+
+#admin-content .btn-outline-danger,
+html.theme-harvard #main-content .btn-outline-danger {
+    color: var(--adm-danger) !important;
+    border-color: #fca5a5 !important;
+    background: transparent !important;
+}
+
+#admin-content .btn-outline-danger:hover,
+html.theme-harvard #main-content .btn-outline-danger:hover {
+    background: var(--adm-danger-bg) !important;
+    color: #b91c1c !important;
+}
+
+#admin-content .btn-outline-secondary,
+html.theme-harvard #main-content .btn-outline-secondary {
+    color: var(--adm-text-secondary) !important;
+    border-color: var(--adm-border-dark) !important;
+    background: #fff !important;
+}
+
+#admin-content .btn-outline-secondary:hover,
+html.theme-harvard #main-content .btn-outline-secondary:hover {
+    background: var(--adm-bg) !important;
+    color: var(--adm-text-primary) !important;
+}
+
+#admin-content .btn-outline-success,
+html.theme-harvard #main-content .btn-outline-success {
+    color: #15803d !important;
+    border-color: #86efac !important;
+    background: transparent !important;
+}
+
+#admin-content .btn-outline-success:hover,
+html.theme-harvard #main-content .btn-outline-success:hover {
+    background: var(--adm-success-bg) !important;
+    color: #166534 !important;
+}
+
+/* Boutons sb-icon */
+.btn-sb-icon {
+    background: var(--adm-bg) !important;
+    border: 1px solid var(--adm-border) !important;
+    color: var(--adm-text-secondary) !important;
+    border-radius: var(--adm-radius-sm) !important;
+}
+
+.btn-sb-icon:hover {
+    background: #e2e8f0 !important;
+    color: var(--adm-text-primary) !important;
+}
+
+/* ============================================================
+   7. TABLEAUX
+   ============================================================ */
+.table-emsp-dark,
+html.theme-harvard .table-emsp-dark {
+    font-size: .83rem !important;
+}
+
+.table-emsp-dark thead th,
+html.theme-harvard .table-emsp-dark thead th {
+    background: #f8fafc !important;
+    color: var(--adm-text-muted) !important;
+    font-size: .72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: .04em !important;
+    text-transform: uppercase !important;
+    border-bottom: 1px solid var(--adm-border) !important;
+    padding: .65rem .85rem !important;
+    white-space: nowrap !important;
+}
+
+.table-emsp-dark td,
+html.theme-harvard .table-emsp-dark td {
+    border-color: var(--adm-border) !important;
+    vertical-align: middle !important;
+    padding: .6rem .85rem !important;
+}
+
+.table-emsp-dark tbody tr:hover td {
+    background: #f8fafc !important;
+}
+
+/* ============================================================
+   8. BADGES & PILLS
+   ============================================================ */
+.badge.bg-success,
+html.theme-harvard .badge.bg-success {
+    background: var(--adm-success) !important;
+}
+
+.badge.bg-danger,
+html.theme-harvard .badge.bg-danger {
+    background: var(--adm-danger) !important;
+}
+
+.badge.bg-warning,
+html.theme-harvard .badge.bg-warning {
+    background: var(--adm-warning) !important;
+    color: #fff !important;
+}
+
+.badge.bg-info,
+html.theme-harvard .badge.bg-info {
+    background: var(--adm-info) !important;
+}
+
+.badge.bg-primary,
+html.theme-harvard .badge.bg-primary {
+    background: var(--adm-brand) !important;
+}
+
+/* Status pills */
+.sb-badge,
+html.theme-harvard .sb-badge {
+    font-size: .7rem !important;
+    font-weight: 700 !important;
+    padding: .25em .6em !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: .3em !important;
+    white-space: nowrap !important;
+}
+
+/* ============================================================
+   9. FORMULAIRES
+   ============================================================ */
+.form-control:focus,
+.form-select:focus,
+html.theme-harvard .form-control:focus,
+html.theme-harvard .form-select:focus {
+    border-color: var(--adm-brand) !important;
+    box-shadow: 0 0 0 3px rgba(0,107,60,.15) !important;
+    outline: none !important;
+}
+
+.form-label,
+html.theme-harvard .form-label {
+    color: var(--adm-text-secondary) !important;
+    font-weight: 600 !important;
+    font-size: .82rem !important;
+    margin-bottom: .35rem !important;
+}
+
+/* ============================================================
+   10. TEXTES & LIENS EN ADMIN
+   ============================================================ */
+#admin-content .text-primary,
+#admin-content .link-primary,
+html.theme-harvard #main-content .text-primary {
+    color: var(--adm-brand) !important;
+}
+
+#admin-content a:not(.btn):not(.nav-link):not(.dropdown-item) {
+    color: var(--adm-brand) !important;
+}
+
+#admin-content a:not(.btn):not(.nav-link):not(.dropdown-item):hover {
+    color: var(--adm-brand-dark) !important;
+}
+
+/* ============================================================
+   11. DROPDOWN (menu utilisateur, etc.)
+   ============================================================ */
+.dropdown-menu {
+    border: 1px solid var(--adm-border) !important;
+    border-radius: var(--adm-radius-md) !important;
+    box-shadow: var(--adm-shadow-lg) !important;
+    font-size: .85rem !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background: var(--adm-brand-light) !important;
+    color: var(--adm-brand-dark) !important;
+}
+
+/* ============================================================
+   12. ALERTS
+   ============================================================ */
+#admin-content .alert-success {
+    background: var(--adm-success-bg) !important;
+    border-color: #bbf7d0 !important;
+    color: #14532d !important;
+}
+
+#admin-content .alert-danger {
+    background: var(--adm-danger-bg) !important;
+    border-color: #fecaca !important;
+    color: #7f1d1d !important;
+}
+
+#admin-content .alert-warning {
+    background: var(--adm-warning-bg) !important;
+    border-color: #fde68a !important;
+    color: #78350f !important;
+}
+
+#admin-content .alert-info {
+    background: var(--adm-info-bg) !important;
+    border-color: #bae6fd !important;
+    color: #0c4a6e !important;
+}
+
+/* ============================================================
+   13. PAGE HEADERS (hero/admin hero)
+   ============================================================ */
+.admin-hero,
+html.theme-harvard .admin-hero {
+    background: linear-gradient(135deg, var(--adm-sidebar-bg) 0%, #1e3a5f 100%) !important;
+    border-radius: var(--adm-radius-xl) !important;
+    padding: 1.5rem 1.75rem !important;
+    border: 1px solid rgba(255,255,255,.04) !important;
+    box-shadow: var(--adm-shadow-md) !important;
+}
+
+.admin-hero .text-muted,
+html.theme-harvard .admin-hero .text-muted { color: rgba(255,255,255,.6) !important; }
+.admin-hero .text-uppercase,
+html.theme-harvard .admin-hero .text-uppercase { color: rgba(255,255,255,.55) !important; }
+.admin-hero .fw-bold,
+html.theme-harvard .admin-hero .fw-bold { color: #fff !important; }
+.admin-hero h1, .admin-hero h2, .admin-hero h3,
+html.theme-harvard .admin-hero h1,
+html.theme-harvard .admin-hero h2 { color: #fff !important; }
+
+/* ============================================================
+   14. PAGINATION
+   ============================================================ */
+.page-link {
+    color: var(--adm-brand) !important;
+    border-color: var(--adm-border) !important;
+}
+
+.page-link:hover {
+    background: var(--adm-brand-light) !important;
+    border-color: var(--adm-brand) !important;
+    color: var(--adm-brand-dark) !important;
+}
+
+.page-item.active .page-link {
+    background: var(--adm-brand) !important;
+    border-color: var(--adm-brand) !important;
+    color: #fff !important;
+}
+
+/* ============================================================
+   15. PROGRESS BARS
+   ============================================================ */
+.progress-bar,
+html.theme-harvard .progress-bar {
+    background: var(--adm-brand) !important;
+}
+
+/* ============================================================
+   16. MOBILE — Sidebar overlay
+   ============================================================ */
+@media (max-width: 991px) {
+    #miniSidebar,
+    html.theme-harvard #miniSidebar {
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 82vw !important;
+        max-width: 300px !important;
+        transform: translateX(-105%) !important;
+        transition: transform .28s cubic-bezier(.22,1,.36,1) !important;
+        z-index: 1050 !important;
+        overflow-y: auto !important;
+    }
+
+    body.sidebar-open #miniSidebar,
+    html.theme-harvard body.sidebar-open #miniSidebar {
+        transform: translateX(0) !important;
+    }
+
+    #sidebar-overlay {
+        position: fixed !important;
+        inset: 0 !important;
+        background: rgba(0,0,0,.45) !important;
+        z-index: 1049 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: opacity .28s !important;
+    }
+
+    body.sidebar-open #sidebar-overlay {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* ============================================================
+   17. CORRECTIONS SPÉCIFIQUES — Couleurs parasites
+   ============================================================ */
+
+/* Supprime le fond vert sur les backgrounds Bootstrap en admin */
+#admin-content .bg-success,
+html.theme-harvard #main-content .bg-success {
+    background-color: #16a34a !important;
+}
+
+#admin-content .bg-primary,
+html.theme-harvard #main-content .bg-primary {
+    background-color: var(--adm-brand) !important;
+}
+
+/* Spinner */
+#admin-content .spinner-border.text-primary,
+html.theme-harvard #main-content .spinner-border.text-primary {
+    color: var(--adm-brand) !important;
+}
+
+/* Input groups */
+.input-group-text {
+    background: #f8fafc !important;
+    border-color: var(--adm-border) !important;
+    color: var(--adm-text-muted) !important;
+}
+
+/* Select2 focus */
+.select2-container--default .select2-selection--single:focus,
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border-color: var(--adm-brand) !important;
+    box-shadow: 0 0 0 3px rgba(0,107,60,.15) !important;
+}
+
+/* Quill editor */
+.ql-toolbar,
+.ql-container {
+    border-color: var(--adm-border) !important;
+}
+
+/* ============================================================
+   18. SCROLLBAR globale (moderne, discrète)
+   ============================================================ */
+#admin-content::-webkit-scrollbar,
+#miniSidebar::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+#admin-content::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+#admin-content::-webkit-scrollbar-thumb {
+    background: var(--adm-border-dark) !important;
+    border-radius: 999px !important;
+}
+
+#miniSidebar::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.12) !important;
+    border-radius: 999px !important;
+}
+
+/* ============================================================
+   19. ANIMATION DE CHARGEMENT (progress bar)
+   ============================================================ */
+#emsp-progress-bar {
+    background: linear-gradient(90deg, var(--adm-brand), #00b468) !important;
+}
+
+/* ============================================================
+   20. CORRECTIONS HARVARD THEME — Cibles spécifiques à neutraliser
+   ============================================================ */
+/* La paletteguard forçait des backgrounds rougeâtres sur certains éléments */
+html.theme-harvard body.bg-body {
+    background: var(--adm-bg) !important;
+}
+
+/* Corrige les liens de la barre harvard qui devenaient bordeaux */
+html.theme-harvard #miniSidebar a,
+html.theme-harvard .admin-sidebar-nav a {
+    color: var(--adm-sidebar-text) !important;
+}
+
+html.theme-harvard #miniSidebar a:hover,
+html.theme-harvard .admin-sidebar-nav a:hover {
+    color: var(--adm-sidebar-hover-text) !important;
+}
+
+html.theme-harvard #miniSidebar .nav-link.active {
+    color: #86efac !important;
+}
+
+/* ============================================================
+   21. DASHBOARD — Hero & KPI cards
+   ============================================================ */
+
+/* Hero — remplace le fond bordeaux/rouge par du EMSP sobre */
+html.theme-harvard .admin-overview-hero,
+.admin-overview-hero {
+    background:
+        linear-gradient(112deg,
+            rgba(10,20,40,.96) 0%,
+            rgba(0,48,135,.88) 48%,
+            rgba(0,77,42,.82) 100%) !important;
+    border: 1px solid rgba(255,255,255,.1) !important;
+    box-shadow: 0 20px 48px rgba(0,0,0,.22) !important;
+    border-radius: var(--adm-radius-xl) !important;
+}
+
+.admin-overview-kicker,
+html.theme-harvard .admin-overview-kicker {
+    color: rgba(255,255,255,.9) !important;
+    border-color: rgba(255,255,255,.2) !important;
+    background: rgba(255,255,255,.1) !important;
+    font-size: .72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: .08em !important;
+}
+
+.admin-overview-title,
+html.theme-harvard .admin-overview-title {
+    color: #fff !important;
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem) !important;
+    font-weight: 800 !important;
+    text-shadow: 0 4px 12px rgba(0,0,0,.25) !important;
+}
+
+.admin-overview-text,
+html.theme-harvard .admin-overview-text {
+    color: rgba(255,255,255,.82) !important;
+    font-size: .9rem !important;
+    line-height: 1.65 !important;
+}
+
+.admin-overview-metric,
+.admin-overview-panel,
+.admin-overview-action,
+html.theme-harvard .admin-overview-metric,
+html.theme-harvard .admin-overview-panel,
+html.theme-harvard .admin-overview-action {
+    background: rgba(255,255,255,.1) !important;
+    border-color: rgba(255,255,255,.18) !important;
+    border-radius: var(--adm-radius-md) !important;
+    color: #fff !important;
+}
+
+.admin-overview-action:hover,
+html.theme-harvard .admin-overview-action:hover {
+    background: rgba(255,255,255,.18) !important;
+}
+
+.admin-overview-action strong,
+html.theme-harvard .admin-overview-action strong {
+    color: #fff !important;
+}
+
+.admin-overview-action small,
+.admin-overview-metric small,
+html.theme-harvard .admin-overview-action small,
+html.theme-harvard .admin-overview-metric small {
+    color: rgba(255,255,255,.65) !important;
+}
+
+.admin-overview-panel h2,
+html.theme-harvard .admin-overview-panel h2 {
+    color: #fff !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+}
+
+.admin-overview-panel p,
+html.theme-harvard .admin-overview-panel p {
+    color: rgba(255,255,255,.7) !important;
+    font-size: .82rem !important;
+}
+
+.admin-overview-action .bi,
+html.theme-harvard .admin-overview-action .bi {
+    color: rgba(255,255,255,.75) !important;
+    font-size: 1.2rem !important;
+}
+
+.admin-overview-metric span,
+html.theme-harvard .admin-overview-metric span {
+    color: rgba(255,255,255,.72) !important;
+    font-size: .75rem !important;
+}
+
+.admin-overview-metric strong,
+html.theme-harvard .admin-overview-metric strong {
+    color: #fff !important;
+    font-size: 1.6rem !important;
+    font-weight: 800 !important;
+    display: block !important;
+}
+
+/* KPI cards — palette neutre propre */
+html.theme-harvard .admin-kpi-card,
+.admin-kpi-card {
+    background: var(--adm-surface) !important;
+    border: 1px solid var(--adm-border) !important;
+    border-radius: var(--adm-radius-lg) !important;
+    box-shadow: var(--adm-shadow-sm) !important;
+    transition: box-shadow .2s, transform .2s !important;
+}
+
+html.theme-harvard .admin-kpi-card:hover,
+.admin-kpi-card:hover {
+    box-shadow: var(--adm-shadow-md) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Bande colorée en haut des KPI cards */
+html.theme-harvard .admin-kpi-card::before,
+.admin-kpi-card::before {
+    border-radius: var(--adm-radius-lg) var(--adm-radius-lg) 0 0 !important;
+}
+
+/* KPI icons — supprime le rouge, utilise le thème EMSP */
+html.theme-harvard .admin-kpi-icon,
+.admin-kpi-icon {
+    background: linear-gradient(135deg, var(--adm-brand-dark), var(--adm-brand)) !important;
+    box-shadow: 0 6px 18px rgba(0,107,60,.28) !important;
+    color: #fff !important;
+    border-radius: var(--adm-radius-md) !important;
+}
+
+html.theme-harvard .admin-kpi-chip,
+.admin-kpi-chip {
+    background: var(--adm-brand-light) !important;
+    color: var(--adm-brand-dark) !important;
+    font-size: .68rem !important;
+    font-weight: 700 !important;
+    border-radius: var(--fe-radius-pill, 999px) !important;
+}
+
+html.theme-harvard .admin-kpi-value,
+.admin-kpi-value {
+    color: var(--adm-text-primary) !important;
+    font-size: 1.65rem !important;
+    font-weight: 800 !important;
+}
+
+html.theme-harvard .admin-kpi-label,
+.admin-kpi-label {
+    color: var(--adm-text-secondary) !important;
+    font-size: .77rem !important;
+    font-weight: 600 !important;
+}
+
+html.theme-harvard .admin-kpi-meta,
+.admin-kpi-meta {
+    color: var(--adm-text-muted) !important;
+    font-size: .72rem !important;
+}
+
+html.theme-harvard .admin-kpi-meta .up,
+.admin-kpi-meta .up {
+    color: var(--adm-success) !important;
+    font-weight: 700 !important;
+}
+
+html.theme-harvard .admin-kpi-meta .down,
+.admin-kpi-meta .down {
+    color: var(--adm-danger) !important;
+    font-weight: 700 !important;
+}
+
+/* Couleurs accent par position — supprime le rouge Harvard */
+html.theme-harvard .admin-dashboard > .row:nth-of-type(1) > [class*='col-']:nth-child(1) .admin-kpi-card::before,
+.admin-dashboard > .row:nth-of-type(1) > [class*='col-']:nth-child(1) .admin-kpi-card::before {
+    background: linear-gradient(90deg, var(--adm-brand-dark), var(--adm-brand)) !important;
+}
+
+html.theme-harvard .admin-dashboard > .row:nth-of-type(1) > [class*='col-']:nth-child(2) .admin-kpi-card::before,
+.admin-dashboard > .row:nth-of-type(1) > [class*='col-']:nth-child(2) .admin-kpi-card::before {
+    background: linear-gradient(90deg, #1d4ed8, #3b82f6) !important;
+}
+
+html.theme-harvard .admin-dashboard > .row:nth-of-type(1) > [class*='col-']:nth-child(3) .admin-kpi-card::before,
+.admin-dashboard > .row:nth-of-type(1) > [class*='col-']:nth-child(3) .admin-kpi-card::before {
+    background: linear-gradient(90deg, #0369a1, #0ea5e9) !important;
+}
+
+html.theme-harvard .admin-dashboard > .row:nth-of-type(1) > [class*='col-']:nth-child(4) .admin-kpi-card::before,
+.admin-dashboard > .row:nth-of-type(1) > [class*='col-']:nth-child(4) .admin-kpi-card::before {
+    background: linear-gradient(90deg, #d97706, #f59e0b) !important;
+}
+
+/* ============================================================
+   22. DARK-CARD (panels du dashboard)
+   ============================================================ */
+html.theme-harvard .dark-card,
+.dark-card {
+    background: var(--adm-surface) !important;
+    border: 1px solid var(--adm-border) !important;
+    border-radius: var(--adm-radius-lg) !important;
+    box-shadow: var(--adm-shadow-sm) !important;
+}
+
+html.theme-harvard .admin-panel,
+.admin-panel {
+    border-radius: var(--adm-radius-lg) !important;
+}
+
+/* Titres de panneaux — plus de rouge */
+html.theme-harvard .admin-panel-title,
+.admin-panel-title {
+    color: var(--adm-text-primary) !important;
+    font-weight: 700 !important;
+    font-size: .92rem !important;
+}
+
+html.theme-harvard .admin-panel-link,
+.admin-panel-link {
+    color: var(--adm-brand) !important;
+    font-size: .78rem !important;
+    font-weight: 700 !important;
+}
+
+html.theme-harvard .admin-panel-link:hover,
+.admin-panel-link:hover {
+    color: var(--adm-brand-dark) !important;
+}
+
+/* Lignes liste dashboard */
+html.theme-harvard .admin-list-row,
+.admin-list-row {
+    background: #f8fafc !important;
+    border: 1px solid var(--adm-border) !important;
+    border-radius: var(--adm-radius-sm) !important;
+    transition: background .15s !important;
+}
+
+html.theme-harvard .admin-list-row:hover,
+.admin-list-row:hover {
+    background: var(--adm-brand-light) !important;
+    border-color: #a7f3d0 !important;
+}
+
+html.theme-harvard .admin-list-row-title,
+.admin-list-row-title {
+    color: var(--adm-text-primary) !important;
+    font-weight: 600 !important;
+    font-size: .82rem !important;
+}
+
+html.theme-harvard .admin-list-row-meta,
+.admin-list-row-meta {
+    color: var(--adm-text-muted) !important;
+    font-size: .72rem !important;
+}
+
+/* ============================================================
+   23. CHART PANELS
+   ============================================================ */
+.chart-shell,
+html.theme-harvard .chart-shell {
+    background: var(--adm-surface) !important;
+    border: 1px solid var(--adm-border) !important;
+    border-radius: var(--adm-radius-lg) !important;
+    padding: 1rem !important;
+}
+
+.chart-shell-title,
+html.theme-harvard .chart-shell-title {
+    color: var(--adm-text-primary) !important;
+    font-weight: 700 !important;
+    font-size: .88rem !important;
+}
+
+/* ============================================================
+   24. NAVIGATION SECONDARY (tabs admin)
+   ============================================================ */
+.nav-tabs .nav-link.active {
+    color: var(--adm-brand) !important;
+    border-bottom-color: var(--adm-brand) !important;
+    font-weight: 700 !important;
+}
+
+.nav-tabs .nav-link {
+    color: var(--adm-text-secondary) !important;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--adm-brand) !important;
+}
+
+/* ============================================================
+   25. BREADCRUMB
+   ============================================================ */
+.breadcrumb-item a {
+    color: var(--adm-brand) !important;
+    text-decoration: none !important;
+}
+
+.breadcrumb-item.active {
+    color: var(--adm-text-muted) !important;
+}
+
+/* ============================================================
+   26. CORRECTIFS FINALS — Variables Bootstrap overrides en admin
+   ============================================================ */
+#admin-content,
+html.theme-harvard #admin-content {
+    --bs-primary: var(--adm-brand) !important;
+    --bs-primary-rgb: 0,107,60 !important;
+    --bs-success: #16a34a !important;
+    --bs-danger: #dc2626 !important;
+    --bs-warning: #d97706 !important;
+    --bs-info: #0ea5e9 !important;
+    --bs-link-color: var(--adm-brand) !important;
+    --bs-link-hover-color: var(--adm-brand-dark) !important;
+}

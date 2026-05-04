@@ -17,6 +17,10 @@ function emsp_sanitize_html(string $html): string
         ['uploads/', 'uploads/', 'assets/', 'assets/'],
         $decoded
     );
+    $decoded = preg_replace_callback('/<img\b[^>]*\bsrc=(["\'])(.*?)\1[^>]*>/i', function (array $matches): string {
+        $src = html_entity_decode((string) ($matches[2] ?? ''), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        return emsp_institution_media_src($src) !== '' ? $matches[0] : '';
+    }, $decoded) ?? $decoded;
     $allowed = '<p><br><h1><h2><h3><h4><h5><h6>'
              . '<ul><ol><li><strong><em><b><i><u><a>'
              . '<img><div><span><figure><figcaption>'
@@ -24,6 +28,23 @@ function emsp_sanitize_html(string $html): string
              . '<table><thead><tbody><tr><th><td>'
              . '<sup><sub><small><mark>';
     return strip_tags($decoded, $allowed);
+}
+
+function emsp_institution_media_src(string $path): string
+{
+    $path = trim($path);
+    if ($path === '') {
+        return '';
+    }
+
+    if (emsp_is_external_url($path) || str_starts_with($path, 'data:') || str_starts_with($path, 'blob:')) {
+        return $path;
+    }
+
+    $src = ltrim(str_replace('\\', '/', $path), '/');
+    $localPath = __DIR__ . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $src);
+
+    return is_file($localPath) ? $src : '';
 }
 
 // 1) Blocs dynamiques
@@ -312,7 +333,7 @@ include __DIR__ . '/includes/header.php';
                     $align = $cfg['align'] ?? 'full';
                     $align = in_array($align, ['full','center','left','right'], true) ? $align : 'full';
                     $legende = emsp_institution_fix_text((string)($cfg['legende'] ?? ''));
-                    $img = (string)($bloc['image_path'] ?? '');
+                    $img = emsp_institution_media_src((string)($bloc['image_path'] ?? ''));
                     ?>
                     <?php if ($img !== ''): ?>
                     <div class="reveal-init mb-4 clearfix">
@@ -335,6 +356,8 @@ include __DIR__ . '/includes/header.php';
                     <?php if (!empty($images)): ?>
                     <div class="reveal-init row g-2 mb-4">
                         <?php foreach ($images as $img): ?>
+                        <?php $img = emsp_institution_media_src((string) $img); ?>
+                        <?php if ($img === '') { continue; } ?>
                         <div class="<?= $colClass ?>">
                             <img src="<?= htmlspecialchars((string)$img) ?>" class="img-fluid rounded w-100 emsp-institution-media" alt="">
                         </div>
@@ -558,6 +581,4 @@ document.querySelectorAll('[data-counter]').forEach((el) => counterObserver.obse
 </script>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>
-
-
 
