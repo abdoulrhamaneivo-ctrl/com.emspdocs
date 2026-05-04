@@ -5,6 +5,7 @@ debug_*.txt
 
 # Config secrets
 .env
+.env.local
 admin/config/config.php
 
 # Uploads (contenu, pas le dossier)
@@ -20,5 +21,22 @@ admin/repair-encoding.php
 # Artefacts OS
 .DS_Store
 Thumbs.db
+
+# Fichiers volumineux / rapports
+rapport_complet.txt
+rapport_*.txt
+
+# Fichiers temporaires
+.tmp-*
+*.tmp
+
+# Cache PHPUnit
+.phpunit.cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
 
 
