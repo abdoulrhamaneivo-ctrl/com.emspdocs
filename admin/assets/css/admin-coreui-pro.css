@@ -1,0 +1,345 @@
+/* =====================================================================
+   admin-coreui-pro.css
+   Layer CoreUI 5 + identite EMSP (vert / or) avec support light/dark.
+   Inspire du free-bootstrap-admin-template officiel CoreUI.
+   ===================================================================== */
+
+:root {
+    /* Identite EMSP */
+    --emsp-primary: #006B3C;
+    --emsp-primary-rgb: 0, 107, 60;
+    --emsp-primary-dark: #004D2A;
+    --emsp-accent: #F5A800;
+    --emsp-accent-rgb: 245, 168, 0;
+    --emsp-accent-dark: #D4900A;
+
+    /* Tokens CoreUI light */
+    --cui-primary: var(--emsp-primary);
+    --cui-primary-rgb: var(--emsp-primary-rgb);
+    --cui-warning: var(--emsp-accent);
+    --cui-warning-rgb: var(--emsp-accent-rgb);
+
+    /* Sidebar foncee EMSP */
+    --cui-sidebar-bg: #002D19;
+    --cui-sidebar-color: rgba(255, 255, 255, 0.85);
+    --cui-sidebar-nav-link-color: rgba(255, 255, 255, 0.72);
+    --cui-sidebar-nav-link-hover-color: #fff;
+    --cui-sidebar-nav-link-hover-bg: rgba(255, 255, 255, 0.06);
+    --cui-sidebar-nav-link-active-color: #fff;
+    --cui-sidebar-nav-link-active-bg: rgba(245, 168, 0, 0.16);
+    --cui-sidebar-nav-link-icon-color: rgba(245, 168, 0, 0.95);
+    --cui-sidebar-nav-title-color: rgba(255, 255, 255, 0.45);
+    --cui-sidebar-brand-bg: var(--emsp-primary);
+    --cui-sidebar-brand-color: #fff;
+    --cui-sidebar-toggler-bg: rgba(0, 0, 0, 0.25);
+    --cui-sidebar-toggler-hover-bg: rgba(0, 0, 0, 0.4);
+}
+
+[data-coreui-theme="dark"] {
+    --cui-body-bg: #0e1217;
+    --cui-body-color: #e2e8f0;
+    --cui-card-bg: #161c23;
+    --cui-card-color: #e2e8f0;
+    --cui-border-color: rgba(255, 255, 255, 0.08);
+    --cui-secondary-bg: #1e252d;
+    --cui-tertiary-bg: #1a2128;
+}
+
+/* ---------- Typo & body ---------- */
+body {
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: var(--cui-body-bg, #f4f6fb);
+    color: var(--cui-body-color, #1e293b);
+}
+
+h1, h2, h3, h4, h5, .sidebar-brand, .admin-overview-title {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    letter-spacing: -0.01em;
+}
+
+/* ---------- Wrapper / shell ---------- */
+#admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+.wrapper {
+    margin-inline-start: var(--cui-sidebar-occupy-start, 16rem);
+    transition: margin-inline-start .25s ease;
+    min-width: 0;
+}
+.html-collapsed .wrapper,
+[data-coreui-sidebar-narrow] .wrapper {
+    margin-inline-start: var(--cui-sidebar-occupy-start, 4rem);
+}
+@media (max-width: 991.98px) {
+    .wrapper { margin-inline-start: 0 !important; }
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.06);
+    --cui-sidebar-width: 16rem;
+}
+.sidebar.sidebar-fixed {
+    position: fixed;
+    top: 0; bottom: 0; left: 0;
+    z-index: 1031;
+}
+
+.sidebar-header {
+    background: linear-gradient(135deg, var(--emsp-primary) 0%, var(--emsp-primary-dark) 100%);
+    min-height: 4rem;
+    padding: 0.75rem 1rem;
+}
+.sidebar-brand {
+    background: transparent;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.sidebar-brand-narrow { display: none; }
+.sidebar.sidebar-narrow .sidebar-brand-full,
+.sidebar.sidebar-narrow-unfoldable:not(:hover) .sidebar-brand-full { display: none; }
+.sidebar.sidebar-narrow .sidebar-brand-narrow,
+.sidebar.sidebar-narrow-unfoldable:not(:hover) .sidebar-brand-narrow { display: inline-block; }
+
+.sidebar-nav {
+    --cui-sidebar-nav-link-padding-y: .65rem;
+    --cui-sidebar-nav-link-padding-x: 1rem;
+    padding: .5rem 0;
+}
+.sidebar-nav .nav-title {
+    font-size: .68rem;
+    letter-spacing: .12em;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 1rem 1.25rem .5rem;
+    color: var(--cui-sidebar-nav-title-color);
+}
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin: 2px .5rem;
+    padding: .55rem .85rem;
+    border-radius: .5rem;
+    font-weight: 500;
+    font-size: .92rem;
+    transition: background-color .18s ease, color .18s ease;
+}
+.sidebar-nav .nav-link.active {
+    background-color: var(--cui-sidebar-nav-link-active-bg) !important;
+    color: var(--cui-sidebar-nav-link-active-color) !important;
+    box-shadow: inset 3px 0 0 var(--emsp-accent);
+}
+.sidebar-nav .nav-link:hover {
+    background-color: var(--cui-sidebar-nav-link-hover-bg);
+    color: var(--cui-sidebar-nav-link-hover-color);
+}
+.sidebar-nav .nav-icon {
+    color: var(--cui-sidebar-nav-link-icon-color);
+    font-size: 1.05rem;
+    width: 1.4rem;
+    text-align: center;
+}
+.sidebar-nav .nav-link.active .nav-icon { color: var(--emsp-accent); }
+.sidebar-nav .badge { font-size: .68rem; font-weight: 700; padding: .25em .5em; }
+
+.sidebar-footer {
+    background: rgba(0, 0, 0, 0.18);
+    padding: .5rem;
+}
+.sidebar-toggler {
+    background: var(--cui-sidebar-toggler-bg);
+    border-radius: .35rem;
+    transition: background-color .15s ease;
+}
+.sidebar-toggler:hover { background: var(--cui-sidebar-toggler-hover-bg); }
+
+.admin-user-info {
+    background: rgba(0, 0, 0, 0.15);
+}
+.admin-avatar-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--emsp-primary) 0%, var(--emsp-accent) 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: .82rem;
+    flex-shrink: 0;
+}
+
+/* ---------- Header sticky (top bar) ---------- */
+.header.header-sticky {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: saturate(160%) blur(12px);
+    -webkit-backdrop-filter: saturate(160%) blur(12px);
+    border-bottom: 1px solid var(--cui-border-color, rgba(0, 0, 0, 0.06)) !important;
+    min-height: 3.5rem;
+}
+[data-coreui-theme="dark"] .header.header-sticky {
+    background: rgba(22, 28, 35, 0.85);
+}
+.header .container-fluid { min-height: 3.5rem; padding-top: .25rem; padding-bottom: .25rem; }
+.header-toggler {
+    background: transparent;
+    border: none;
+    color: var(--cui-body-color);
+    padding: .35rem .55rem;
+    border-radius: .4rem;
+}
+.header-toggler:hover { background: rgba(0, 0, 0, 0.04); }
+[data-coreui-theme="dark"] .header-toggler:hover { background: rgba(255, 255, 255, 0.06); }
+
+.breadcrumb { font-size: .92rem; }
+.breadcrumb-item.active { color: var(--cui-body-color); font-weight: 600; }
+
+.header-nav .nav-link {
+    color: var(--cui-body-color);
+    padding: .45rem .65rem;
+    border-radius: .4rem;
+    transition: background-color .15s ease;
+}
+.header-nav .nav-link:hover { background: rgba(0, 0, 0, 0.05); }
+[data-coreui-theme="dark"] .header-nav .nav-link:hover { background: rgba(255, 255, 255, 0.06); }
+
+.avatar.avatar-md { width: 36px; height: 36px; }
+.avatar .avatar-img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Cards ---------- */
+.card {
+    border: 1px solid var(--cui-border-color, rgba(0, 0, 0, 0.06));
+    border-radius: .85rem;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+.card:hover { box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); }
+.card-header {
+    background: transparent;
+    border-bottom: 1px solid var(--cui-border-color, rgba(0, 0, 0, 0.05));
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+}
+
+/* ---------- Buttons EMSP ---------- */
+.btn-primary {
+    --cui-btn-bg: var(--emsp-primary);
+    --cui-btn-border-color: var(--emsp-primary);
+    --cui-btn-hover-bg: var(--emsp-primary-dark);
+    --cui-btn-hover-border-color: var(--emsp-primary-dark);
+    --cui-btn-active-bg: var(--emsp-primary-dark);
+    --cui-btn-color: #fff;
+    --cui-btn-hover-color: #fff;
+}
+.btn-warning {
+    --cui-btn-bg: var(--emsp-accent);
+    --cui-btn-border-color: var(--emsp-accent);
+    --cui-btn-hover-bg: var(--emsp-accent-dark);
+    --cui-btn-hover-border-color: var(--emsp-accent-dark);
+    --cui-btn-color: #fff;
+    --cui-btn-hover-color: #fff;
+}
+.btn-outline-primary {
+    --cui-btn-color: var(--emsp-primary);
+    --cui-btn-border-color: var(--emsp-primary);
+    --cui-btn-hover-bg: var(--emsp-primary);
+    --cui-btn-hover-border-color: var(--emsp-primary);
+}
+
+/* ---------- Tables ---------- */
+.table {
+    --cui-table-hover-bg: rgba(var(--emsp-primary-rgb), 0.04);
+}
+.table > :not(caption) > * > * { padding: .85rem .75rem; }
+.table thead th {
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--cui-secondary-color, #64748b);
+    font-weight: 700;
+    border-bottom: 1px solid var(--cui-border-color, #e2e8f0);
+    background: transparent;
+}
+
+/* ---------- Badges statuts ---------- */
+.badge-active   { background: rgba(0, 107, 60, .12);  color: #006B3C; }
+.badge-pending  { background: rgba(245, 168, 0, .15); color: #B57700; }
+.badge-rejected { background: rgba(220, 38, 38, .12); color: #B91C1C; }
+[data-coreui-theme="dark"] .badge-active   { background: rgba(0, 107, 60, .25);  color: #4ADE80; }
+[data-coreui-theme="dark"] .badge-pending  { background: rgba(245, 168, 0, .25); color: #FBBF24; }
+[data-coreui-theme="dark"] .badge-rejected { background: rgba(220, 38, 38, .25); color: #F87171; }
+
+/* ---------- Forms ---------- */
+.form-label { font-weight: 600; font-size: .88rem; margin-bottom: .35rem; }
+.form-control, .form-select {
+    border-radius: .5rem;
+    border-color: var(--cui-border-color, #d8dde5);
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--emsp-primary);
+    box-shadow: 0 0 0 .2rem rgba(var(--emsp-primary-rgb), .15);
+}
+.form-text { font-size: .82rem; color: var(--cui-secondary-color, #64748b); }
+
+/* ---------- Pagination ---------- */
+.pagination {
+    --cui-pagination-color: var(--cui-body-color);
+    --cui-pagination-active-bg: var(--emsp-primary);
+    --cui-pagination-active-border-color: var(--emsp-primary);
+    --cui-pagination-focus-color: var(--emsp-primary);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    min-height: 3rem;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    border-top: 1px solid var(--cui-border-color, rgba(0, 0, 0, 0.06));
+    background: transparent;
+    font-size: .9rem;
+}
+
+/* ---------- Progress bar de chargement EMSP ---------- */
+#emsp-progress-bar {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 3px;
+    background: linear-gradient(90deg, var(--emsp-primary), var(--emsp-accent));
+    z-index: 9999;
+    transition: width .2s ease, opacity .3s ease;
+    pointer-events: none;
+}
+
+/* ---------- Mobile sidebar ---------- */
+@media (max-width: 991.98px) {
+    .sidebar.sidebar-fixed:not(.sidebar-show) {
+        transform: translateX(-100%);
+    }
+    .sidebar.sidebar-show {
+        transform: translateX(0);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    }
+    body.sidebar-open #sidebar-overlay {
+        position: fixed; inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1030;
+    }
+}
+
+/* ---------- KPI dashboard cards (compatibilite admin-experience-upgrade) ---------- */
+.admin-kpi-card {
+    position: relative;
+    background: var(--cui-card-bg, #fff);
+    border: 1px solid var(--cui-border-color, rgba(0, 0, 0, 0.06));
+    border-radius: 1rem;
+    padding: 1.25rem;
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.admin-kpi-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08); }

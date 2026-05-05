@@ -87,31 +87,25 @@ $nav_sections = [
 <div class="sidebar sidebar-dark sidebar-fixed border-end" id="sidebar">
   <div class="sidebar-header border-bottom">
     <div class="sidebar-brand">
-      <img src="../assets/images/logo-emsp.png" alt="Logo" height="32" class="me-2 bg-white rounded p-1">
-      <span class="fs-5 fw-bold">EMSP Admin</span>
+      <img src="../assets/images/logo-emsp.png" alt="Logo EMSP" height="32" class="sidebar-brand-full bg-white rounded p-1">
+      <span class="sidebar-brand-full ms-2 fs-5 fw-bold">EMSP Admin</span>
+      <img src="../assets/images/logo-emsp.png" alt="" height="28" class="sidebar-brand-narrow bg-white rounded p-1">
     </div>
+    <button class="btn-close d-lg-none" type="button" data-coreui-theme="dark" aria-label="Fermer"
+            onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()"></button>
   </div>
 
-  <div class="admin-user-info">
+  <div class="admin-user-info d-flex align-items-center gap-3 px-3 py-3 border-bottom border-white border-opacity-10">
     <?php if ($photo_src): ?>
-      <img src="<?= h($photo_src) ?>" alt="Avatar" class="rounded-circle" width="38" height="38">
+      <img src="<?= h($photo_src) ?>" alt="" class="rounded-circle" width="40" height="40" style="object-fit:cover;">
     <?php else: ?>
       <div class="admin-avatar-circle"><?= h($initials) ?></div>
     <?php endif; ?>
-    <div class="overflow-hidden">
-      <div class="text-white fw-bold text-truncate" style="font-size: 0.9rem;"><?= h(trim((string) (($auth_user['first_name'] ?? '') . ' ' . ($auth_user['last_name'] ?? '')))) ?></div>
+    <div class="overflow-hidden flex-grow-1">
+      <div class="text-white fw-semibold text-truncate" style="font-size:.92rem;">
+        <?= h(trim((string) (($auth_user['first_name'] ?? '') . ' ' . ($auth_user['last_name'] ?? '')))) ?>
+      </div>
       <div class="text-white-50 small text-truncate"><?= h($role_label) ?></div>
-  <div class="sidebar-header border-bottom">
-    <div class="d-flex align-items-center gap-3 p-3">
-        <?php if ($photo_src): ?>
-        <img src="<?= h($photo_src) ?>" alt="Avatar" class="rounded-circle" width="38" height="38">
-        <?php else: ?>
-        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;"><?= h($initials) ?></div>
-        <?php endif; ?>
-        <div class="overflow-hidden">
-            <div class="text-white fw-bold text-truncate"><?= h(trim((string) (($auth_user['first_name'] ?? '') . ' ' . ($auth_user['last_name'] ?? '')))) ?></div>
-            <div class="text-white-50 small text-truncate"><?= h($role_label) ?></div>
-        </div>
     </div>
   </div>
 
@@ -127,7 +121,7 @@ $nav_sections = [
         <li class="nav-item">
           <a class="nav-link<?= $isActive ? ' active' : '' ?>" href="<?= h((string) ($item['href'] ?? '#')) ?>">
             <i class="nav-icon bi bi-<?= h((string) ($item['icon'] ?? 'circle')) ?>"></i>
-            <?= h((string) ($item['label'] ?? '')) ?>
+            <span class="nav-label"><?= h((string) ($item['label'] ?? '')) ?></span>
             <?php if ($badge > 0): ?>
               <span class="badge badge-sm bg-danger ms-auto"><?= $badge > 99 ? '99+' : $badge ?></span>
             <?php endif; ?>
@@ -139,12 +133,16 @@ $nav_sections = [
     <li class="nav-title">Session</li>
     <li class="nav-item">
       <a class="nav-link text-warning" href="../logout.php">
-        <i class="nav-icon bi bi-box-arrow-right"></i> Déconnexion
+        <i class="nav-icon bi bi-box-arrow-right"></i>
+        <span class="nav-label">Deconnexion</span>
       </a>
     </li>
   </ul>
+
   <div class="sidebar-footer border-top d-none d-md-flex">
-    <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+    <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"
+            aria-label="Reduire / agrandir la barre laterale"></button>
   </div>
 </div>
-<div class="wrapper d-flex flex-column min-vh-100">
+
+<div class="wrapper d-flex flex-column min-vh-100 bg-body">

@@ -98,134 +98,40 @@ $bodyClasses = trim('bg-body ' . $adminRouteClass . ($harvardThemeEnabled ? ' th
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006B3C">
+    <meta name="color-scheme" content="light dark">
     <title><?= h($page_title ?? 'Admin EMSP') ?></title>
-    
+
+    <!-- Color modes CoreUI : evite le flash de theme au chargement -->
+    <script>
+    (function () {
+        try {
+            var stored = localStorage.getItem('coreui-free-theme');
+            var theme = stored || 'auto';
+            if (theme === 'auto') {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.dataset.coreuiTheme = theme;
+        } catch (e) {}
+    })();
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
-    
+
     <!-- CoreUI 5 -->
     <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.2/dist/css/coreui.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+
     <!-- Third Party Assets -->
     <link rel="stylesheet" href="<?= $asset ?>vendor/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="<?= $asset ?>vendor/select2/select2.min.css">
-    
-    <!-- EMSP Premium Modernization Layer -->
-    <style>
-    :root {
-        --emsp-primary: #006B3C;
-        --emsp-primary-rgb: 0, 107, 60;
-        --emsp-accent: #F5A800;
-        --emsp-accent-rgb: 245, 168, 0;
-        --cui-sidebar-bg: #002D19;
-        --cui-sidebar-color: rgba(255, 255, 255, 0.8);
-        --cui-sidebar-nav-link-color: rgba(255, 255, 255, 0.7);
-        --cui-sidebar-nav-link-active-bg: rgba(255, 255, 255, 0.1);
-        --cui-sidebar-nav-link-hover-bg: rgba(255, 255, 255, 0.05);
-    }
 
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: #f8fafc;
-        color: #1e293b;
-    }
+    <!-- EMSP CoreUI Pro Layer (sidebar + header + cards harmonises) -->
+    <link rel="stylesheet" href="<?= $admin_asset ?>css/admin-coreui-pro.css">
 
-    h1, h2, h3, h4, .sidebar-brand {
-        font-family: 'Outfit', sans-serif;
-    }
-
-    /* Sidebar EMSP Styling */
-    .sidebar {
-        border-right: 1px solid rgba(0,0,0,0.05);
-        box-shadow: 10px 0 30px rgba(0,0,0,0.03);
-    }
-
-    .sidebar-brand {
-        background-color: var(--emsp-primary);
-        color: #fff;
-        padding: 1.5rem 1rem;
-        font-weight: 800;
-        letter-spacing: -0.5px;
-    }
-
-    .sidebar-nav .nav-link {
-        font-weight: 500;
-        padding: 0.75rem 1.25rem;
-        border-radius: 0.5rem;
-        margin: 0.125rem 0.75rem;
-        transition: all 0.2s ease;
-    }
-
-    .sidebar-nav .nav-link.active {
-        color: #fff;
-        background-color: rgba(245, 168, 0, 0.15) !important;
-        border-left: 4px solid var(--emsp-accent);
-    }
-
-    .sidebar-nav .nav-icon {
-        color: var(--emsp-accent);
-        font-size: 1.1rem;
-    }
-
-    /* Top Header Glassmorphism */
-    .header {
-        background: rgba(255, 255, 255, 0.8) !important;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(0,0,0,0.05) !important;
-        padding: 0.75rem 1.5rem;
-    }
-
-    /* Cards Modernization */
-    .card {
-        border: none;
-        border-radius: 1rem;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.03);
-        transition: transform 0.2s ease;
-    }
-
-    .card:hover {
-        transform: translateY(-2px);
-    }
-
-    .card-header {
-        background: transparent;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-        padding: 1.25rem;
-        font-weight: 700;
-        color: #0f172a;
-    }
-
-    /* Buttons */
-    .btn-primary { background-color: var(--emsp-primary); border-color: var(--emsp-primary); color: #fff; }
-    .btn-primary:hover { background-color: #005630; border-color: #005630; }
-    .btn-warning { background-color: var(--emsp-accent); border-color: var(--emsp-accent); color: #fff; }
-
-    /* Custom Admin components */
-    .admin-user-info {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 1rem 1.25rem;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .admin-avatar-circle {
-        width: 38px; height: 38px; border-radius: 50%;
-        background: linear-gradient(135deg, var(--emsp-primary), var(--emsp-accent));
-        color: #fff; display: flex; align-items: center; justify-content: center;
-        font-weight: 800; font-size: 0.8rem;
-    }
-
-    #emsp-progress-bar {
-        position: fixed; top: 0; left: 0; width: 0%; height: 3px;
-        background: linear-gradient(90deg, var(--emsp-primary), var(--emsp-accent));
-        z-index: 9999; transition: width .2s ease; pointer-events: none;
-    }
-    </style>
 </head>
 <body class="c-app">
 <div id="emsp-progress-bar"></div>
